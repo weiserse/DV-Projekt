@@ -102,9 +102,11 @@ Die einzelnen Projektteile werden wie folgt gewichtet:
 
 ## Projektideen
 * Applikation: ToDo-Liste
-* Simulation: 2D-Robotern/Roboterarmen
-* Simulation: Labyrinth/Routenfindung
-* Visualisierung: aufbereitete Sensor-Rohdaten (z.B. Gyroskop-Daten, EKG) mit gleitendem Mittelwert, Mustererkennung (Gesten, Herzschlag)
+* Simulation: 2D-Roboter/Roboterarme: Bahnen im Arbeitsraum, Achsenbewegung 
+* Simulation: Labyrinth erzeugen, Routenfindung
+* Simulation: Autorennen (1 Fahrzeug, gestaltbare Rennbahn)
+* Simulation: Feder-Masse-Schwinger (homogen, nicht homogen) 
+* Visualisierung: Sensor-Rohdaten (z.B. Gyroskop-Daten, EKG) aufbereiten: gleitender Mittelwert, Mustererkennung (Gesten, Herzschlag)
 * Visualisierung: Mathematische Funktionen
 * Spiel: Schere, Stein, Papier
 * Spiel: Black Jack
