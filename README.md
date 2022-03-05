@@ -106,7 +106,8 @@ Die einzelnen Projektteile werden wie folgt gewichtet:
 * Simulation: Labyrinth erzeugen, Routenfindung
 * Simulation: Autorennen (1 Fahrzeug, gestaltbare Rennbahn)
 * Simulation: Feder-Masse-Schwinger (homogen, nicht homogen) 
-* Visualisierung: Sensor-Rohdaten (z.B. Gyroskop-Daten, EKG) aufbereiten: gleitender Mittelwert, Mustererkennung (Gesten, Herzschlag)
+* Netzplan für U-und S-Bahn
+* Visualisierung: Sensor-Rohdaten (z.B. Gyroskop-Daten, EKG) über serielle Schnittstelle übertragen und grafisch aufbereiten
 * Visualisierung: Mathematische Funktionen
 * Spiel: Schere, Stein, Papier
 * Spiel: Black Jack
