@@ -108,6 +108,7 @@ Die einzelnen Projektteile werden wie folgt gewichtet:
 * Simulation: Feder-Masse-Schwinger (homogen, nicht homogen) 
 * Netzplan für U-und S-Bahn
 * Chatprogramm 
+* Serielle Schnittstelle über Internet "verlängern"
 * Visualisierung: Sensor-Rohdaten (z.B. Gyroskop-Daten, EKG) über serielle Schnittstelle übertragen und grafisch aufbereiten
 * Visualisierung: Mathematische Funktionen
 * Spiel: Schere, Stein, Papier
