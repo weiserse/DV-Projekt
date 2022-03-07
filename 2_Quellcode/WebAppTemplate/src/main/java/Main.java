@@ -27,9 +27,9 @@ public class Main
         
         app.get("/getdata", ctx -> 
         {
-        	ctx.json(Map.of(
-				"value", "some data", 
-				"timestamp", new Date()
+        	ctx.json(Map.ofEntries(
+				Map.entry("value", "some data"), 
+				Map.entry("timestamp", new Date())
         	));	
         });
         
