@@ -102,13 +102,13 @@ Die einzelnen Projektteile werden wie folgt gewichtet:
 
 ## Projektideen
 * Applikation: ToDo-Liste
+* Applikation: Netzplan für U-und S-Bahn
 * Simulation: 2D-Roboter/Roboterarme: Bahnen im Arbeitsraum, Achsenbewegung 
 * Simulation: Labyrinth erzeugen, Routenfindung
 * Simulation: Autorennen (1 Fahrzeug, gestaltbare Rennbahn)
 * Simulation: Feder-Masse-Schwinger (homogen, nicht homogen) 
-* Netzplan für U-und S-Bahn
-* Chatprogramm 
-* Serielle Schnittstelle über Internet "verlängern"
+* Networking: Chatprogramm 
+* Networking: Serielle Schnittstelle über Internet "verlängern"
 * Visualisierung: Sensor-Rohdaten (z.B. Gyroskop-Daten, EKG) über serielle Schnittstelle übertragen und grafisch aufbereiten
 * Visualisierung: Mathematische Funktionen
 * Spiel: Schere, Stein, Papier
