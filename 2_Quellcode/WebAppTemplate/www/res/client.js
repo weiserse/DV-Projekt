@@ -7,12 +7,19 @@ async function main()
 	let data = await (await fetch("/getdata")).json()
 	console.log(data)
 
-	//--- posting data to the server ---//
-	let response = await fetch("/postdata", {
-		method: 'POST',
-		headers: { 'Content-Type': 'application/json' },
-		body: JSON.stringify(data) // body data type must match "Content-Type" header
-	});
-	console.log("HTTP status code:", response.status)
+	//--- handling button click ---//
+	let btn = document.getElementById("btnSend")
+	btn.onclick = async ev =>
+	{
+		//--- posting data to the server ---//
+		let response = await fetch("/postdata", {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({"value": "OK"}) // body data type must match "Content-Type" header
+		});
+		console.log("HTTP status code:", response.status)
+		if (response.status==200) alert("Server successfully acknowledged")
+		else alert("There was an error connecting to the server")
+	}
 }
 main()
