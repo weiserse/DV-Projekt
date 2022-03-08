@@ -67,6 +67,12 @@ Ihre Anwendung sollte eine grafische Oberfläche haben. In Java kann dazu beispi
 
 Im Ordner [2_Quellcode](2_Quellcode) finden Sie bereits eine Projektvorlage mit GUI, an welcher Sie sich orientieren können. Zusätzlich finden Sie im Ordner [Beispielprojekte](Beispielprojekte) weitere Beispiele.
 
+Alternativ können Sie auch eine Web-Anwendung erstellen, deren Oberfläche in HTML, CSS und JavaScript implementiert ist und welche über den Browser mit einem eigenen Server kommuniziert:
+* [Intro to web development](https://www.youtube.com/playlist?list=PLZlA0Gpn_vH-cEDOofOujFIknfZZpIk3a)
+* [Server requests](https://www.youtube.com/watch?v=cuEtnrL9-H0) with [JSON](https://www.youtube.com/watch?v=iiADhChRriM)
+
+Eine Vorlage für eine solche Web App inkl. beispielhafter Serveranfragen finden Sie ebenfalls im Ordner [2_Quellcode](2_Quellcode).
+
 ## Zeitlicher Ablauf
 
 1. Erarbeitung einer Projektskizze mit Anforderungen (ca. Woche 1-4)
