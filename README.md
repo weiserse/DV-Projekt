@@ -10,7 +10,7 @@ Jeder Studierende erstellt zunächst einen eigenen Account hier auf GitHub mit s
 
 ### Teams
 
-Bitte schreiben Sie sich dann im zugehörigen [FELIX-Kurs](https://felix.hs-furtwangen.de/url/RepositoryEntry/4067262512)  in ein Team ein. Jedes Studierenden-Team wählt einen Teamleiter, der dieses Repository hier "forkt" und seine Teammitglieder als Collaborators einträgt. Jeder Teamleiter sendet den Link zum Team Repository per E-Mail mit dem Betreff "DV-Projekt: Team Repository" an seinen Betreuer/Dozenten. 
+Bitte schreiben Sie sich dann im zugehörigen [FELIX-Kurs](https://felix.hs-furtwangen.de/url/RepositoryEntry/4067262512)  in ein Team ein. Jedes Studierenden-Team wählt einen Teamleiter, der dieses Repository hier "forkt" und seine Teammitglieder sowie seinen Betreuer als Collaborators einträgt. Jeder Teamleiter sendet den Link zum Team Repository per E-Mail mit dem Betreff "DV-Projekt: Team Repository" an seinen Betreuer/Dozenten.
 
 **Die Teams legen alle Ihre Abgaben, Dokumente sowie den Quellcode in diesem Repository ab.**
 
