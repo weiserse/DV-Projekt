@@ -64,6 +64,7 @@ Ihre Anwendung sollte eine grafische Oberfläche haben. In Java kann dazu beispi
 * [Swing Login Form](https://youtu.be/iE8tZ0hn2Ws)
 * [Swing Layouts](https://youtu.be/TxCHvvr2bMQ)
 * [Drawing Graphics in Swing](https://youtu.be/KcEvHq8Pqs0)
+
 Weitere Informationen finden Sie im Dokument GUI_Threads.pdf
 
 Im Ordner [2_Quellcode](2_Quellcode) finden Sie bereits eine Projektvorlage mit GUI, an welcher Sie sich orientieren können. Zusätzlich finden Sie im Ordner [Beispielprojekte](Beispielprojekte) weitere Beispiele.
