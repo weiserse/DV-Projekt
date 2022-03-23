@@ -23,9 +23,9 @@ Bitte stellen Sie sicher, dass alle Teammitglieder dieselbe Version der Software
 
 ### Einrichtung
 
-Alle Teammitglieder "clonen" das Team Repository auf Ihren Rechner (siehe Abschnitt "Wichtige Grundlagen > Teamwork" weiter unten)
+Alle Teammitglieder "clonen" das Team Repository auf Ihren Rechner (siehe Abschnitt "Wichtige Grundlagen > Teamwork" weiter unten). Änderungen, die Sie anschließend auf Ihrem Rechner machen, müssen mit Hilfe von Github-Desktop wieder in das Repository "gepusht" werden, damit diese den anderen Teammitglieder zur Verfügung stehen. Der Teamleiter trägt dann als erste Änderung in Ihrem Repository die Namen aller Teammitglieder in die Datei [TeamMembers.txt](TeamMembers.txt) ein.
 
-Als Programmier-Workspace soll der Ordner [2_Quellcode](2_Quellcode) ausgewählt werden. Dort existiert bereits eine Applikations-Vorlage, welche Sie als Ausgangspunkt verwenden können. Alternativ können Sie ein neues Java-Projekt anlegen. Falls ein Java-Projekt bei Teammitgliedern nicht automatisch in Eclipse angezeigt wird, so können Sie dieses manuell importieren: [Video Projektimport](https://youtu.be/R3k8S28pr1c)
+Für Ihr Programm soll als Programmier-Workspace der Ordner [2_Quellcode](2_Quellcode) ausgewählt werden. Dort existiert bereits eine Applikations-Vorlage, welche Sie als Ausgangspunkt verwenden können. Alternativ können Sie ein neues Java-Projekt anlegen. Falls ein Java-Projekt bei Teammitgliedern nicht automatisch in Eclipse angezeigt wird, so können Sie dieses manuell importieren: [Video Projektimport](https://youtu.be/R3k8S28pr1c)
 
 ## Wichtige Grundlagen
 
