@@ -56,5 +56,6 @@ public class Runner
         //--- set window position and size and show window ---//
         mainWindow.setBounds(50, 50, 550, 500);;
         mainWindow.setVisible(true);
+        // Test comment
 	}
 }
