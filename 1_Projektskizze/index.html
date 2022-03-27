@@ -25,16 +25,25 @@
 		<p>TODO: Stellen Sie die aus Ihrer Sicht wichtigsten funktionalen Anforderungen (maximal 10) zusammen:</p>
 		<ul>
 			<li>Was soll Ihre Anwendung leisten?</li>
+			- Grundanforderung: Setzphase: Beide Spieler können abwechselnd ihre neun Steine unter Einhaltung der Mühlespielregeln auf dem Spielfeld verteilen
+			- Spielphase: Die Spieler können abwechselnd einen ihrer Steine ein Feld weiterschieben, bzw. in der Endphase kann zu einem beliebigen Feld gesprungen werden
 			<li>Welche Dienste werden angeboten?</li>
+			- Zu Beginn werden die Namen der Spieler gespeichert, sodass während dem Spiel angezeigt werden kann, welcher Spieler an der Reihe ist
 			<li>Welche Eingangsdaten sind erforderlich? Zu welchen Ausgaben werden diese verarbeitet?</li>
+			- Nach jedem Spielzug wird analysiert wie der weitere Spielverlauf ist
 			<li>Wie soll sich das System in bestimmten Situationen verhalten?</li>
+			- sobald in einer Reihe drei Steine der gleichen Farbe sind, kann ein Stein der anderen Farbe entfernt werden. Dieser darf nicht aus einer bestehenden Mühle entfernt werden können
 			<li>Welche Daten sind dauerhaft zu speichern?</li>
+			- um eine Gewinnstatistik aufstellen zu können werden die Namen der Spieler und das Endergebnis gespeichert
 		</ul>
 		<p>TODO: Darüber hinaus sollen nicht-funktionale Anforderungen spezifiziert werden:</p>
 		<ul>
 			<li>Wie soll die Bedieneroberfläche aussehen?</li>
+			- Das Mühlespielfeld soll dauerhaft auf dem Bildschirm sichtbar sein. Die Farben der Spielsteine sind den jeweiligen Spielern zugeordnet, sodass anzezeigt werden kann, welcher Spieler gerade an der Reihe ist
 			<li>In welcher Systemumgebung soll Ihr Programm lauffähig sein?</li>
 			<li>Mit welchen Entwicklungswerkzeugen wird gearbeitet?</li>
+			- Das Programm soll in Java lauffähig sein. Während der Entwicklungsphase wird mit Java, Eclipse und GitHub gearbeitet
+			
 		</ul>
 		<h2>3. Architektur</h2>
 		<p>TODO: Beschreibung der Software-Architektur inkl. Klassendiagramm z. B.:</p>
