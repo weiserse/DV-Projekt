@@ -47,15 +47,15 @@
 		</ul>
 		<h2>3. Architektur</h2>
 		<p>Beschreibung der Software-Architektur</p>
-		<p>Die Klasse Spielbrett steht in einer Verbindung zur Klasse Spieler,</p>
-		<p>welche mit den Methoden setzeStein() und nehmeStein() auf das Attribut Positionsarray zugreift.</p>
-		<p>Auch die Klasse Stein greift mit der Methode move() auf dieses Attribut zu.</p>
-		<p>Desweiteren steht die Klasse Stein in einer Komposition mit "Spieler". Da "Spieler" mit der Methode setzeStein()</p>
-		<p>die Klasse "Stein" erst initialisiert kann "Stein" ohne "Spieler" nicht existieren.</p>
-		<p>Jeder Spieler im normalen Spielverlauf 2 bis 9 Steine haben, aber in der Setzphase startet man mit 0 Steinen.</p>
-		<p>Hingegen kann jeder Stein nur einem Spieler zugehörig sein. Für "Spielbrett" gilt, dass es 2 Spieler haben muss,</p>
-		<p>und jeder Spieler nur ein Spielfeld haben kann.</p>
-		<p>Das Klassendiagramm kann mit Hilfe von Pseudo Code (siehe HTML Quelltext) erstellt werden <a href="https://mermaid-js.github.io/mermaid/#/classDiagram">(Hilfe)</a>.
+		<p>	Die Klasse Spielbrett steht in einer Verbindung zur Klasse Spieler,
+			welche mit den Methoden setzeStein() und nehmeStein() auf das Attribut Positionsarray zugreift.
+			Auch die Klasse Stein greift mit der Methode move() auf dieses Attribut zu.
+			Desweiteren steht die Klasse Stein in einer Komposition mit "Spieler". Da "Spieler" mit der Methode setzeStein()
+			die Klasse "Stein" erst initialisiert kann "Stein" ohne "Spieler" nicht existieren.
+			Jeder Spieler im normalen Spielverlauf 2 bis 9 Steine haben, aber in der Setzphase startet man mit 0 Steinen.
+			Hingegen kann jeder Stein nur einem Spieler zugehörig sein. Für "Spielbrett" gilt, dass es 2 Spieler haben muss,
+			und jeder Spieler nur ein Spielfeld haben kann.</p>
+			Das Klassendiagramm kann mit Hilfe von Pseudo Code (siehe HTML Quelltext) erstellt werden <a href="https://mermaid-js.github.io/mermaid/#/classDiagram">(Hilfe)</a>.
 
 		<div class="diagram">
 			classDiagram
