@@ -52,25 +52,25 @@
 		<div class="diagram">
 			classDiagram
 			class Spielbrett {
-				-Positionsarray: int []
+				-int [] Positionsarray
 				-initialisieren()
 				-neuesSpiel()
 				+checkMuehle()
 			}
 			class Spieler {
-				-1oder2: int
-				-name: string
-				-amZug: bool
-				-numZuSetzen: int
-				-numVerbleibend: int
+				-int 1oder2
+				-string name
+				-bool amZug
+				-int numZuSetzen
+				-int numVerbleibend
 				setzeStein()
 				nehmeStein()
 			}
 			class Stein {
-				-farbe: string
-				-inMuehle: bool
-				-neueMuehle: bool
-				-position: int
+				-string farbe
+				-bool inMuehle
+				-bool neueMuehle
+				-int position
 				-move()
 			}
 			Spielbrett "2" -- "1" Spieler
