@@ -51,28 +51,31 @@
 
 		<div class="diagram">
 			classDiagram
-			class Animal {
-				int age
-				String gender
-				isMammal()
-				mate()
+			class Spielbrett {
+				-Positionsarray: int []
+				-initialisieren()
+				-neuesSpiel()
+				+checkMuehle()
 			}
-			class Duck {
-				String beakColor
-				swim()
-				quack()
+			class Spieler {
+				-1oder2: int
+				-name: string
+				-amZug: bool
+				-numZuSetzen: int
+				-numVerbleibend: int
+				setzeStein()
+				nehmeStein()
 			}
-			class Fish {
-				int sizeInFeet
-				canEat()
-			}
-			class Zebra {
-				bool is_wild
-				run()
-			}
-			Animal <|-- Duck
-			Animal <|-- Fish
-			Animal <|-- Zebra
+			class Stein {
+				-farbe: string
+				-inMuehle: bool
+				-neueMuehle: bool
+				-position: int
+				-move()
+			
+			Spielbrett "2" -- "1" Spieler
+			Spieler "1" *-- "0..9" Steine
+		
 		</div>
 		<h2>4. Aufwandsschätzung und Aufteilung</h2>
 		<p>TODO: Schätzen Sie den Aufwand der verschiedenen Teile Ihres Programms ab und legen Sie fest, wie die Aufteilung auf die Gruppenmitglieder aussehen soll.</p>
