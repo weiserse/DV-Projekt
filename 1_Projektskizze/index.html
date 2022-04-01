@@ -23,30 +23,35 @@
 		<p>Programmierung eines Mühlespiels, welches von zwei Spielern an einem einzigen Computer gespielt werden kann.
 		   Die vollständige Anleitung des Mühlespiels wird im Handbuch beschrieben.</p>
 		<h2>2. Features und Anforderungen</h2>
-		<p>TODO: Stellen Sie die aus Ihrer Sicht wichtigsten funktionalen Anforderungen (maximal 10) zusammen:</p>
+		
+		<p>Das Spiel Mühle soll in den folgenden Wochen mit Java, Eclipse und GitHub entwickelt werden. Nach seiner Fertigstellung soll es von zwei Spielern an einem Computer in Java gespielt werden können. 
+			Das Spiel kann hierbei in drei unterschiedliche Spielphasen eingeteilt werden:</p>
 		<ul>
-			<li>Was soll Ihre Anwendung leisten?</li>
-			- Grundanforderung: Setzphase: Beide Spieler können abwechselnd ihre neun Steine unter Einhaltung der Mühlespielregeln auf dem Spielfeld verteilen
-			- Spielphase: Die Spieler können abwechselnd einen ihrer Steine ein Feld weiterschieben, bzw. in der Endphase kann zu einem beliebigen Feld gesprungen werden. Schlussendlich soll das gesamte Mühle Spiel gespielt werden können. 
-			<li>Welche Dienste werden angeboten?</li>
-			- Zu Beginn werden die Namen der Spieler gespeichert, sodass während dem Spiel angezeigt werden kann, welcher Spieler an der Reihe ist
-			<li>Welche Eingangsdaten sind erforderlich? Zu welchen Ausgaben werden diese verarbeitet?</li>
-			- Nach jedem Spielzug wird analysiert wie der weitere Spielverlauf ist
-			<li>Wie soll sich das System in bestimmten Situationen verhalten?</li>
-			- sobald in einer Reihe drei Steine der gleichen Farbe sind, kann ein Stein der anderen Farbe entfernt werden. Dieser darf nicht aus einer bestehenden Mühle entfernt werden können
-			- schon besetzte Felder können nicht doppelt besetzt werden
-			<li>Welche Daten sind dauerhaft zu speichern?</li>
-			- um eine Gewinnstatistik aufstellen zu können werden die Namen der Spieler und das Endergebnis gespeichert
+			<li>Setzphase</li>
+			<li>Zugphase</li>
+			<li>Springphase</li>
 		</ul>
-		<p>TODO: Darüber hinaus sollen nicht-funktionale Anforderungen spezifiziert werden:</p>
+		<p>Aufgrund des Umfangs und der Komplexität wird als Grundanforderung die reibungslose Funktion bis Ende der Setzphase angestrebt. Ziel der Entwicklung bleibt es jedoch ein komplett funktionsfähiges Mühlespiel zu programmieren.</p>
+
+		<p>Beim Starten des Spiels sollen die Spieler zuerst in einem „Willkommen“-Fenster begrüßt werden. Die Spieler können in diesem Fenster ihre Namen eintragen und ihre Spielfarbe zuordnen. Ein Spieler bekommt die schwarzen Steine, der andere Spieler die weißen Steine. Die Zuordnung ermöglicht es, während dem Spielverlauf aktuelle Spielstände anzugeben. Schließlich kann das Spiel durch Klicken eines „Start“ Buttons gestartet werden.</p>
+
+		<p>Nun öffnet sich ein Fenster in der Mitte des Bildschirms. Auf diesem sitzen sich die beiden Spieler „gegenüber“. Im Fenster wird mittig das Mühlebrettspielfeld als Bild angezeigt. Links werden Angaben zum Spieler 1 gemacht, rechts zum Spieler 2. Die Angaben beinhalten die Information über 
 		<ul>
-			<li>Wie soll die Bedieneroberfläche aussehen?</li>
-			- Das Mühlespielfeld soll dauerhaft auf dem Bildschirm sichtbar sein. Die Farben der Spielsteine sind den jeweiligen Spielern zugeordnet, sodass anzezeigt werden kann, welcher Spieler gerade an der Reihe ist
-			<li>In welcher Systemumgebung soll Ihr Programm lauffähig sein?</li>
-			<li>Mit welchen Entwicklungswerkzeugen wird gearbeitet?</li>
-			- Das Programm soll in Java lauffähig sein. Während der Entwicklungsphase wird mit Java, Eclipse und GitHub gearbeitet
-			
+			<li>die Anzahl der Steine, die noch gesetzt werden können</li>
+			<li>die Anzahl der Steine, die man insgesamt noch besitzt</li>
+			<li>die Anzahl der Steine, die man dem anderen Spieler abgenommen hat</li>
 		</ul>
+		Über dem Spielfeld wird angezeigt, welcher Spieler sich gerade an der Reihe befindet. Unter dem Spielfeld befindet sich ein Informationsfeld mit Anweisungen oder Warnungen.</p>
+		<p>In der Setzphase platzieren die Spieler abwechselnd ihre Steine auf dem Mühlespielfeld. Jedem Feld ist ein definierter Bereich zugeordnet. Die Felder werden in einem Array gespeichert und können den Zustand „frei“, „weiß“ oder „schwarz“ annehmen.
+		Durch Anklicken eines Feldes wird der Stein auf das Feld gesetzt. Die Steine werden hierbei mit schwarzen bzw. weißen Kreisen angezeigt. Setzt ein Spieler einen Stein, kann dieser Spielzug nicht mehr rückgängig gemacht werden und automatisch ist der andere Spieler an der Reihe. Beim Anklicken eines besetzten Feldes wird im Spielinformationsfeld eine Warnung ausgegeben, dass dieser Spielzug nicht erlaubt ist. Eine doppelte Besetzung eines Feldes ist nicht möglich. Sobald drei Steine einer Farbe in einer Reihe sind, wird angezeigt, dass nun ein Spielstein der anderen Farbe durch Anklicken vom Feld genommen werden kann. Dieser darf sich nicht in einer bestehenden Mühle befinden. Auch in diesem Fall wird ein entsprechender Hinweis im Infofeld angezeigt. </p>	
+		<p>Sobald alle Steine gesetzt sind, kommt man in die zweite Phase des Spiels, der Zugphase. Zuerst klickt der Spieler auf den Stein, den er verschieben möchte und anschließend auf das Zielfeld. Sollte dieses besetzt sein oder sich nicht in direktem Anschluss zum ausgewählten Stein befinden, wird im Infofeld wieder eine entsprechende Warnung ausgegeben. Bei einer Mühle darf wieder ein Stein der anderen Farbe vom Spielfeld genommen werden.</p>
+		<p>Zur letzten Phase des Spiels, der Springphase, gelangen die Spieler, sobald einer von ihnen nur noch drei Spielsteine auf dem Feld hat. Auch der Beginn dieser neuen Phase wird im Infofeld angezeigt.  Spieler mit nur noch drei Steinen können nun zu einem beliebigen Feld springen. Die Einschränkung nur unmittelbar anliegende Felder anspielen zu können wird damit aufgehoben.</p>
+		<p>Sobald einem Spieler nur noch 2 Steine zur Verfügung stehen, öffnet sich ein neues „Sieger“- Fenster. In diesem wird der Gewinner mit seinem Namen angezeigt und beglückwünscht. 
+		Ein zusätzliches Feature ist das Öffnen einer Gewinnstatistik. In dieser werden die Namen aller Spieler und die Anzahl ihrer gewonnenen Spiele aufgelistet. Voraussetzung hierfür ist die dauerhafte Speicherung der Namen mit den entsprechenden Spielausgängen. 
+		Ein Spiel kann jederzeit durch das Anklicken durch das „Schließen“-Fenster beendet werden. Der Zwischenstand des Spiels wird hierbei nicht gespeichert. Generell können Spielzüge nicht rückgängig gemacht werden. 
+		</p>
+		
+	
 		<h2>3. Architektur</h2>
 		<p>Beschreibung der Software-Architektur</p>
 		<p>	Die Klasse Spielbrett steht in einer Verbindung zur Klasse Spieler,
