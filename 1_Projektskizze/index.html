@@ -89,9 +89,40 @@
 				-int position
 				-move()
 			}
+			class Frames {
+				-int [] size
+				-bool visibility
+			}
+			class WelcomeScreen {
+				-JLabel LabelTop
+				-JtextField Textfeld1
+				-JtextField Textfeld2
+				-JButton StartButton
+			}
+			class GameScreen {
+				-JButton MenuButton
+				-JButton NewGameButton
+				-JButton ExitButton
+				-JLabel LableTurn
+				-JLabel LabelPl1
+				-JLabel LabelPl2
+				-JPanel PanelBoard
+			}
+			class EndOfGameScreen {
+				-JLabel LabelMatch
+				-JLabel LabelWinner
+				-JPanel PanelFoto
+				-JButton ButtonNext
+			}
+				
+			
 			Spielbrett "2" <-- "1" Spieler
 			Spieler "1" *-- "0..9" Stein
 			Stein --> Spielbrett
+			Frames <|-- WelcomeScreen
+			Frames <|-- GameScreen
+			Frames <|-- EndOfGameScreen
+			GameScreen --> Spielbrett
 		
 		</div>
 		<h2>4. Aufwandsschätzung und Aufteilung</h2>
