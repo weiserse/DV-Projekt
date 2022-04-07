@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class WelcomeScreen implements ActionListener {
+public class WelcomeScreen implements ActionListener{
 	
 	private JFrame frame;
 	private JLabel headlabel;
@@ -19,7 +19,6 @@ public class WelcomeScreen implements ActionListener {
 	private JButton start;
 	private JTextField text1;
 	private JTextField text2;
-	
 	public WelcomeScreen() {
 		
 	//Initialisierungen
@@ -48,7 +47,7 @@ public class WelcomeScreen implements ActionListener {
 	panel.add(text1);
 	panel.add(text2);
 	panel.add(start);
-	panel.setBackground(Color.green);
+	panel.setBackground(Color.CYAN);
 	panel.add(labelP1);
 	panel.add(labelP2);
 	
