@@ -16,7 +16,7 @@ public class Draw extends JLabel{
 		
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		
-		g.drawImage(il.image, 112,200, 350, 200, null);
+		g.drawImage(il.image, 112,150, 350, 200, null);
 		//g.drawImage(il2.image, 0, 0, 600, 600, null);
 		
 		repaint();
