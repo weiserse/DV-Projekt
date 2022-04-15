@@ -36,8 +36,8 @@ public class WelcomeScreen implements ActionListener{
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	frame.setTitle("BMG-Best Mill Game");
 	frame.pack();
-	frame.setLocation(600,200);
-	frame.setSize(500, 300);
+	frame.setSize(600, 400);
+	frame.setLocationRelativeTo(null);
 	frame.setVisible(true);
 	
 	//PanelSettings	
@@ -47,7 +47,7 @@ public class WelcomeScreen implements ActionListener{
 	panel.add(text1);
 	panel.add(text2);
 	panel.add(start);
-	panel.setBackground(Color.CYAN);
+	panel.setBackground(new Color(60, 179, 113));
 	panel.add(labelP1);
 	panel.add(labelP2);
 	
@@ -66,12 +66,13 @@ public class WelcomeScreen implements ActionListener{
 	//ButtonSettings
 	start.setBounds(300, 200, 80, 25);
 	start.addActionListener(this);
+	
 
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// new Spielfeld()
-		
+		frame.dispose();
+		GameScreen gamescreen = new GameScreen();
 	}
 }
