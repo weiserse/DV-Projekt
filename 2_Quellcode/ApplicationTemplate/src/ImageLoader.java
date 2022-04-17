@@ -6,15 +6,16 @@ import javax.imageio.ImageIO;
 
 public class ImageLoader {
 	
-	BufferedImage image;
-	//BufferedImage image2;
+	BufferedImage imagegras;
+	BufferedImage imagefeuer;
 
 	public ImageLoader() {
 		
 		try {
 		
-		image = ImageIO.read(new File("resources/Gewinnerfeuerwerk.png"));
-		//image2 = ImageIO.read(new File("resources/gras.jpg"));
+		imagegras = ImageIO.read(new File("resources/gras.jpg"));	
+		imagefeuer = ImageIO.read(new File("resources/Gewinnerfeuerwerk.png"));
+		
 		
 	} 
 	
