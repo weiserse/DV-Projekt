@@ -21,30 +21,35 @@ public class Gewinner{
 		JLabel label = new JLabel("Du hast gewonnen!"); //neues Label erstellen
 		label.setBounds(300,80, 280, 45); // Größe festlegen
 		label.setFont(label.getFont().deriveFont(28f)); //Schriftgröße festlegen
+		label.setForeground(Color.WHITE);
 		label.setVisible(true);
 		frame.add(label); //Label dem Fenster hinzufügen 
 		
 		JLabel label2 = new JLabel("vs"); //neues Label erstellen
 		label2.setBounds(250,30, 50, 45); // Größe festlegen
 		label2.setFont(label2.getFont().deriveFont(25f)); //Schriftgröße festlegen
+		label.setForeground(Color.WHITE);
 		label2.setVisible(true);
 		frame.add(label2); //Label dem Fenster hinzufügen 
 		
 		JLabel label3 = new JLabel("Spieler 1"); //neues Label erstellen
 		label3.setBounds(100,30, 150, 45); // Größe festlegen
 		label3.setFont(label3.getFont().deriveFont(25f)); //Schriftgröße festlegen
+		label.setForeground(Color.WHITE);
 		label3.setVisible(true);
 		frame.add(label3); //Label dem Fenster hinzufügen 
 		
 		JLabel label4 = new JLabel("Spieler 2"); //neues Label erstellen
 		label4.setBounds(350,30, 150, 45); // Größe festlegen
 		label4.setFont(label4.getFont().deriveFont(25f)); //Schriftgröße festlegen
+		label.setForeground(Color.WHITE);
 		label4.setVisible(true);
 		frame.add(label4); //Label dem Fenster hinzufügen 
 		
 		JLabel label5 = new JLabel("Spieler"); //neues Label erstellen
 		label5.setBounds(100,80, 150, 45); // Größe festlegen
 		label5.setFont(label5.getFont().deriveFont(25f)); //Schriftgröße festlegen
+		label.setForeground(Color.WHITE);
 		label5.setVisible(true);
 		frame.add(label5); //Label dem Fenster hinzufügen 
 		
