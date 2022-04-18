@@ -54,12 +54,10 @@ public class Gewinner{
 		frame.add(button); //Button dem Panel hinzufügen
 	
 		Draw drawgras = new Draw();
-		drawgras.setBounds(0, 0, 600, 400);
 		drawgras.setVisible(true);
 		frame.add(drawgras);
 		
 		Draw drawfeuer = new Draw();
-		drawfeuer.setBounds(0, 0, 600, 400);
 		drawfeuer.setVisible(true);
 		frame.add(drawfeuer);
 		
