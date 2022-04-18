@@ -71,12 +71,18 @@ private JButton shortcut;
 		Pl2.setVisible(true);
 		Pl2.setOpaque(true);
 		
+		//Spielfeld anzeigen
+		spielfeld draw2 = new spielfeld();
+		draw2.setBounds(0,0,1024,680);
+		draw2.setVisible(true);
+		panel.add(draw2);
+		
 		//Hintergrund festlegen
 		Gras draw = new Gras();
 		draw.setBounds(0,0,1024,680);
 		draw.setVisible(true);
 		panel.add(draw);
-		
+				
 		frame.setVisible(true);
 		//panel.setVisible(true);		
 		
