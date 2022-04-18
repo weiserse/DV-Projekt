@@ -59,6 +59,5 @@ public class Runner
 //        // Test comment
         
         new WelcomeScreen();
-	new Gewinner();
 	}
 }
