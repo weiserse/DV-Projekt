@@ -27,12 +27,12 @@ private JButton shortcut;
 		frame.add(panel, BorderLayout.CENTER);
 		//frame.add(board);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.pack();
+		//frame.pack();
 		frame.setSize(1024, 680);
 		frame.setLocationRelativeTo(null);
 		frame.setTitle("Mühle");
 			
-		panel.setBackground(new Color(60, 179, 113));
+		//panel.setBackground(new Color(60, 179, 113));
 		panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
 		panel.setLayout(null);
 		//panel.setVisible(true);
@@ -70,6 +70,12 @@ private JButton shortcut;
 		Pl2.setBackground(Color.orange);
 		Pl2.setVisible(true);
 		Pl2.setOpaque(true);
+		
+		//Hintergrund festlegen
+		Gras draw = new Gras();
+		draw.setBounds(0,0,1024,680);
+		draw.setVisible(true);
+		panel.add(draw);
 		
 		frame.setVisible(true);
 		//panel.setVisible(true);		

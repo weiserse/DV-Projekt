@@ -15,7 +15,7 @@ public class Gras extends JLabel{
 		
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		
-		g.drawImage(ilgras.imagegras, 0,0, 600, 600, null);
+		g.drawImage(ilgras.imagegras, 0,0, 1024, 680, null);
 		
 		repaint();
 	
