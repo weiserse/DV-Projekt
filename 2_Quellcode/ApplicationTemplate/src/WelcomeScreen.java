@@ -35,10 +35,9 @@ public class WelcomeScreen implements ActionListener{
 	frame.add(panel, BorderLayout.CENTER);
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	frame.setTitle("BMG-Best Mill Game");
-	frame.pack();
+	//frame.pack();
 	frame.setSize(600, 400);
 	frame.setLocationRelativeTo(null);
-	frame.setVisible(true);
 	
 	//PanelSettings	
 	panel.add(headlabel, BorderLayout.NORTH);
@@ -47,7 +46,7 @@ public class WelcomeScreen implements ActionListener{
 	panel.add(text1);
 	panel.add(text2);
 	panel.add(start);
-	panel.setBackground(new Color(60, 179, 113));
+	//panel.setBackground(new Color(60, 179, 113));
 	panel.add(labelP1);
 	panel.add(labelP2);
 	
@@ -67,6 +66,14 @@ public class WelcomeScreen implements ActionListener{
 	start.setBounds(300, 200, 80, 25);
 	start.addActionListener(this);
 	
+	//Hintergrund festlegen
+	Gras draw = new Gras();
+	draw.setBounds(0,0,600,400);
+	draw.setVisible(true);
+	panel.add(draw);
+		
+	//ans Ende setzen
+	frame.setVisible(true);
 
 	}
 

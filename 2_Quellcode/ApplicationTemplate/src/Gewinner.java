@@ -58,13 +58,9 @@ public class Gewinner{
 		button.setVisible(true);
 		frame.add(button); //Button dem Panel hinzufügen
 	
-		Draw drawgras = new Draw();
-		drawgras.setVisible(true);
-		frame.add(drawgras);
-		
-		Draw drawfeuer = new Draw();
-		drawfeuer.setVisible(true);
-		frame.add(drawfeuer);
+		Draw draw = new Draw();
+		draw.setVisible(true);
+		frame.add(draw);
 		
 		panel = new JPanel();
 		
