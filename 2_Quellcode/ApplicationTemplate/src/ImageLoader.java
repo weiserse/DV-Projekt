@@ -3,7 +3,11 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
-
+/**
+ * Reads images from stored data and makes them accessible for further usage.
+ * @author Peukert
+ *
+ */
 public class ImageLoader {
 	
 	BufferedImage imagegras;

@@ -5,6 +5,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * Gewinner is the screen being displayed after the game has been finished and a winner has been established.
+ * A picture of a firework is shown saying "Du hast gewonnen!".
+ * A button is leading to the winning statistics screen.
+ * @author Peukert
+ *
+ */
 public class Gewinner{
 	
 	public Gewinner() {

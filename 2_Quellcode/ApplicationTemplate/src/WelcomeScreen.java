@@ -11,6 +11,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+/**
+ * WelcomeScreen is the first screen the user gets to see when opening the program.
+ * It offers options to enter the player names and start the game.
+ * 
+ * @author Weiser
+ *
+ */
 public class WelcomeScreen implements ActionListener{
 	
 	private JFrame frame;
@@ -19,6 +26,10 @@ public class WelcomeScreen implements ActionListener{
 	private JButton start;
 	private JTextField text1;
 	private JTextField text2;
+	
+	/**
+	 * Constructs and initializes the Welcome Screen with set attributes.
+	 */
 	public WelcomeScreen() {
 		
 	//Initialisierungen
@@ -35,7 +46,6 @@ public class WelcomeScreen implements ActionListener{
 	frame.add(panel, BorderLayout.CENTER);
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	frame.setTitle("BMG-Best Mill Game");
-	//frame.pack();
 	frame.setSize(600, 400);
 	frame.setLocationRelativeTo(null);
 	
@@ -46,7 +56,6 @@ public class WelcomeScreen implements ActionListener{
 	panel.add(text1);
 	panel.add(text2);
 	panel.add(start);
-	//panel.setBackground(new Color(60, 179, 113));
 	panel.add(labelP1);
 	panel.add(labelP2);
 	
