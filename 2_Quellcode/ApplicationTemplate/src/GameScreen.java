@@ -20,17 +20,26 @@ private JLabel Pl2;
 static JButton newGame;
 private JFrame frame;
 private JButton shortcut;
+<<<<<<< Updated upstream
 
 /**
  * Constructs and initializes the game screen with set parameters.
  */
 	public GameScreen () {
 		//Initialisierungen
+=======
+Spieler spieler1test;
+Spieler spieler2test;
+	public GameScreen(Spieler spieler1, Spieler spieler2) {
+		spieler1test = spieler1;
+		spieler2test = spieler2;
+		//board = new Spielbrett();
+>>>>>>> Stashed changes
 		frame = new JFrame();
 		panel = new JPanel();
 		info = new JLabel();
-		Pl1 = new JLabel();
-		Pl2 = new JLabel();
+		Pl1 = new JLabel(spieler1.getSpielerName());
+		Pl2 = new JLabel(spieler2.getSpielerName());
 		newGame = new JButton("EndScreen");
 		shortcut = new JButton();
 		
@@ -91,7 +100,9 @@ private JButton shortcut;
 		panel.add(draw);
 				
 		frame.setVisible(true);
-		//panel.setVisible(true);		
+		//panel.setVisible(true);
+		//Gewinner endscreen = new Gewinner(spieler1, spieler2);
+
 		
 	}
 
@@ -99,7 +110,8 @@ private JButton shortcut;
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		frame.dispose();
-		Gewinner endscreen = new Gewinner();
+		
+		Gewinner endscreen = new Gewinner(spieler1test, spieler2test);
 		
 	}
 }

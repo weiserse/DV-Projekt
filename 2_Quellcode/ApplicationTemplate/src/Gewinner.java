@@ -4,6 +4,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 /**
  * Gewinner is the screen being displayed after the game has been finished and a winner has been established.
@@ -14,8 +15,8 @@ import javax.swing.JPanel;
  */
 public class Gewinner{
 	
-	public Gewinner() {
-		
+	public Gewinner(Spieler spieler1, Spieler spieler2) {
+
 		JPanel panel = new JPanel(); //neuen Bereich erstellen
 		JFrame frame = new JFrame(); // neues Fenster erstellen
 		frame.setSize(600, 400); // Größe des Fensters festlegen
@@ -34,27 +35,14 @@ public class Gewinner{
 		label.setVisible(true);
 		frame.add(label); //Label dem Fenster hinzufügen 
 		
-		JLabel label2 = new JLabel("vs"); //neues Label erstellen
-		label2.setBounds(250,30, 50, 45); // Größe festlegen
+		JLabel label2 = new JLabel(spieler1.getSpielerName() + "  vs  " + spieler2.getSpielerName(), SwingConstants.CENTER); //neues Label erstellen
+		label2.setBounds(00, 30, 600, 45); // Größe festlegen
 		label2.setFont(label2.getFont().deriveFont(25f)); //Schriftgröße festlegen
 		label2.setForeground(Color.WHITE);
+		label2.setHorizontalAlignment(SwingConstants.CENTER);
 		label2.setVisible(true);
 		frame.add(label2); //Label dem Fenster hinzufügen 
-		
-		JLabel label3 = new JLabel("Spieler 1"); //neues Label erstellen
-		label3.setBounds(100,30, 150, 45); // Größe festlegen
-		label3.setFont(label3.getFont().deriveFont(25f)); //Schriftgröße festlegen
-		label3.setForeground(Color.WHITE);
-		label3.setVisible(true);
-		frame.add(label3); //Label dem Fenster hinzufügen 
-		
-		JLabel label4 = new JLabel("Spieler 2"); //neues Label erstellen
-		label4.setBounds(350,30, 150, 45); // Größe festlegen
-		label4.setFont(label4.getFont().deriveFont(25f)); //Schriftgröße festlegen
-		label4.setForeground(Color.WHITE);
-		label4.setVisible(true);
-		frame.add(label4); //Label dem Fenster hinzufügen 
-		
+				
 		JLabel label5 = new JLabel("Spieler"); //neues Label erstellen
 		label5.setBounds(100,80, 150, 45); // Größe festlegen
 		label5.setFont(label5.getFont().deriveFont(25f)); //Schriftgröße festlegen

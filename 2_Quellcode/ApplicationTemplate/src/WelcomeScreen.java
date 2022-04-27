@@ -20,6 +20,8 @@ import javax.swing.JTextField;
  */
 public class WelcomeScreen implements ActionListener{
 	
+	Spieler spieler1;
+	Spieler spieler2;
 	private JFrame frame;
 	private JLabel headlabel;
 	private JPanel panel;
@@ -88,7 +90,9 @@ public class WelcomeScreen implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		spieler1=new Spieler(text1.getText());
+		spieler2 = new Spieler(text2.getText());
 		frame.dispose();
-		GameScreen gamescreen = new GameScreen();
+		GameScreen gamescreen = new GameScreen(spieler1, spieler2);
 	}
 }
