@@ -1,8 +1,15 @@
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
-
 import javax.swing.JLabel;
+
+/**
+ * "Gras" shows the background image on the "WelcomeScreen". 
+ * An object of the class ImageLoader is created to define the size of the image.
+ * 
+ * @author Peukert
+ */
+
 
 public class Gras extends JLabel{
 	

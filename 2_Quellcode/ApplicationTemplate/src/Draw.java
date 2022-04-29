@@ -1,8 +1,14 @@
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
-
 import javax.swing.JLabel;
+
+/**
+ * "Draw" shows the background image on the "Gewinner" screen. 
+ * An object of the class ImageLoader is created to define the size of the image.
+ * 
+ * @author Peukert
+ */
 
 public class Draw extends JLabel{
 	
