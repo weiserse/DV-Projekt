@@ -19,49 +19,49 @@ public class Gewinner{
 
 		JPanel panel = new JPanel(); //neuen Bereich erstellen
 		JFrame frame = new JFrame(); // neues Fenster erstellen
-		frame.setSize(600, 400); // Größe des Fensters festlegen
+		frame.setSize(600, 400); // Groesse des Fensters festlegen
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // damit das Fenster geschlossen werden kann, wenn man auf das rote x klickt
 		frame.setLocationRelativeTo(null); //Fenster zentrieren
-		frame.setResizable(false); //damit man es nicht größer oder kleiner machen kann
+		frame.setResizable(false); //damit man es nicht groesser oder kleiner machen kann
 		frame.setTitle("Gewinner"); //Fenster einen Titel geben
-		frame.add(panel); //Bereich dem Fenster hinzufügen
+		frame.add(panel); //Bereich dem Fenster hinzufuegen
 		
 		panel.setLayout(null);
 		
-		JLabel label = new JLabel("Du hast gewonnen!"); //neues Label erstellen
-		label.setBounds(300,80, 280, 45); // Größe festlegen
-		label.setFont(label.getFont().deriveFont(28f)); //Schriftgröße festlegen
-		label.setForeground(Color.WHITE);
-		label.setVisible(true);
-		frame.add(label); //Label dem Fenster hinzufügen 
+		JLabel lbgewonnen = new JLabel("Du hast gewonnen!"); //neues Label erstellen
+		lbgewonnen.setBounds(300,80, 280, 45); // Groesse festlegen
+		lbgewonnen.setFont(lbgewonnen.getFont().deriveFont(28f)); //Schriftgroesse festlegen
+		lbgewonnen.setForeground(Color.WHITE);
+		lbgewonnen.setVisible(true);
+		frame.add(lbgewonnen); //Label dem Fenster hinzufuegen 
 		
-		JLabel label2 = new JLabel(spieler1.getSpielerName() + "  vs  " + spieler2.getSpielerName(), SwingConstants.CENTER); //neues Label erstellen
-		label2.setBounds(00, 30, 600, 45); // Größe festlegen
-		label2.setFont(label2.getFont().deriveFont(25f)); //Schriftgröße festlegen
-		label2.setForeground(Color.WHITE);
-		label2.setHorizontalAlignment(SwingConstants.CENTER);
-		label2.setVisible(true);
-		frame.add(label2); //Label dem Fenster hinzufügen 
+		JLabel lbspielernamen = new JLabel(spieler1.getSpielerName() + "  vs  " + spieler2.getSpielerName(), SwingConstants.CENTER); //neues Label erstellen
+		lbspielernamen.setBounds(00, 30, 600, 45); // Groesse festlegen
+		lbspielernamen.setFont(lbspielernamen.getFont().deriveFont(25f)); //Schriftgroesse festlegen
+		lbspielernamen.setForeground(Color.WHITE);
+		lbspielernamen.setHorizontalAlignment(SwingConstants.CENTER);
+		lbspielernamen.setVisible(true);
+		frame.add(lbspielernamen); //Label dem Fenster hinzufuegen 
 				
-		JLabel label5 = new JLabel("Spieler"); //neues Label erstellen
-		label5.setBounds(100,80, 150, 45); // Größe festlegen
-		label5.setFont(label5.getFont().deriveFont(25f)); //Schriftgröße festlegen
-		label5.setForeground(Color.WHITE);
-		label5.setVisible(true);
-		frame.add(label5); //Label dem Fenster hinzufügen 
+		JLabel lbgewinnername = new JLabel("Spieler"); //neues Label erstellen
+		lbgewinnername.setBounds(100,80, 150, 45); // Groesse festlegen
+		lbgewinnername.setFont(lbgewinnername.getFont().deriveFont(25f)); //Schriftgroesse festlegen
+		lbgewinnername.setForeground(Color.WHITE);
+		lbgewinnername.setVisible(true);
+		frame.add(lbgewinnername); //Label dem Fenster hinzufuegen 
 		
-		JButton button = new JButton ("Gewinnstatistik"); //neuen Button erstellen
-		button.setBounds(225, 300, 150, 45); // Größe festlegen
-		button.setVisible(true);
-		frame.add(button); //Button dem Panel hinzufügen
+		JButton btnstatistik = new JButton ("Gewinnstatistik"); //neuen Button fuer die Gewinnstatistik erstellen
+		btnstatistik.setBounds(225, 300, 150, 45); // Groesse festlegen
+		btnstatistik.setVisible(true);
+		frame.add(btnstatistik); //Button dem Panel hinzufuegen
 	
-		Draw draw = new Draw();
-		draw.setVisible(true);
-		frame.add(draw);
+		Draw draw = new Draw(); //Hintergrundbild Gras und Feuerwerk hinzufuegen
+		draw.setVisible(true); //Hintergrundbild anzeigen
+		frame.add(draw); //auf frame hinzufuegen
 		
 		panel = new JPanel();
 		
-		frame.setVisible(true);
+		frame.setVisible(true); //erst am Ende sichtbar machen
 	
 	}
 }
