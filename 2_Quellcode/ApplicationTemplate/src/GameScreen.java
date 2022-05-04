@@ -7,6 +7,7 @@ import javax.swing.*;
 public class GameScreen extends JFrame implements ActionListener{
    
 private JPanel panel;
+private JLabel spielFeld;
 private JLabel info;
 private JLabel Pl1;
 private JLabel Pl2;
@@ -15,8 +16,10 @@ private JFrame frame;
 private JButton shortcut;
 Spieler spieler1test;
 Spieler spieler2test;
+
+
 	public GameScreen(Spieler spieler1, Spieler spieler2) {
-		GameLogic logic = new GameLogic();
+		//GameLogic logic = new GameLogic();
 		spieler1test = spieler1;
 		spieler2test = spieler2;
 		//board = new Spielbrett();
@@ -27,6 +30,8 @@ Spieler spieler2test;
 		Pl2 = new JLabel(spieler2.getSpielerName());
 		newGame = new JButton("EndScreen");
 		shortcut = new JButton();
+		spielFeld = new JLabel();
+
 		
 		frame.add(panel, BorderLayout.CENTER);
 		//frame.add(board);
@@ -47,6 +52,20 @@ Spieler spieler2test;
 		panel.add(newGame);
 		panel.add(shortcut);
 		
+		
+		spielFeld.setSize(360, 360);
+		spielFeld.setLocation(290,170);
+		spielFeld.setLayout(null);
+		//panel.setVisible(true);
+		spielFeld.setOpaque(true);;
+		
+		spielFeld.setBackground(Color.WHITE);
+		spielFeld.setVisible(true);
+		panel.add(spielFeld);
+		System.out.println("for canvas");
+		Canvas canvas = new Canvas();
+		System.out.println("after canvas");
+		
 		//board.setBounds(275, 130, 450, 450);
 		//board.setVisible(true);
 		
@@ -58,7 +77,7 @@ Spieler spieler2test;
 		shortcut.setText("EndScreen");
 		shortcut.addActionListener(this);
 		
-	    
+/*    
 		//Buttons fuer Spielfeld festlegen
 		
 		//Button 0
@@ -540,6 +559,7 @@ Spieler spieler2test;
 				System.out.println("");
 			}
 		});
+*/
 		
 		info.setBounds(200, 85, 600, 25);
 		info.setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -569,6 +589,10 @@ Spieler spieler2test;
 		draw.setBounds(0,0,1024,680);
 		draw.setVisible(true);
 		panel.add(draw);
+		
+
+		
+
 				
 		frame.setVisible(true);
 		//panel.setVisible(true);
