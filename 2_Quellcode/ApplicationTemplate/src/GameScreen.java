@@ -19,7 +19,7 @@ Spieler spieler2test;
 
 
 	public GameScreen(Spieler spieler1, Spieler spieler2) {
-		//GameLogic logic = new GameLogic();
+		GameLogic logic = new GameLogic();
 		spieler1test = spieler1;
 		spieler2test = spieler2;
 		//board = new Spielbrett();
@@ -77,7 +77,7 @@ Spieler spieler2test;
 		shortcut.setText("EndScreen");
 		shortcut.addActionListener(this);
 		
-/*    
+   
 		//Buttons fuer Spielfeld festlegen
 		
 		//Button 0
@@ -89,14 +89,27 @@ Spieler spieler2test;
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				logic.setPosition(0);
-				logic.changeZug();
-				int [] paktuell = logic.getPositions();
-				for (int i=0; i<24; i++)
+				if (logic.getPositions(0)==0)
 				{
-					System.out.print(paktuell[i]+ " ");
+					logic.setPosition(0);
+					logic.changeZug();
+						if (logic.getZug()) 
+						{
+							info.setText(spieler1.getSpielerName() + " ist am Zug.");
+						}
+						else
+						{
+							info.setText("Spieler 2 ist am Zug.");
+						}
+					int [] paktuell = logic.getPositions();
+					for (int i=0; i<24; i++)
+					{
+						System.out.print(paktuell[i]+ " ");
+					}
+					System.out.println("");
 				}
-				System.out.println("");
+				else
+					info.setText("Ungültige Eingabe!");
 			}
 		});
 		
@@ -109,14 +122,27 @@ Spieler spieler2test;
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				logic.setPosition(1);
-				logic.changeZug();
-				int [] paktuell = logic.getPositions();
-				for (int i=0; i<24; i++)
+				if (logic.getPositions(1)==0)
 				{
-					System.out.print(paktuell[i]+ " ");
+					logic.setPosition(1);
+					logic.changeZug();
+						if (logic.getZug()) 
+						{
+							info.setText(spieler1.getSpielerName() + " ist am Zug.");
+						}
+						else
+						{
+							info.setText(spieler2.getSpielerName() + " ist am Zug.");
+						}
+					int [] paktuell = logic.getPositions();
+					for (int i=0; i<24; i++)
+					{
+						System.out.print(paktuell[i]+ " ");
+					}
+					System.out.println("");
 				}
-				System.out.println("");
+				else
+					info.setText("Ungültiger Spielzug!");
 			}
 		});
 		
@@ -129,14 +155,27 @@ Spieler spieler2test;
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				logic.setPosition(2);
-				logic.changeZug();
-				int [] paktuell = logic.getPositions();
-				for (int i=0; i<24; i++)
+				if (logic.getPositions(2)==0)
 				{
-					System.out.print(paktuell[i]+ " ");
+					logic.setPosition(2);
+					logic.changeZug();
+						if (logic.getZug()) 
+						{
+							info.setText(spieler1.getSpielerName() + " ist am Zug.");
+						}
+						else
+						{
+							info.setText(spieler2.getSpielerName() + " ist am Zug.");
+						}
+					int [] paktuell = logic.getPositions();
+					for (int i=0; i<24; i++)
+					{
+						System.out.print(paktuell[i]+ " ");
+					}	
+					System.out.println("");
 				}
-				System.out.println("");
+				else
+					info.setText("Ungültiger Spielzug!");
 			}
 		});
 		
@@ -149,14 +188,27 @@ Spieler spieler2test;
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				logic.setPosition(3);
-				logic.changeZug();
-				int [] paktuell = logic.getPositions();
-				for (int i=0; i<24; i++)
+				if (logic.getPositions(3)==0)
 				{
-					System.out.print(paktuell[i]+ " ");
+					logic.setPosition(3);
+					logic.changeZug();
+						if (logic.getZug()) 
+						{
+							info.setText(spieler1.getSpielerName() + " ist am Zug.");
+						}
+						else
+						{
+							info.setText(spieler2.getSpielerName() + " ist am Zug.");
+						}
+					int [] paktuell = logic.getPositions();
+					for (int i=0; i<24; i++)
+					{
+						System.out.print(paktuell[i]+ " ");
+					}
+					System.out.println("");
 				}
-				System.out.println("");
+				else
+					info.setText("Ungültiger Spielzug!");
 			}
 		});
 		
@@ -169,14 +221,27 @@ Spieler spieler2test;
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				logic.setPosition(4);
-				logic.changeZug();
-				int [] paktuell = logic.getPositions();
-				for (int i=0; i<24; i++)
+				if (logic.getPositions(4)==0)
 				{
-					System.out.print(paktuell[i]+ " ");
+					logic.setPosition(4);
+					logic.changeZug();
+						if (logic.getZug()) 
+						{
+							info.setText(spieler1.getSpielerName() + " ist am Zug.");
+						}
+						else
+						{
+							info.setText(spieler2.getSpielerName() + " ist am Zug.");
+						}
+					int [] paktuell = logic.getPositions();
+					for (int i=0; i<24; i++)
+					{
+						System.out.print(paktuell[i]+ " ");
+					}
+					System.out.println("");
 				}
-				System.out.println("");
+				else
+					info.setText("Ungültiger Spielzug!");
 			}
 		});
 		
@@ -189,14 +254,27 @@ Spieler spieler2test;
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				logic.setPosition(5);
-				logic.changeZug();
-				int [] paktuell = logic.getPositions();
-				for (int i=0; i<24; i++)
+				if (logic.getPositions(5)==0)
 				{
-					System.out.print(paktuell[i]+ " ");
+					logic.setPosition(5);
+					logic.changeZug();
+						if (logic.getZug()) 
+						{
+							info.setText(spieler1.getSpielerName() + " ist am Zug.");
+						}
+						else
+						{
+							info.setText(spieler2.getSpielerName() + " ist am Zug.");
+						}
+					int [] paktuell = logic.getPositions();
+					for (int i=0; i<24; i++)
+					{
+						System.out.print(paktuell[i]+ " ");
+					}
+					System.out.println("");
 				}
-				System.out.println("");
+				else
+					info.setText("Ungültiger Spielzug!");
 			}
 		});
 		
@@ -209,14 +287,27 @@ Spieler spieler2test;
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				logic.setPosition(6);
-				logic.changeZug();
-				int [] paktuell = logic.getPositions();
-				for (int i=0; i<24; i++)
+				if (logic.getPositions(6)==0)
 				{
-					System.out.print(paktuell[i]+ " ");
+					logic.setPosition(6);
+					logic.changeZug();
+						if (logic.getZug()) 
+						{
+							info.setText(spieler1.getSpielerName() + " ist am Zug.");
+						}
+						else
+						{
+							info.setText(spieler2.getSpielerName() + " ist am Zug.");
+						}
+					int [] paktuell = logic.getPositions();
+					for (int i=0; i<24; i++)
+					{
+						System.out.print(paktuell[i]+ " ");
+					}
+					System.out.println("");
 				}
-				System.out.println("");
+				else
+					info.setText("Ungültiger Spielzug!");
 			}
 		});
 		
@@ -229,14 +320,27 @@ Spieler spieler2test;
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				logic.setPosition(7);
-				logic.changeZug();
-				int [] paktuell = logic.getPositions();
-				for (int i=0; i<24; i++)
+				if (logic.getPositions(7)==0)
 				{
-					System.out.print(paktuell[i]+ " ");
+					logic.setPosition(7);
+					logic.changeZug();
+						if (logic.getZug()) 
+						{
+							info.setText(spieler1.getSpielerName() + " ist am Zug.");
+						}
+						else
+						{
+							info.setText(spieler2.getSpielerName() + " ist am Zug.");
+						}
+					int [] paktuell = logic.getPositions();
+					for (int i=0; i<24; i++)
+					{
+						System.out.print(paktuell[i]+ " ");
+					}
+					System.out.println("");
 				}
-				System.out.println("");
+				else
+					info.setText("Ungültiger Spielzug!");
 			}
 		});
 		
@@ -249,15 +353,28 @@ Spieler spieler2test;
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				logic.setPosition(8);
-				logic.changeZug();
-				int [] paktuell = logic.getPositions();
-				for (int i=0; i<24; i++)
+				if (logic.getPositions(8)==0)
 				{
-					System.out.print(paktuell[i]+ " ");
+					logic.setPosition(8);
+					logic.changeZug();
+						if (logic.getZug()) 
+						{
+							info.setText(spieler1.getSpielerName() + " ist am Zug.");
+						}
+						else
+						{
+							info.setText(spieler2.getSpielerName() + " ist am Zug.");
+						}
+					int [] paktuell = logic.getPositions();
+					for (int i=0; i<24; i++)
+					{
+						System.out.print(paktuell[i]+ " ");
+					}
+					System.out.println("");
 				}
-				System.out.println("");
-			}
+				else
+					info.setText("Ungültiger Spielzug!");
+				}
 		});
 		
 		//Button 9
@@ -269,14 +386,27 @@ Spieler spieler2test;
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				logic.setPosition(9);
-				logic.changeZug();
-				int [] paktuell = logic.getPositions();
-				for (int i=0; i<24; i++)
+				if (logic.getPositions(9)==0)
 				{
-					System.out.print(paktuell[i]+ " ");
+					logic.setPosition(9);
+					logic.changeZug();
+						if (logic.getZug()) 
+						{
+							info.setText(spieler1.getSpielerName() + " ist am Zug.");
+						}
+						else
+						{
+							info.setText(spieler2.getSpielerName() + " ist am Zug.");
+						}
+					int [] paktuell = logic.getPositions();
+					for (int i=0; i<24; i++)
+					{
+						System.out.print(paktuell[i]+ " ");
+					}
+					System.out.println("");
 				}
-				System.out.println("");
+				else
+					info.setText("Ungültiger Spielzug!");
 			}
 		});
 		
@@ -289,14 +419,27 @@ Spieler spieler2test;
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				logic.setPosition(10);
-				logic.changeZug();
-				int [] paktuell = logic.getPositions();
-				for (int i=0; i<24; i++)
+				if (logic.getPositions(10)==0)
 				{
-					System.out.print(paktuell[i]+ " ");
+					logic.setPosition(10);
+					logic.changeZug();
+						if (logic.getZug()) 
+						{
+							info.setText(spieler1.getSpielerName() + " ist am Zug.");
+						}
+						else
+						{
+							info.setText(spieler2.getSpielerName() + " ist am Zug.");
+						}
+					int [] paktuell = logic.getPositions();
+					for (int i=0; i<24; i++)
+					{
+						System.out.print(paktuell[i]+ " ");
+					}
+					System.out.println("");
 				}
-				System.out.println("");
+				else
+					info.setText("Ungültiger Spielzug!");
 			}
 		});
 		
@@ -309,14 +452,27 @@ Spieler spieler2test;
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				logic.setPosition(11);
-				logic.changeZug();
-				int [] paktuell = logic.getPositions();
-				for (int i=0; i<24; i++)
+				if (logic.getPositions(11)==0)
 				{
-					System.out.print(paktuell[i]+ " ");
+					logic.setPosition(11);
+					logic.changeZug();
+						if (logic.getZug()) 
+						{
+							info.setText(spieler1.getSpielerName() + " ist am Zug.");
+						}
+						else
+						{
+							info.setText(spieler2.getSpielerName() + " ist am Zug.");
+						}
+					int [] paktuell = logic.getPositions();
+					for (int i=0; i<24; i++)
+					{
+						System.out.print(paktuell[i]+ " ");
+					}	
+					System.out.println("");
 				}
-				System.out.println("");
+				else
+					info.setText("Ungültiger Spielzug!");
 			}
 		});
 		
@@ -329,14 +485,27 @@ Spieler spieler2test;
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				logic.setPosition(12);
-				logic.changeZug();
-				int [] paktuell = logic.getPositions();
-				for (int i=0; i<24; i++)
+				if (logic.getPositions(12)==0)
 				{
-					System.out.print(paktuell[i]+ " ");
+					logic.setPosition(12);
+					logic.changeZug();
+						if (logic.getZug()) 
+						{
+							info.setText(spieler1.getSpielerName() + " ist am Zug.");
+						}
+						else
+						{
+							info.setText(spieler2.getSpielerName() + " ist am Zug.");
+						}
+					int [] paktuell = logic.getPositions();
+					for (int i=0; i<24; i++)
+					{
+						System.out.print(paktuell[i]+ " ");
+					}
+					System.out.println("");
 				}
-				System.out.println("");
+				else
+					info.setText("Ungültiger Spielzug!");
 			}
 		});
 		
@@ -349,14 +518,27 @@ Spieler spieler2test;
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				logic.setPosition(13);
-				logic.changeZug();
-				int [] paktuell = logic.getPositions();
-				for (int i=0; i<24; i++)
+				if (logic.getPositions(13)==0)
 				{
-					System.out.print(paktuell[i]+ " ");
+					logic.setPosition(13);
+					logic.changeZug();
+						if (logic.getZug()) 
+						{
+							info.setText(spieler1.getSpielerName() + " ist am Zug.");
+						}
+						else
+						{
+							info.setText(spieler2.getSpielerName() + " ist am Zug.");
+						}
+					int [] paktuell = logic.getPositions();
+					for (int i=0; i<24; i++)
+					{
+						System.out.print(paktuell[i]+ " ");
+					}	
+					System.out.println("");
 				}
-				System.out.println("");
+				else
+					info.setText("Ungültiger Spielzug!");
 			}
 		});
 		
@@ -369,14 +551,27 @@ Spieler spieler2test;
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				logic.setPosition(14);
-				logic.changeZug();
-				int [] paktuell = logic.getPositions();
-				for (int i=0; i<24; i++)
+				if (logic.getPositions(14)==0)
 				{
-					System.out.print(paktuell[i]+ " ");
+					logic.setPosition(14);
+					logic.changeZug();
+						if (logic.getZug()) 
+						{
+							info.setText(spieler1.getSpielerName() + " ist am Zug.");
+						}
+						else
+						{
+							info.setText(spieler2.getSpielerName() + " ist am Zug.");
+						}
+					int [] paktuell = logic.getPositions();
+					for (int i=0; i<24; i++)
+					{
+						System.out.print(paktuell[i]+ " ");
+					}
+					System.out.println("");
 				}
-				System.out.println("");
+				else
+					info.setText("Ungültiger Spielzug!");
 			}
 		});
 		
@@ -389,14 +584,27 @@ Spieler spieler2test;
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				logic.setPosition(15);
-				logic.changeZug();
-				int [] paktuell = logic.getPositions();
-				for (int i=0; i<24; i++)
+				if (logic.getPositions(15)==0)
 				{
-					System.out.print(paktuell[i]+ " ");
+					logic.setPosition(15);
+					logic.changeZug();
+						if (logic.getZug()) 
+						{
+							info.setText(spieler1.getSpielerName() + " ist am Zug.");
+						}
+						else
+						{
+							info.setText(spieler2.getSpielerName() + " ist am Zug.");
+						}
+					int [] paktuell = logic.getPositions();
+					for (int i=0; i<24; i++)
+					{
+						System.out.print(paktuell[i]+ " ");
+					}	
+					System.out.println("");
 				}
-				System.out.println("");
+				else
+					info.setText("Ungültiger Spielzug!");
 			}
 		});
 		
@@ -409,14 +617,27 @@ Spieler spieler2test;
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				logic.setPosition(16);
-				logic.changeZug();
-				int [] paktuell = logic.getPositions();
-				for (int i=0; i<24; i++)
+				if (logic.getPositions(16)==0)
 				{
-					System.out.print(paktuell[i]+ " ");
+					logic.setPosition(16);
+					logic.changeZug();
+						if (logic.getZug()) 
+						{
+							info.setText(spieler1.getSpielerName() + " ist am Zug.");
+						}
+						else
+						{
+							info.setText(spieler2.getSpielerName() + " ist am Zug.");
+						}
+					int [] paktuell = logic.getPositions();
+					for (int i=0; i<24; i++)
+					{
+						System.out.print(paktuell[i]+ " ");
+					}	
+					System.out.println("");
 				}
-				System.out.println("");
+				else
+					info.setText("Ungültiger Spielzug!");
 			}
 		});
 		
@@ -429,14 +650,27 @@ Spieler spieler2test;
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				logic.setPosition(17);
-				logic.changeZug();
-				int [] paktuell = logic.getPositions();
-				for (int i=0; i<24; i++)
+				if (logic.getPositions(17)==0)
 				{
-					System.out.print(paktuell[i]+ " ");
+					logic.setPosition(17);
+					logic.changeZug();
+						if (logic.getZug()) 
+						{
+							info.setText(spieler1.getSpielerName() + " ist am Zug.");
+						}
+						else
+						{
+							info.setText(spieler2.getSpielerName() + " ist am Zug.");
+						}
+					int [] paktuell = logic.getPositions();
+					for (int i=0; i<24; i++)
+					{
+						System.out.print(paktuell[i]+ " ");
+					}
+					System.out.println("");
 				}
-				System.out.println("");
+				else
+					info.setText("Ungültiger Spielzug!");
 			}
 		});
 		
@@ -449,14 +683,27 @@ Spieler spieler2test;
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				logic.setPosition(18);
-				logic.changeZug();
-				int [] paktuell = logic.getPositions();
-				for (int i=0; i<24; i++)
+				if (logic.getPositions(18)==0)
 				{
-					System.out.print(paktuell[i]+ " ");
+					logic.setPosition(18);
+					logic.changeZug();
+						if (logic.getZug()) 
+						{
+							info.setText(spieler1.getSpielerName() + " ist am Zug.");
+						}
+						else
+						{
+							info.setText(spieler2.getSpielerName() + " ist am Zug.");
+						}
+					int [] paktuell = logic.getPositions();
+					for (int i=0; i<24; i++)
+					{
+						System.out.print(paktuell[i]+ " ");
+					}	
+					System.out.println("");
 				}
-				System.out.println("");
+				else
+					info.setText("Ungültiger Spielzug!");
 			}
 		});
 		
@@ -469,14 +716,27 @@ Spieler spieler2test;
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				logic.setPosition(19);
-				logic.changeZug();
-				int [] paktuell = logic.getPositions();
-				for (int i=0; i<24; i++)
+				if (logic.getPositions(19)==0)
 				{
-					System.out.print(paktuell[i]+ " ");
-				}
-				System.out.println("");
+					logic.setPosition(19);
+					logic.changeZug();
+						if (logic.getZug()) 
+						{
+							info.setText(spieler1.getSpielerName() + " ist am Zug.");
+						}
+						else
+						{
+							info.setText(spieler2.getSpielerName() + " ist am Zug.");
+						}
+					int [] paktuell = logic.getPositions();
+					for (int i=0; i<24; i++)
+					{
+						System.out.print(paktuell[i]+ " ");
+					}	
+					System.out.println("");
+				}	
+				else
+					info.setText("Ungültiger Spielzug!");
 			}
 		});
 		
@@ -489,14 +749,27 @@ Spieler spieler2test;
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				logic.setPosition(20);
-				logic.changeZug();
-				int [] paktuell = logic.getPositions();
-				for (int i=0; i<24; i++)
+				if (logic.getPositions(20)==0)
 				{
-					System.out.print(paktuell[i]+ " ");
+					logic.setPosition(20);
+					logic.changeZug();
+						if (logic.getZug()) 
+						{
+							info.setText(spieler1.getSpielerName() + " ist am Zug.");
+						}
+						else
+						{
+							info.setText(spieler2.getSpielerName() + " ist am Zug.");
+						}
+					int [] paktuell = logic.getPositions();
+					for (int i=0; i<24; i++)
+					{
+						System.out.print(paktuell[i]+ " ");
+					}	
+					System.out.println("");
 				}
-				System.out.println("");
+				else
+					info.setText("Ungültiger Spielzug!");
 			}
 		});
 		
@@ -509,14 +782,27 @@ Spieler spieler2test;
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				logic.setPosition(21);
-				logic.changeZug();
-				int [] paktuell = logic.getPositions();
-				for (int i=0; i<24; i++)
+				if (logic.getPositions(21)==0)
 				{
-					System.out.print(paktuell[i]+ " ");
+					logic.setPosition(21);
+						logic.changeZug();
+						if (logic.getZug()) 
+						{
+							info.setText(spieler1.getSpielerName() + " ist am Zug.");
+						}
+						else
+						{
+							info.setText(spieler2.getSpielerName() + " ist am Zug.");
+						}
+					int [] paktuell = logic.getPositions();
+					for (int i=0; i<24; i++)
+					{
+						System.out.print(paktuell[i]+ " ");
+					}	
+					System.out.println("");
 				}
-				System.out.println("");
+				else
+					info.setText("Ungültiger Spielzug!");
 			}
 		});
 		
@@ -529,14 +815,27 @@ Spieler spieler2test;
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				logic.setPosition(22);
-				logic.changeZug();
-				int [] paktuell = logic.getPositions();
-				for (int i=0; i<24; i++)
+				if (logic.getPositions(22)==0)
 				{
-					System.out.print(paktuell[i]+ " ");
+					logic.setPosition(22);
+					logic.changeZug();
+						if (logic.getZug()) 
+						{
+							info.setText(spieler1.getSpielerName() + " ist am Zug.");
+						}
+						else
+						{
+							info.setText(spieler2.getSpielerName() + " ist am Zug.");
+						}
+					int [] paktuell = logic.getPositions();
+					for (int i=0; i<24; i++)
+					{
+						System.out.print(paktuell[i]+ " ");
+					}	
+					System.out.println("");
 				}
-				System.out.println("");
+				else
+					info.setText("Ungültiger Spielzug!");
 			}
 		});
 		
@@ -549,17 +848,30 @@ Spieler spieler2test;
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				logic.setPosition(23);
-				logic.changeZug();
-				int [] paktuell = logic.getPositions();
-				for (int i=0; i<24; i++)
+				if (logic.getPositions(23)==0)
 				{
-					System.out.print(paktuell[i]+ " ");
+					logic.setPosition(23);
+					logic.changeZug();
+						if (logic.getZug()) 
+						{
+							info.setText(spieler1.getSpielerName() + " ist am Zug.");
+						}
+						else
+						{
+							info.setText(spieler2.getSpielerName() + " ist am Zug.");
+						}
+					int [] paktuell = logic.getPositions();
+					for (int i=0; i<24; i++)
+					{
+						System.out.print(paktuell[i]+ " ");
+					}	
+					System.out.println("");
 				}
-				System.out.println("");
+				else
+					info.setText("Ungültiger Spielzug!");
 			}
 		});
-*/
+
 		
 		info.setBounds(200, 85, 600, 25);
 		info.setBorder(BorderFactory.createLineBorder(Color.BLACK));

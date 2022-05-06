@@ -1,3 +1,5 @@
+import javax.swing.JLabel;
+
 /** class GameLogic contains all logic related components of the game.
  * 		1. the integer array "positions" with 24 entries which represents all 
  * 			possible positions where you can place a gaming piece.
@@ -47,12 +49,23 @@ public class GameLogic {
 		 return positions;
 	 }
 	 
+	 /**get method returning a specific entry in positions.
+	  * 
+	  * @param x entry position that is to be returned
+	  * @return entry in position[x], being either 0, 1 or 2
+	  */
+	 public int getPositions(int x) {
+		 return positions[x];
+	 }
+	 
 	 /**
 	  * method to change which players' turn it is.
 	  */
 	 public void changeZug() {
 		 if (spieler1zug)
+		 {
 			 spieler1zug = false;
+		 }
 		 else if (spieler1zug == false)
 			 spieler1zug = true;
 	 }
