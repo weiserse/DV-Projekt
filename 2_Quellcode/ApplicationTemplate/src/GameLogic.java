@@ -14,6 +14,7 @@ public class GameLogic {
 
 	private int [] positions;
 	private boolean spieler1zug;
+	private int anzahlsteinegesetzt = 0;
 	/**
 	 * Constructs and initializes a game logic object with parameters positions[] and spieler1zug.
 	 * positions is initialized with 24 entries all being equals 0.
@@ -65,6 +66,7 @@ public class GameLogic {
 		 if (spieler1zug)
 		 {
 			 spieler1zug = false;
+			 anzahlsteinegesetzt = anzahlsteinegesetzt+1;
 		 }
 		 else if (spieler1zug == false)
 			 spieler1zug = true;
@@ -78,4 +80,9 @@ public class GameLogic {
 	 public boolean getZug() {
 		 return spieler1zug;
 	 }
+	 
+	 public int getAnzahl() {
+		 return anzahlsteinegesetzt;
+	 }
+	 
 }
