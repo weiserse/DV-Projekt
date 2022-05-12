@@ -7,13 +7,14 @@ import javax.swing.*;
 public class GameScreen extends JFrame implements ActionListener{
    
 private JPanel panel;
-private JLabel spielFeld;
+private JPanel panel2;
 private JLabel info;
 private JLabel Pl1;
 private JLabel Pl2;
 static JButton newGame;
 private JFrame frame;
 private JButton shortcut;
+private JPaintComponent millBoard;
 Spieler spieler1test;
 Spieler spieler2test;
 
@@ -25,27 +26,32 @@ Spieler spieler2test;
 		//board = new Spielbrett();
 		frame = new JFrame();
 		panel = new JPanel();
+		panel2 = new JPanel();
 		info = new JLabel();
 		Pl1 = new JLabel(spieler1.getSpielerName());
 		Pl2 = new JLabel(spieler2.getSpielerName());
 		newGame = new JButton("EndScreen");
 		shortcut = new JButton();
-		spielFeld = new JLabel();
-
+		millBoard = new JPaintComponent();
 		
-		frame.add(panel, BorderLayout.CENTER);
+
+	
+				
+		
 		//frame.add(board);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//frame.pack();
 		frame.setSize(1024, 680);
 		frame.setLocationRelativeTo(null);
 		frame.setTitle("Mühle");
-			
+		
+
+		
 		//panel.setBackground(new Color(60, 179, 113));
 		panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
 		panel.setLayout(null);
-		//panel.setVisible(true);
-		panel.setOpaque(true);;
+		panel.setVisible(true);
+		panel.setOpaque(true);
 		panel.add(info);
 		panel.add(Pl1);
 		panel.add(Pl2);
@@ -53,21 +59,18 @@ Spieler spieler2test;
 		panel.add(shortcut);
 		
 		
-		spielFeld.setSize(360, 360);
-		spielFeld.setLocation(290,170);
-		spielFeld.setLayout(null);
-		//panel.setVisible(true);
-		spielFeld.setOpaque(true);;
+		panel2.setSize(390, 390);
+		panel2.setLocation(290, 170);
+		panel2.setBackground(Color.YELLOW);	
 		
-		spielFeld.setBackground(Color.WHITE);
-		spielFeld.setVisible(true);
-		panel.add(spielFeld);
-		System.out.println("for canvas");
-		Canvas canvas = new Canvas();
-		System.out.println("after canvas");
+		millBoard = drawMillBoard();
+
+		panel.add(millBoard);
+		//panel2.setVisible(true);
+		panel2.setOpaque(true);
+		panel.add(panel2);
+		frame.add(panel, BorderLayout.CENTER);
 		
-		//board.setBounds(275, 130, 450, 450);
-		//board.setVisible(true);
 		
 		newGame.setBounds(800, 25, 150, 25);
 		newGame.setText("Neues Spiel");
@@ -89,6 +92,7 @@ Spieler spieler2test;
 		//Buttons fuer Spielfeld festlegen
 		
 		//Button 0
+		
 		JButton feld_0 = new JButton (); 
 		feld_0.setBounds(290, 170, 30, 30); 
 		feld_0.setVisible(true);
@@ -1118,7 +1122,7 @@ Spieler spieler2test;
 				else
 					info.setText("Ungültiger Spielzug!");
 			}
-		});
+		}); 
 
 		
 		info.setBounds(200, 85, 600, 25);
@@ -1144,13 +1148,13 @@ Spieler spieler2test;
 		draw2.setVisible(true);
 		panel.add(draw2);*/
 		
+		
+		
 		//Hintergrund festlegen
 		Gras draw = new Gras();
 		draw.setBounds(0,0,1024,680);
 		draw.setVisible(true);
 		panel.add(draw);
-		
-
 		
 
 				
@@ -1159,6 +1163,46 @@ Spieler spieler2test;
 		//Gewinner endscreen = new Gewinner(spieler1, spieler2);
 
 		
+	}
+	
+	public JPaintComponent drawMillBoard()
+	{
+		JPaintComponent millBoardLines = new JPaintComponent();
+		
+		millBoardLines.setLocation(15,15);
+		millBoardLines.setSize(1024, 680);
+		//millBoardLines.JPaintComponent.setBackground(Color.WHITE);	
+		millBoardLines.setVisible(true);
+		millBoardLines.setOpaque(true);
+		
+		//Linien des Spielfeldes 
+		
+		//Linien horizintal
+																//x1   y1   x2   y2				
+		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 290, 170, 650, 170));
+		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 350, 230, 590, 230));
+		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 410, 290, 530, 290));
+		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 410, 410, 530, 410));	
+		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 350, 470, 590, 470));
+		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 290, 530, 650, 530));
+		
+		//Halbe Verbindungslinien
+		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 290, 350, 410, 350));
+		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 530, 350, 650, 350));
+		
+		//Linien vertikal
+		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 290, 170, 290, 530));
+		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 350, 230, 350, 470));
+		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 410, 290, 410, 410));
+		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 530, 290, 530, 410));
+		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 590, 230, 590, 470));
+		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 650, 170, 650, 530));
+		
+		//Halbe Verbindungslinien
+		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 470, 170, 470, 290));
+		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 470, 410, 470, 530));
+		
+		return millBoardLines;
 	}
 
 
