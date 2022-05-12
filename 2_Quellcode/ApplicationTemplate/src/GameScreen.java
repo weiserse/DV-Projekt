@@ -72,7 +72,15 @@ Spieler spieler2test;
 		newGame.setBounds(800, 25, 150, 25);
 		newGame.setText("Neues Spiel");
 		newGame.setVisible(true);
-
+		newGame.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				frame.dispose();
+				WelcomeScreen welcome = new WelcomeScreen();
+			}
+		});
+		
 		shortcut.setBounds(800,350,120,35);
 		shortcut.setText("EndScreen");
 		shortcut.addActionListener(this);
