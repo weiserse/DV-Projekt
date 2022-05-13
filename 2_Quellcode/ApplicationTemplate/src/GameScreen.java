@@ -15,14 +15,14 @@ static JButton newGame;
 private JFrame frame;
 private JButton shortcut;
 private JPaintComponent millBoard;
-Spieler player1;
-Spieler player2;
+Spieler spieler1test;
+Spieler spieler2test;
 
 
 	public GameScreen(Spieler spieler1, Spieler spieler2) {
 		GameLogic logic = new GameLogic();
-		player1 = spieler1;
-		player2 = spieler2;
+		spieler1test = spieler1;
+		spieler2test = spieler2;
 		//board = new Spielbrett();
 		frame = new JFrame();
 		panel = new JPanel();
@@ -1210,7 +1210,7 @@ Spieler player2;
 	public void actionPerformed(ActionEvent e) {
 		frame.dispose();
 		
-		Gewinner endscreen = new Gewinner(player1, player2);
+		Gewinner endscreen = new Gewinner(spieler1test, spieler2test);
 		
 	}
 }
