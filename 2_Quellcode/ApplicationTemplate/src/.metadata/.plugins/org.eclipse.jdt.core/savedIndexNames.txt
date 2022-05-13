@@ -1,0 +1,1 @@
+INDEX VERSION 1.131+C:\Users\Benny\Desktop\HFU-3.Sem\Informatik(DV-Projekt)\GitHub\DV-Projekt\2_Quellcode\ApplicationTemplate\src\.metadata\.plugins\org.eclipse.jdt.core
