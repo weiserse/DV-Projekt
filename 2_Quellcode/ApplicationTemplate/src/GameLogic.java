@@ -18,6 +18,7 @@ public class GameLogic {
 	private boolean MuehleJaNein;
 	private int i;
 	private int steinNehmen; 
+	private boolean alleSteineGesetzt;
 	
 	/**
 	 * Constructs and initializes a game logic object with parameters positions[] and spieler1zug.
@@ -77,6 +78,19 @@ public class GameLogic {
 	 }
 	 
 	 /**
+	  * Methode, um zu erkennen, welcher Spieler an der Reihe ist
+	  */
+	 public void anDerReihe() {
+		 if (spieler1zug == true) {
+				GameScreen.info.setText(GameScreen.spieler1test.getSpielerName() + " ist am Zug.");
+				}
+				else
+				{
+				GameScreen.info.setText(GameScreen.spieler2test.getSpielerName() + " ist am Zug.");
+				}
+		 }
+	 
+	 /**
 	  * get method for the spieler1zug variable
 	  * 
 	  * @return boolean true if player 1 turn, false if player 2 turn.
@@ -94,6 +108,23 @@ public class GameLogic {
 		 return anzahlsteinegesetzt;
 	 }
 	 
+	 
+	 /**
+	  * Methode zur Ueberpruefung, ob alle 9 Steine bereits gesetzt sind
+	  * 
+	  * @return boolean true, wenn alle Steine gesetzt sind
+	  */
+	 
+	 public boolean alleSteineGesetzt() {
+		 if (anzahlsteinegesetzt >9) {
+				GameScreen.info.setText("Alle Steine gesetzt! Stein zum Schieben wählen.");
+		 return alleSteineGesetzt = true;
+		 }
+		 else {
+			 return alleSteineGesetzt = false;
+		 }
+	 }
+	 
 	 /**
 	  * Methode zur Ueberpruefung einer Muehle
 	  * 
@@ -109,51 +140,67 @@ public class GameLogic {
 		 }
 		 if (positions[0]==i && positions[1]==i && positions[2]==i ) {	
 			 MuehleJaNein = true;
+			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
 		 } 
 		 else if (positions[2]==i && positions[3]==i && positions[4]==i ) {	
 			 MuehleJaNein = true;
+			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
 		 } 
 		 else if (positions[4]==i && positions[5]==i && positions[6]==i ) {	
 			 MuehleJaNein = true;
+			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
 		 } 
 		 else if (positions[6]==i && positions[7]==i && positions[0]==i ) {	
 			 MuehleJaNein = true;
+			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
 		 } 
 		 else if (positions[8]==i && positions[9]==i && positions[10]==i ) {	
 			 MuehleJaNein = true;
+			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
 		 } 
 		 else if (positions[10]==i && positions[11]==i && positions[12]==i ) {	
 			 MuehleJaNein = true;
+			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
 		 } 
 		 else if (positions[12]==i && positions[13]==i && positions[14]==i ) {	
 			 MuehleJaNein = true;
+			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
 		 } 
 		 else if (positions[14]==i && positions[15]==i && positions[8]==i ) {	
 			 MuehleJaNein = true;
+			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
 		 } 
 		 else if (positions[16]==i && positions[17]==i && positions[18]==i ) {	
 			 MuehleJaNein = true;
+			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
 		 } 
 		 else if (positions[18]==i && positions[19]==i && positions[20]==i ) {	
 			 MuehleJaNein = true;
+			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
 		 } 
 		 else if (positions[20]==i && positions[21]==i && positions[22]==i ) {	
 			 MuehleJaNein = true;
+			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
 		 } 
 		 else if (positions[22]==i && positions[23]==i && positions[16]==i ) {	
 			 MuehleJaNein = true;
+			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
 		 } 
 		 else if (positions[1]==i && positions[9]==i && positions[17]==i ) {	
 			 MuehleJaNein = true;
+			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
 		 }
 		 else if (positions[3]==i && positions[11]==i && positions[19]==i ) {	
 			 MuehleJaNein = true;
+			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
 		 } 
 		 else if (positions[5]==i && positions[13]==i && positions[21]==i ) {	
 			 MuehleJaNein = true;
+			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
 		 } 
 		 else if (positions[7]==i && positions[15]==i && positions[23]==i ) {	
 			 MuehleJaNein = true;
+			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
 		 } 
 			 
 		 return MuehleJaNein;

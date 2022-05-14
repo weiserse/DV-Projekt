@@ -8,15 +8,17 @@ public class GameScreen extends JFrame implements ActionListener{
    
 private JPanel panel;
 private JPanel panel2;
-private JLabel info;
+public static JLabel info;
 private JLabel Pl1;
 private JLabel Pl2;
 static JButton newGame;
 private JFrame frame;
 private JButton shortcut;
 private JPaintComponent millBoard;
-Spieler spieler1test;
-Spieler spieler2test;
+private boolean spielphasenwechsel;
+private boolean MuehleJaNein;
+static Spieler spieler1test;
+static Spieler spieler2test;
 
 
 	public GameScreen(Spieler spieler1, Spieler spieler2) {
@@ -101,26 +103,13 @@ Spieler spieler2test;
 			@Override
 			public void actionPerformed(ActionEvent e)
 			{
-				int anzahlsteinegesetzt;
-				anzahlsteinegesetzt = logic.getAnzahl();
-	
 				if (logic.getPositions(0)==0)
 				{
-					if (anzahlsteinegesetzt <9) {
-
-						logic.setPosition(0);
-						if (logic.getZug()) 
-						{
-							info.setText(spieler1.getSpielerName() + " ist am Zug.");
-						}
-						else
-						{
-							info.setText(spieler2.getSpielerName() + " ist am Zug.");
-						}
+						boolean spielphasenwechsel= logic.alleSteineGesetzt();
 						
-						if (logic.pruefeMuehle() == true) {
-							info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
-						}
+						if(spielphasenwechsel ==false) {
+						logic.setPosition(0);
+						logic.anDerReihe();
 						
 						int [] paktuell = logic.getPositions();
 						for (int i=0; i<24; i++)
@@ -129,12 +118,17 @@ Spieler spieler2test;
 						}
 						System.out.println("");{
 						}
-						logic.changeZug();
 						
-					}
-					else 
-						info.setText("Alle Steine gesetzt! Stein zum Schieben wählen.");
+						MuehleJaNein = logic.pruefeMuehle();
+						
+						if (MuehleJaNein == true) {
+					   // logic.steinNehmen()
+						}
+						
+						logic.changeZug();
 				}
+				}
+				
 				else
 					info.setText("Ungültiger Spielzug!");
 			}
@@ -158,14 +152,7 @@ Spieler spieler2test;
 
 						logic.setPosition(1);
 						logic.changeZug();
-						if (logic.getZug()) 
-						{
-							info.setText(spieler1.getSpielerName() + " ist am Zug.");
-						}
-						else
-						{
-							info.setText(spieler2.getSpielerName() + " ist am Zug.");
-						}
+						logic.anDerReihe();
 						
 						int [] paktuell = logic.getPositions();
 						for (int i=0; i<24; i++)
@@ -201,14 +188,7 @@ Spieler spieler2test;
 
 						logic.setPosition(2);
 						logic.changeZug();
-						if (logic.getZug()) 
-						{
-							info.setText(spieler1.getSpielerName() + " ist am Zug.");
-						}
-						else
-						{
-							info.setText(spieler2.getSpielerName() + " ist am Zug.");
-						}
+						logic.anDerReihe();
 						
 						int [] paktuell = logic.getPositions();
 						for (int i=0; i<24; i++)
@@ -244,14 +224,7 @@ Spieler spieler2test;
 
 						logic.setPosition(3);
 						logic.changeZug();
-						if (logic.getZug()) 
-						{
-							info.setText(spieler1.getSpielerName() + " ist am Zug.");
-						}
-						else
-						{
-							info.setText(spieler2.getSpielerName() + " ist am Zug.");
-						}
+						logic.anDerReihe();
 						
 						int [] paktuell = logic.getPositions();
 						for (int i=0; i<24; i++)
@@ -287,14 +260,7 @@ Spieler spieler2test;
 
 						logic.setPosition(4);
 						logic.changeZug();
-						if (logic.getZug()) 
-						{
-							info.setText(spieler1.getSpielerName() + " ist am Zug.");
-						}
-						else
-						{
-							info.setText(spieler2.getSpielerName() + " ist am Zug.");
-						}
+						logic.anDerReihe();
 						
 						int [] paktuell = logic.getPositions();
 						for (int i=0; i<24; i++)
@@ -330,14 +296,7 @@ Spieler spieler2test;
 
 						logic.setPosition(5);
 						logic.changeZug();
-						if (logic.getZug()) 
-						{
-							info.setText(spieler1.getSpielerName() + " ist am Zug.");
-						}
-						else
-						{
-							info.setText(spieler2.getSpielerName() + " ist am Zug.");
-						}
+						logic.anDerReihe();
 						
 						int [] paktuell = logic.getPositions();
 						for (int i=0; i<24; i++)
@@ -373,14 +332,7 @@ Spieler spieler2test;
 
 						logic.setPosition(6);
 						logic.changeZug();
-						if (logic.getZug()) 
-						{
-							info.setText(spieler1.getSpielerName() + " ist am Zug.");
-						}
-						else
-						{
-							info.setText(spieler2.getSpielerName() + " ist am Zug.");
-						}
+						logic.anDerReihe();
 						
 						int [] paktuell = logic.getPositions();
 						for (int i=0; i<24; i++)
@@ -416,14 +368,7 @@ Spieler spieler2test;
 
 						logic.setPosition(7);
 						logic.changeZug();
-						if (logic.getZug()) 
-						{
-							info.setText(spieler1.getSpielerName() + " ist am Zug.");
-						}
-						else
-						{
-							info.setText(spieler2.getSpielerName() + " ist am Zug.");
-						}
+						logic.anDerReihe();
 						
 						int [] paktuell = logic.getPositions();
 						for (int i=0; i<24; i++)
@@ -459,14 +404,7 @@ Spieler spieler2test;
 
 						logic.setPosition(8);
 						logic.changeZug();
-						if (logic.getZug()) 
-						{
-							info.setText(spieler1.getSpielerName() + " ist am Zug.");
-						}
-						else
-						{
-							info.setText(spieler2.getSpielerName() + " ist am Zug.");
-						}
+						logic.anDerReihe();
 						
 						int [] paktuell = logic.getPositions();
 						for (int i=0; i<24; i++)
@@ -502,14 +440,7 @@ Spieler spieler2test;
 
 						logic.setPosition(9);
 						logic.changeZug();
-						if (logic.getZug()) 
-						{
-							info.setText(spieler1.getSpielerName() + " ist am Zug.");
-						}
-						else
-						{
-							info.setText(spieler2.getSpielerName() + " ist am Zug.");
-						}
+						logic.anDerReihe();
 						
 						int [] paktuell = logic.getPositions();
 						for (int i=0; i<24; i++)
@@ -545,14 +476,7 @@ Spieler spieler2test;
 
 						logic.setPosition(10);
 						logic.changeZug();
-						if (logic.getZug()) 
-						{
-							info.setText(spieler1.getSpielerName() + " ist am Zug.");
-						}
-						else
-						{
-							info.setText(spieler2.getSpielerName() + " ist am Zug.");
-						}
+						logic.anDerReihe();
 						
 						int [] paktuell = logic.getPositions();
 						for (int i=0; i<24; i++)
@@ -588,14 +512,7 @@ Spieler spieler2test;
 
 						logic.setPosition(11);
 						logic.changeZug();
-						if (logic.getZug()) 
-						{
-							info.setText(spieler1.getSpielerName() + " ist am Zug.");
-						}
-						else
-						{
-							info.setText(spieler2.getSpielerName() + " ist am Zug.");
-						}
+						logic.anDerReihe();
 						
 						int [] paktuell = logic.getPositions();
 						for (int i=0; i<24; i++)
@@ -631,14 +548,7 @@ Spieler spieler2test;
 
 						logic.setPosition(12);
 						logic.changeZug();
-						if (logic.getZug()) 
-						{
-							info.setText(spieler1.getSpielerName() + " ist am Zug.");
-						}
-						else
-						{
-							info.setText(spieler2.getSpielerName() + " ist am Zug.");
-						}
+						logic.anDerReihe();
 						
 						int [] paktuell = logic.getPositions();
 						for (int i=0; i<24; i++)
@@ -674,14 +584,7 @@ Spieler spieler2test;
 
 						logic.setPosition(13);
 						logic.changeZug();
-						if (logic.getZug()) 
-						{
-							info.setText(spieler1.getSpielerName() + " ist am Zug.");
-						}
-						else
-						{
-							info.setText(spieler2.getSpielerName() + " ist am Zug.");
-						}
+						logic.anDerReihe();
 						
 						int [] paktuell = logic.getPositions();
 						for (int i=0; i<24; i++)
@@ -717,14 +620,7 @@ Spieler spieler2test;
 
 						logic.setPosition(14);
 						logic.changeZug();
-						if (logic.getZug()) 
-						{
-							info.setText(spieler1.getSpielerName() + " ist am Zug.");
-						}
-						else
-						{
-							info.setText(spieler2.getSpielerName() + " ist am Zug.");
-						}
+						logic.anDerReihe();
 						
 						int [] paktuell = logic.getPositions();
 						for (int i=0; i<24; i++)
@@ -760,14 +656,7 @@ Spieler spieler2test;
 
 						logic.setPosition(15);
 						logic.changeZug();
-						if (logic.getZug()) 
-						{
-							info.setText(spieler1.getSpielerName() + " ist am Zug.");
-						}
-						else
-						{
-							info.setText(spieler2.getSpielerName() + " ist am Zug.");
-						}
+						logic.anDerReihe();
 						
 						int [] paktuell = logic.getPositions();
 						for (int i=0; i<24; i++)
@@ -803,14 +692,7 @@ Spieler spieler2test;
 
 						logic.setPosition(16);
 						logic.changeZug();
-						if (logic.getZug()) 
-						{
-							info.setText(spieler1.getSpielerName() + " ist am Zug.");
-						}
-						else
-						{
-							info.setText(spieler2.getSpielerName() + " ist am Zug.");
-						}
+						logic.anDerReihe();
 						
 						int [] paktuell = logic.getPositions();
 						for (int i=0; i<24; i++)
@@ -846,14 +728,7 @@ Spieler spieler2test;
 
 						logic.setPosition(17);
 						logic.changeZug();
-						if (logic.getZug()) 
-						{
-							info.setText(spieler1.getSpielerName() + " ist am Zug.");
-						}
-						else
-						{
-							info.setText(spieler2.getSpielerName() + " ist am Zug.");
-						}
+						logic.anDerReihe();
 						
 						int [] paktuell = logic.getPositions();
 						for (int i=0; i<24; i++)
@@ -889,14 +764,7 @@ Spieler spieler2test;
 
 						logic.setPosition(18);
 						logic.changeZug();
-						if (logic.getZug()) 
-						{
-							info.setText(spieler1.getSpielerName() + " ist am Zug.");
-						}
-						else
-						{
-							info.setText(spieler2.getSpielerName() + " ist am Zug.");
-						}
+						logic.anDerReihe();
 						
 						int [] paktuell = logic.getPositions();
 						for (int i=0; i<24; i++)
@@ -932,14 +800,7 @@ Spieler spieler2test;
 
 						logic.setPosition(19);
 						logic.changeZug();
-						if (logic.getZug()) 
-						{
-							info.setText(spieler1.getSpielerName() + " ist am Zug.");
-						}
-						else
-						{
-							info.setText(spieler2.getSpielerName() + " ist am Zug.");
-						}
+						logic.anDerReihe();
 						
 						int [] paktuell = logic.getPositions();
 						for (int i=0; i<24; i++)
@@ -975,14 +836,7 @@ Spieler spieler2test;
 
 						logic.setPosition(20);
 						logic.changeZug();
-						if (logic.getZug()) 
-						{
-							info.setText(spieler1.getSpielerName() + " ist am Zug.");
-						}
-						else
-						{
-							info.setText(spieler2.getSpielerName() + " ist am Zug.");
-						}
+						logic.anDerReihe();
 						
 						int [] paktuell = logic.getPositions();
 						for (int i=0; i<24; i++)
@@ -1018,14 +872,7 @@ Spieler spieler2test;
 
 						logic.setPosition(21);
 						logic.changeZug();
-						if (logic.getZug()) 
-						{
-							info.setText(spieler1.getSpielerName() + " ist am Zug.");
-						}
-						else
-						{
-							info.setText(spieler2.getSpielerName() + " ist am Zug.");
-						}
+						logic.anDerReihe();
 						
 						int [] paktuell = logic.getPositions();
 						for (int i=0; i<24; i++)
@@ -1061,14 +908,7 @@ Spieler spieler2test;
 
 						logic.setPosition(22);
 						logic.changeZug();
-						if (logic.getZug()) 
-						{
-							info.setText(spieler1.getSpielerName() + " ist am Zug.");
-						}
-						else
-						{
-							info.setText(spieler2.getSpielerName() + " ist am Zug.");
-						}
+						logic.anDerReihe();
 						
 						int [] paktuell = logic.getPositions();
 						for (int i=0; i<24; i++)
@@ -1104,14 +944,7 @@ Spieler spieler2test;
 
 						logic.setPosition(23);
 						logic.changeZug();
-						if (logic.getZug()) 
-						{
-							info.setText(spieler1.getSpielerName() + " ist am Zug.");
-						}
-						else
-						{
-							info.setText(spieler2.getSpielerName() + " ist am Zug.");
-						}
+						logic.anDerReihe();
 						
 						int [] paktuell = logic.getPositions();
 						for (int i=0; i<24; i++)
