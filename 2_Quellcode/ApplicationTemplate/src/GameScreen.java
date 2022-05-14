@@ -2,6 +2,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 
 public class GameScreen extends JFrame implements ActionListener{
@@ -20,6 +23,96 @@ private boolean MuehleJaNein;
 static Spieler spieler1test;
 static Spieler spieler2test;
 
+private int feldclicked(int X, int Y)
+{
+	if (330>X && X>300) {
+		if (230>Y && Y>200) {
+			return 0;
+		}			
+		else if (410>Y && Y> 380) {
+			return 7;
+		}
+		else if (590>Y && Y>560) {
+			return 6;
+		}
+	}
+	else if(505>X && X>475) {
+		if(230>Y && Y>200) {
+			return 1;
+		}
+		else if(290>Y && Y>260) {
+			return 9;
+		}
+		else if(350>Y && Y>320) {
+			return 17;
+		}
+		else if(470>Y && Y>440) {
+			return 21;
+		}
+		else if(530>Y && Y>500) {
+			return 13;
+		}
+		else if(590>Y && Y>560) {
+			return 5;
+		}
+	}
+	else if(690>X && X>660) {
+		if(230>Y && Y>200) {
+			return 2;
+		}
+		else if(410>Y &&Y>380) {
+			return 3;
+		}
+		else if(590>Y && Y>560) {
+			return 4;
+		}
+	}
+	else if(390>X && X>360) {
+		if(290>Y && Y>260) {
+			return 8;
+		}
+		else if(415>Y && Y>385) {
+			return 15;
+		}
+		else if(530>Y && Y>500) {
+			return 14;
+		}
+	}
+	else if(630>X && X> 600) {
+		if(290>Y && Y>260) {
+			return 10;
+		}
+		else if(410>Y && Y>380) {
+			return 11;
+		}
+		else if(530>Y && Y> 500) {
+			return 12;
+		}
+	}
+	else if(565>X && X>535) {
+		if(350>Y && Y>320) {
+			return 18;
+		}
+		else if(410>Y && Y>380) {
+			return 19;
+		}
+		else if(470>Y && Y> 430) {
+			return 20;
+		}
+	}
+	else if(445>X && X>415) {
+		if(350>Y && Y> 320) {
+			return 16;
+		}
+		else if(470>Y && Y> 430) {
+			return 22;
+		}
+		else if(410>Y && Y> 380) {
+			return 23;
+		}
+	}
+	return -1;
+};
 
 	public GameScreen(Spieler spieler1, Spieler spieler2) {
 		GameLogic logic = new GameLogic();
@@ -46,7 +139,68 @@ static Spieler spieler2test;
 		frame.setSize(1024, 680);
 		frame.setLocationRelativeTo(null);
 		frame.setTitle("Mühle");
-		
+		frame.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (feldclicked(e.getX(),e.getY())<0) {
+					info.setText("Klicke auf ein gültiges Feld.");
+				}
+				else if (logic.getPositions(feldclicked(e.getX(),e.getY()))==0)
+				{
+						boolean spielphasenwechsel= logic.alleSteineGesetzt();
+						
+						if(spielphasenwechsel ==false) {
+						logic.setPosition(feldclicked(e.getX(),e.getY()));
+						logic.anDerReihe();
+						
+						int [] paktuell = logic.getPositions();
+						for (int i=0; i<24; i++)
+						{
+							System.out.print(paktuell[i]+ " ");
+						}
+						System.out.println("");{
+						}
+						
+						MuehleJaNein = logic.pruefeMuehle();
+						
+						if (MuehleJaNein == true) {
+					   // logic.steinNehmen()
+						}
+						
+						logic.changeZug();
+						}
+				}
+				else
+					info.setText("Ungültiger Spielzug!");
+			
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
 
 		
 		//panel.setBackground(new Color(60, 179, 113));
@@ -89,879 +243,6 @@ static Spieler spieler2test;
 		shortcut.setBounds(800,350,120,35);
 		shortcut.setText("EndScreen");
 		shortcut.addActionListener(this);
-		
-   
-		//Buttons fuer Spielfeld festlegen
-		
-		//Button 0
-		
-		JButton feld_0 = new JButton (); 
-		feld_0.setBounds(290, 170, 30, 30); 
-		feld_0.setVisible(true);
-		panel.add(feld_0); 
-		feld_0.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				if (logic.getPositions(0)==0)
-				{
-						boolean spielphasenwechsel= logic.alleSteineGesetzt();
-						
-						if(spielphasenwechsel ==false) {
-						logic.setPosition(0);
-						logic.anDerReihe();
-						
-						int [] paktuell = logic.getPositions();
-						for (int i=0; i<24; i++)
-						{
-							System.out.print(paktuell[i]+ " ");
-						}
-						System.out.println("");{
-						}
-						
-						MuehleJaNein = logic.pruefeMuehle();
-						
-						if (MuehleJaNein == true) {
-					   // logic.steinNehmen()
-						}
-						
-						logic.changeZug();
-				}
-				}
-				
-				else
-					info.setText("Ungültiger Spielzug!");
-			}
-		});
-		
-		//Button 1
-		JButton feld_1 = new JButton (); 
-		feld_1.setBounds(470, 170, 30, 30); 
-		feld_1.setVisible(true);
-		panel.add(feld_1); 
-		feld_1.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				int anzahlsteinegesetzt;
-				anzahlsteinegesetzt = logic.getAnzahl();
-	
-				if (logic.getPositions(1)==0)
-				{
-					if (anzahlsteinegesetzt <9) {
-
-						logic.setPosition(1);
-						logic.changeZug();
-						logic.anDerReihe();
-						
-						int [] paktuell = logic.getPositions();
-						for (int i=0; i<24; i++)
-						{
-							System.out.print(paktuell[i]+ " ");
-						}
-						System.out.println("");{
-						}
-					}
-					else 
-						info.setText("Alle Steine gesetzt! Stein zum Schieben wählen.");
-				}
-				else
-					info.setText("Ungültiger Spielzug!");
-			}
-		});
-		
-		//Button 2
-		JButton feld_2 = new JButton (); 
-		feld_2.setBounds(650, 170, 30, 30); 
-		feld_2.setVisible(true);
-		panel.add(feld_2); 
-		feld_2.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				int anzahlsteinegesetzt;
-				anzahlsteinegesetzt = logic.getAnzahl();
-	
-				if (logic.getPositions(2)==0)
-				{
-					if (anzahlsteinegesetzt <9) {
-
-						logic.setPosition(2);
-						logic.changeZug();
-						logic.anDerReihe();
-						
-						int [] paktuell = logic.getPositions();
-						for (int i=0; i<24; i++)
-						{
-							System.out.print(paktuell[i]+ " ");
-						}
-						System.out.println("");{
-						}
-					}
-					else 
-						info.setText("Alle Steine gesetzt! Stein zum Schieben wählen.");
-				}
-				else
-					info.setText("Ungültiger Spielzug!");
-			}
-		});
-		
-		//Button 3
-		JButton feld_3 = new JButton (); 
-		feld_3.setBounds(650, 350, 30, 30); 
-		feld_3.setVisible(true);
-		panel.add(feld_3); 
-		feld_3.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				int anzahlsteinegesetzt;
-				anzahlsteinegesetzt = logic.getAnzahl();
-	
-				if (logic.getPositions(3)==0)
-				{
-					if (anzahlsteinegesetzt <9) {
-
-						logic.setPosition(3);
-						logic.changeZug();
-						logic.anDerReihe();
-						
-						int [] paktuell = logic.getPositions();
-						for (int i=0; i<24; i++)
-						{
-							System.out.print(paktuell[i]+ " ");
-						}
-						System.out.println("");{
-						}
-					}
-					else 
-						info.setText("Alle Steine gesetzt! Stein zum Schieben wählen.");
-				}
-				else
-					info.setText("Ungültiger Spielzug!");
-			}
-		});
-		
-		//Button 4
-		JButton feld_4 = new JButton (); 
-		feld_4.setBounds(650, 530, 30, 30); 
-		feld_4.setVisible(true);
-		panel.add(feld_4); 
-		feld_4.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				int anzahlsteinegesetzt;
-				anzahlsteinegesetzt = logic.getAnzahl();
-	
-				if (logic.getPositions(4)==0)
-				{
-					if (anzahlsteinegesetzt <9) {
-
-						logic.setPosition(4);
-						logic.changeZug();
-						logic.anDerReihe();
-						
-						int [] paktuell = logic.getPositions();
-						for (int i=0; i<24; i++)
-						{
-							System.out.print(paktuell[i]+ " ");
-						}
-						System.out.println("");{
-						}
-					}
-					else 
-						info.setText("Alle Steine gesetzt! Stein zum Schieben wählen.");
-				}
-				else
-					info.setText("Ungültiger Spielzug!");
-			}
-		});
-		
-		//Button 5
-		JButton feld_5 = new JButton (); 
-		feld_5.setBounds(470, 530, 30, 30); 
-		feld_5.setVisible(true);
-		panel.add(feld_5);
-		feld_5.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				int anzahlsteinegesetzt;
-				anzahlsteinegesetzt = logic.getAnzahl();
-	
-				if (logic.getPositions(5)==0)
-				{
-					if (anzahlsteinegesetzt <9) {
-
-						logic.setPosition(5);
-						logic.changeZug();
-						logic.anDerReihe();
-						
-						int [] paktuell = logic.getPositions();
-						for (int i=0; i<24; i++)
-						{
-							System.out.print(paktuell[i]+ " ");
-						}
-						System.out.println("");{
-						}
-					}
-					else 
-						info.setText("Alle Steine gesetzt! Stein zum Schieben wählen.");
-				}
-				else
-					info.setText("Ungültiger Spielzug!");
-			}
-		});
-		
-		//Button 6
-		JButton feld_6 = new JButton (); 
-		feld_6.setBounds(290, 530, 30, 30); 
-		feld_6.setVisible(true);
-		panel.add(feld_6); 
-		feld_6.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				int anzahlsteinegesetzt;
-				anzahlsteinegesetzt = logic.getAnzahl();
-	
-				if (logic.getPositions(6)==0)
-				{
-					if (anzahlsteinegesetzt <9) {
-
-						logic.setPosition(6);
-						logic.changeZug();
-						logic.anDerReihe();
-						
-						int [] paktuell = logic.getPositions();
-						for (int i=0; i<24; i++)
-						{
-							System.out.print(paktuell[i]+ " ");
-						}
-						System.out.println("");{
-						}
-					}
-					else 
-						info.setText("Alle Steine gesetzt! Stein zum Schieben wählen.");
-				}
-				else
-					info.setText("Ungültiger Spielzug!");
-			}
-		});
-		
-		//Button 7
-		JButton feld_7 = new JButton (); 
-		feld_7.setBounds(290, 350, 30, 30); 
-		feld_7.setVisible(true);
-		panel.add(feld_7); 
-		feld_7.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				int anzahlsteinegesetzt;
-				anzahlsteinegesetzt = logic.getAnzahl();
-	
-				if (logic.getPositions(7)==0)
-				{
-					if (anzahlsteinegesetzt <9) {
-
-						logic.setPosition(7);
-						logic.changeZug();
-						logic.anDerReihe();
-						
-						int [] paktuell = logic.getPositions();
-						for (int i=0; i<24; i++)
-						{
-							System.out.print(paktuell[i]+ " ");
-						}
-						System.out.println("");{
-						}
-					}
-					else 
-						info.setText("Alle Steine gesetzt! Stein zum Schieben wählen.");
-				}
-				else
-					info.setText("Ungültiger Spielzug!");
-			}
-		});
-		
-		//Button 8
-		JButton feld_8 = new JButton (); 
-		feld_8.setBounds(350, 230, 30, 30); 
-		feld_8.setVisible(true);
-		panel.add(feld_8); 
-		feld_8.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				int anzahlsteinegesetzt;
-				anzahlsteinegesetzt = logic.getAnzahl();
-	
-				if (logic.getPositions(8)==0)
-				{
-					if (anzahlsteinegesetzt <9) {
-
-						logic.setPosition(8);
-						logic.changeZug();
-						logic.anDerReihe();
-						
-						int [] paktuell = logic.getPositions();
-						for (int i=0; i<24; i++)
-						{
-							System.out.print(paktuell[i]+ " ");
-						}
-						System.out.println("");{
-						}
-					}
-					else 
-						info.setText("Alle Steine gesetzt! Stein zum Schieben wählen.");
-				}
-				else
-					info.setText("Ungültiger Spielzug!");
-			}
-		});
-		
-		//Button 9
-		JButton feld_9 = new JButton (); 
-		feld_9.setBounds(470, 230, 30, 30); 
-		feld_9.setVisible(true);
-		panel.add(feld_9); 
-		feld_9.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				int anzahlsteinegesetzt;
-				anzahlsteinegesetzt = logic.getAnzahl();
-	
-				if (logic.getPositions(9)==0)
-				{
-					if (anzahlsteinegesetzt <9) {
-
-						logic.setPosition(9);
-						logic.changeZug();
-						logic.anDerReihe();
-						
-						int [] paktuell = logic.getPositions();
-						for (int i=0; i<24; i++)
-						{
-							System.out.print(paktuell[i]+ " ");
-						}
-						System.out.println("");{
-						}
-					}
-					else 
-						info.setText("Alle Steine gesetzt! Stein zum Schieben wählen.");
-				}
-				else
-					info.setText("Ungültiger Spielzug!");
-			}
-		});
-		
-		//Button 10
-		JButton feld_10 = new JButton (); 
-		feld_10.setBounds(590, 230, 30, 30); 
-		feld_10.setVisible(true);
-		panel.add(feld_10); 
-		feld_10.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				int anzahlsteinegesetzt;
-				anzahlsteinegesetzt = logic.getAnzahl();
-	
-				if (logic.getPositions(10)==0)
-				{
-					if (anzahlsteinegesetzt <9) {
-
-						logic.setPosition(10);
-						logic.changeZug();
-						logic.anDerReihe();
-						
-						int [] paktuell = logic.getPositions();
-						for (int i=0; i<24; i++)
-						{
-							System.out.print(paktuell[i]+ " ");
-						}
-						System.out.println("");{
-						}
-					}
-					else 
-						info.setText("Alle Steine gesetzt! Stein zum Schieben wählen.");
-				}
-				else
-					info.setText("Ungültiger Spielzug!");
-			}
-		});
-		
-		//Button 11
-		JButton feld_11 = new JButton (); 
-		feld_11.setBounds(590, 350, 30, 30); 
-		feld_11.setVisible(true);
-		panel.add(feld_11); 
-		feld_11.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				int anzahlsteinegesetzt;
-				anzahlsteinegesetzt = logic.getAnzahl();
-	
-				if (logic.getPositions(11)==0)
-				{
-					if (anzahlsteinegesetzt <9) {
-
-						logic.setPosition(11);
-						logic.changeZug();
-						logic.anDerReihe();
-						
-						int [] paktuell = logic.getPositions();
-						for (int i=0; i<24; i++)
-						{
-							System.out.print(paktuell[i]+ " ");
-						}
-						System.out.println("");{
-						}
-					}
-					else 
-						info.setText("Alle Steine gesetzt! Stein zum Schieben wählen.");
-				}
-				else
-					info.setText("Ungültiger Spielzug!");
-			}
-		});
-		
-		//Button 12
-		JButton feld_12 = new JButton (); 
-		feld_12.setBounds(590, 470, 30, 30); 
-		feld_12.setVisible(true);
-		panel.add(feld_12); 
-		feld_12.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				int anzahlsteinegesetzt;
-				anzahlsteinegesetzt = logic.getAnzahl();
-	
-				if (logic.getPositions(12)==0)
-				{
-					if (anzahlsteinegesetzt <9) {
-
-						logic.setPosition(12);
-						logic.changeZug();
-						logic.anDerReihe();
-						
-						int [] paktuell = logic.getPositions();
-						for (int i=0; i<24; i++)
-						{
-							System.out.print(paktuell[i]+ " ");
-						}
-						System.out.println("");{
-						}
-					}
-					else 
-						info.setText("Alle Steine gesetzt! Stein zum Schieben wählen.");
-				}
-				else
-					info.setText("Ungültiger Spielzug!");
-			}
-		});
-		
-		//Button 13
-		JButton feld_13 = new JButton ();
-		feld_13.setBounds(470, 470, 30, 30); 
-		feld_13.setVisible(true);
-		panel.add(feld_13); 
-		feld_13.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				int anzahlsteinegesetzt;
-				anzahlsteinegesetzt = logic.getAnzahl();
-	
-				if (logic.getPositions(13)==0)
-				{
-					if (anzahlsteinegesetzt <9) {
-
-						logic.setPosition(13);
-						logic.changeZug();
-						logic.anDerReihe();
-						
-						int [] paktuell = logic.getPositions();
-						for (int i=0; i<24; i++)
-						{
-							System.out.print(paktuell[i]+ " ");
-						}
-						System.out.println("");{
-						}
-					}
-					else 
-						info.setText("Alle Steine gesetzt! Stein zum Schieben wählen.");
-				}
-				else
-					info.setText("Ungültiger Spielzug!");
-			}
-		});
-		
-		//Button 14
-		JButton feld_14 = new JButton (); 
-		feld_14.setBounds(350, 470, 30, 30); 
-		feld_14.setVisible(true);
-		panel.add(feld_14); 
-		feld_14.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				int anzahlsteinegesetzt;
-				anzahlsteinegesetzt = logic.getAnzahl();
-	
-				if (logic.getPositions(14)==0)
-				{
-					if (anzahlsteinegesetzt <9) {
-
-						logic.setPosition(14);
-						logic.changeZug();
-						logic.anDerReihe();
-						
-						int [] paktuell = logic.getPositions();
-						for (int i=0; i<24; i++)
-						{
-							System.out.print(paktuell[i]+ " ");
-						}
-						System.out.println("");{
-						}
-					}
-					else 
-						info.setText("Alle Steine gesetzt! Stein zum Schieben wählen.");
-				}
-				else
-					info.setText("Ungültiger Spielzug!");
-			}
-		});
-		
-		//Button 15
-		JButton feld_15 = new JButton (); 
-		feld_15.setBounds(350, 350, 30, 30); 
-		feld_15.setVisible(true);
-		panel.add(feld_15); 
-		feld_15.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				int anzahlsteinegesetzt;
-				anzahlsteinegesetzt = logic.getAnzahl();
-	
-				if (logic.getPositions(15)==0)
-				{
-					if (anzahlsteinegesetzt <9) {
-
-						logic.setPosition(15);
-						logic.changeZug();
-						logic.anDerReihe();
-						
-						int [] paktuell = logic.getPositions();
-						for (int i=0; i<24; i++)
-						{
-							System.out.print(paktuell[i]+ " ");
-						}
-						System.out.println("");{
-						}
-					}
-					else 
-						info.setText("Alle Steine gesetzt! Stein zum Schieben wählen.");
-				}
-				else
-					info.setText("Ungültiger Spielzug!");
-			}
-		});
-		
-		//Button 16
-		JButton feld_16 = new JButton (); 
-		feld_16.setBounds(410, 290, 30, 30); 
-		feld_16.setVisible(true);
-		panel.add(feld_16); 
-		feld_16.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				int anzahlsteinegesetzt;
-				anzahlsteinegesetzt = logic.getAnzahl();
-	
-				if (logic.getPositions(16)==0)
-				{
-					if (anzahlsteinegesetzt <9) {
-
-						logic.setPosition(16);
-						logic.changeZug();
-						logic.anDerReihe();
-						
-						int [] paktuell = logic.getPositions();
-						for (int i=0; i<24; i++)
-						{
-							System.out.print(paktuell[i]+ " ");
-						}
-						System.out.println("");{
-						}
-					}
-					else 
-						info.setText("Alle Steine gesetzt! Stein zum Schieben wählen.");
-				}
-				else
-					info.setText("Ungültiger Spielzug!");
-			}
-		});
-		
-		//Button 17
-		JButton feld_17 = new JButton (); 
-		feld_17.setBounds(470, 290, 30, 30); 
-		feld_17.setVisible(true);
-		panel.add(feld_17); 
-		feld_17.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				int anzahlsteinegesetzt;
-				anzahlsteinegesetzt = logic.getAnzahl();
-	
-				if (logic.getPositions(17)==0)
-				{
-					if (anzahlsteinegesetzt <9) {
-
-						logic.setPosition(17);
-						logic.changeZug();
-						logic.anDerReihe();
-						
-						int [] paktuell = logic.getPositions();
-						for (int i=0; i<24; i++)
-						{
-							System.out.print(paktuell[i]+ " ");
-						}
-						System.out.println("");{
-						}
-					}
-					else 
-						info.setText("Alle Steine gesetzt! Stein zum Schieben wählen.");
-				}
-				else
-					info.setText("Ungültiger Spielzug!");
-			}
-		});
-		
-		//Button 18
-		JButton feld_18 = new JButton (); 
-		feld_18.setBounds(530, 290, 30, 30); 
-		feld_18.setVisible(true);
-		panel.add(feld_18);
-		feld_18.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				int anzahlsteinegesetzt;
-				anzahlsteinegesetzt = logic.getAnzahl();
-	
-				if (logic.getPositions(18)==0)
-				{
-					if (anzahlsteinegesetzt <9) {
-
-						logic.setPosition(18);
-						logic.changeZug();
-						logic.anDerReihe();
-						
-						int [] paktuell = logic.getPositions();
-						for (int i=0; i<24; i++)
-						{
-							System.out.print(paktuell[i]+ " ");
-						}
-						System.out.println("");{
-						}
-					}
-					else 
-						info.setText("Alle Steine gesetzt! Stein zum Schieben wählen.");
-				}
-				else
-					info.setText("Ungültiger Spielzug!");
-			}
-		});
-		
-		//Button 19
-		JButton feld_19 = new JButton (); 
-		feld_19.setBounds(530, 350, 30, 30); 
-		feld_19.setVisible(true);
-		panel.add(feld_19); 
-		feld_19.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				int anzahlsteinegesetzt;
-				anzahlsteinegesetzt = logic.getAnzahl();
-	
-				if (logic.getPositions(19)==0)
-				{
-					if (anzahlsteinegesetzt <9) {
-
-						logic.setPosition(19);
-						logic.changeZug();
-						logic.anDerReihe();
-						
-						int [] paktuell = logic.getPositions();
-						for (int i=0; i<24; i++)
-						{
-							System.out.print(paktuell[i]+ " ");
-						}
-						System.out.println("");{
-						}
-					}
-					else 
-						info.setText("Alle Steine gesetzt! Stein zum Schieben wählen.");
-				}
-				else
-					info.setText("Ungültiger Spielzug!");
-			}
-		});
-		
-		//Button 20
-		JButton feld_20 = new JButton (); 
-		feld_20.setBounds(530, 410, 30, 30); 
-		feld_20.setVisible(true);
-		panel.add(feld_20); 
-		feld_20.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				int anzahlsteinegesetzt;
-				anzahlsteinegesetzt = logic.getAnzahl();
-	
-				if (logic.getPositions(20)==0)
-				{
-					if (anzahlsteinegesetzt <9) {
-
-						logic.setPosition(20);
-						logic.changeZug();
-						logic.anDerReihe();
-						
-						int [] paktuell = logic.getPositions();
-						for (int i=0; i<24; i++)
-						{
-							System.out.print(paktuell[i]+ " ");
-						}
-						System.out.println("");{
-						}
-					}
-					else 
-						info.setText("Alle Steine gesetzt! Stein zum Schieben wählen.");
-				}
-				else
-					info.setText("Ungültiger Spielzug!");
-			}
-		});
-		
-		//Button 21
-		JButton feld_21 = new JButton (); 
-		feld_21.setBounds(470, 410, 30, 30); 
-		feld_21.setVisible(true);
-		panel.add(feld_21); 
-		feld_21.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				int anzahlsteinegesetzt;
-				anzahlsteinegesetzt = logic.getAnzahl();
-	
-				if (logic.getPositions(21)==0)
-				{
-					if (anzahlsteinegesetzt <9) {
-
-						logic.setPosition(21);
-						logic.changeZug();
-						logic.anDerReihe();
-						
-						int [] paktuell = logic.getPositions();
-						for (int i=0; i<24; i++)
-						{
-							System.out.print(paktuell[i]+ " ");
-						}
-						System.out.println("");{
-						}
-					}
-					else 
-						info.setText("Alle Steine gesetzt! Stein zum Schieben wählen.");
-				}
-				else
-					info.setText("Ungültiger Spielzug!");
-			}
-		});
-		
-		//Button 22
-		JButton feld_22 = new JButton (); 
-		feld_22.setBounds(410, 410, 30, 30); 
-		feld_22.setVisible(true);
-		panel.add(feld_22); 
-		feld_22.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				int anzahlsteinegesetzt;
-				anzahlsteinegesetzt = logic.getAnzahl();
-	
-				if (logic.getPositions(22)==0)
-				{
-					if (anzahlsteinegesetzt <9) {
-
-						logic.setPosition(22);
-						logic.changeZug();
-						logic.anDerReihe();
-						
-						int [] paktuell = logic.getPositions();
-						for (int i=0; i<24; i++)
-						{
-							System.out.print(paktuell[i]+ " ");
-						}
-						System.out.println("");{
-						}
-					}
-					else 
-						info.setText("Alle Steine gesetzt! Stein zum Schieben wählen.");
-				}
-				else
-					info.setText("Ungültiger Spielzug!");
-			}
-		});
-		
-		//Button 23
-		JButton feld_23 = new JButton (); 
-		feld_23.setBounds(410, 350, 30, 30); 
-		feld_23.setVisible(true);
-		panel.add(feld_23); 
-		feld_23.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				int anzahlsteinegesetzt;
-				anzahlsteinegesetzt = logic.getAnzahl();
-	
-				if (logic.getPositions(23)==0)
-				{
-					if (anzahlsteinegesetzt <9) {
-
-						logic.setPosition(23);
-						logic.changeZug();
-						logic.anDerReihe();
-						
-						int [] paktuell = logic.getPositions();
-						for (int i=0; i<24; i++)
-						{
-							System.out.print(paktuell[i]+ " ");
-						}
-						System.out.println("");{
-						}
-					}
-					else 
-						info.setText("Alle Steine gesetzt! Stein zum Schieben wählen.");
-				}
-				else
-					info.setText("Ungültiger Spielzug!");
-			}
-		}); 
-
 		
 		info.setBounds(200, 85, 600, 25);
 		info.setBorder(BorderFactory.createLineBorder(Color.BLACK));
