@@ -23,6 +23,12 @@ private boolean MuehleJaNein;
 static Spieler spieler1test;
 static Spieler spieler2test;
 
+/**
+ * method to distinguish which field is being clicked based on a X and Y coordinate.
+ * @param X x-coordinate 
+ * @param Y y-coordinate
+ * @return entry position in array 'positions'
+ */
 private int feldclicked(int X, int Y)
 {
 	if (330>X && X>300) {
