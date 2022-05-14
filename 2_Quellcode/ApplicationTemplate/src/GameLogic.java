@@ -15,6 +15,10 @@ public class GameLogic {
 	private int [] positions;
 	private boolean spieler1zug;
 	private int anzahlsteinegesetzt = 0;
+	private boolean MuehleJaNein;
+	private int i;
+	private int steinNehmen; 
+	
 	/**
 	 * Constructs and initializes a game logic object with parameters positions[] and spieler1zug.
 	 * positions is initialized with 24 entries all being equals 0.
@@ -81,8 +85,95 @@ public class GameLogic {
 		 return spieler1zug;
 	 }
 	 
+	 /**
+	  * get Methode fuer die Anzahl der Steine, die gesetzt wurden
+	  * 
+	  * @return Anzahl der gesetzten Steine.
+	  */
 	 public int getAnzahl() {
 		 return anzahlsteinegesetzt;
+	 }
+	 
+	 /**
+	  * Methode zur Ueberpruefung einer Muehle
+	  * 
+	  * @return boolean true, wenn es eine Muehle gibt, false, wenn es keine Muehle gibt.
+	  */
+	 
+	 public boolean pruefeMuehle () {
+		 if (spieler1zug) {
+			 i=1;
+		 }
+			 else {
+				 i=2;
+		 }
+		 if (positions[0]==i && positions[1]==i && positions[2]==i ) {	
+			 MuehleJaNein = true;
+		 } 
+		 else if (positions[2]==i && positions[3]==i && positions[4]==i ) {	
+			 MuehleJaNein = true;
+		 } 
+		 else if (positions[4]==i && positions[5]==i && positions[6]==i ) {	
+			 MuehleJaNein = true;
+		 } 
+		 else if (positions[6]==i && positions[7]==i && positions[0]==i ) {	
+			 MuehleJaNein = true;
+		 } 
+		 else if (positions[8]==i && positions[9]==i && positions[10]==i ) {	
+			 MuehleJaNein = true;
+		 } 
+		 else if (positions[10]==i && positions[11]==i && positions[12]==i ) {	
+			 MuehleJaNein = true;
+		 } 
+		 else if (positions[12]==i && positions[13]==i && positions[14]==i ) {	
+			 MuehleJaNein = true;
+		 } 
+		 else if (positions[14]==i && positions[15]==i && positions[8]==i ) {	
+			 MuehleJaNein = true;
+		 } 
+		 else if (positions[16]==i && positions[17]==i && positions[18]==i ) {	
+			 MuehleJaNein = true;
+		 } 
+		 else if (positions[18]==i && positions[19]==i && positions[20]==i ) {	
+			 MuehleJaNein = true;
+		 } 
+		 else if (positions[20]==i && positions[21]==i && positions[22]==i ) {	
+			 MuehleJaNein = true;
+		 } 
+		 else if (positions[22]==i && positions[23]==i && positions[16]==i ) {	
+			 MuehleJaNein = true;
+		 } 
+		 else if (positions[1]==i && positions[9]==i && positions[17]==i ) {	
+			 MuehleJaNein = true;
+		 }
+		 else if (positions[3]==i && positions[11]==i && positions[19]==i ) {	
+			 MuehleJaNein = true;
+		 } 
+		 else if (positions[5]==i && positions[13]==i && positions[21]==i ) {	
+			 MuehleJaNein = true;
+		 } 
+		 else if (positions[7]==i && positions[15]==i && positions[23]==i ) {	
+			 MuehleJaNein = true;
+		 } 
+			 
+		 return MuehleJaNein;
+	 }
+	 
+	 /**
+	  * Methode, um einen Stein zu nehmen
+	  */
+	 
+	 public void steinNehmen(int x) {
+		 if (spieler1zug) {
+			 i=1;
+		 }
+			 else {
+				 i=2;
+		 }
+		 if (spieler1zug==true && positions[x] != i)
+		 	{
+			 positions[x] = 0;
+		 	}
 	 }
 	 
 }

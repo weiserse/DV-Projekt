@@ -109,7 +109,6 @@ Spieler spieler2test;
 					if (anzahlsteinegesetzt <9) {
 
 						logic.setPosition(0);
-						logic.changeZug();
 						if (logic.getZug()) 
 						{
 							info.setText(spieler1.getSpielerName() + " ist am Zug.");
@@ -119,6 +118,10 @@ Spieler spieler2test;
 							info.setText(spieler2.getSpielerName() + " ist am Zug.");
 						}
 						
+						if (logic.pruefeMuehle() == true) {
+							info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
+						}
+						
 						int [] paktuell = logic.getPositions();
 						for (int i=0; i<24; i++)
 						{
@@ -126,6 +129,8 @@ Spieler spieler2test;
 						}
 						System.out.println("");{
 						}
+						logic.changeZug();
+						
 					}
 					else 
 						info.setText("Alle Steine gesetzt! Stein zum Schieben wählen.");
