@@ -19,7 +19,7 @@ private JFrame frame;
 private JButton shortcut;
 private JPaintComponent millBoard;
 private boolean spielphasenwechsel;
-private boolean MuehleJaNein;
+public boolean MuehleJaNein;
 static Spieler spieler1test;
 static Spieler spieler2test;
 
@@ -149,17 +149,41 @@ private int feldclicked(int X, int Y)
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if (feldclicked(e.getX(),e.getY())<0) {
-					info.setText("Klicke auf ein gültiges Feld.");
+				
+				if ( MuehleJaNein ==false) {
+					if (feldclicked(e.getX(),e.getY())<0) {
+						info.setText("Klicke auf ein gültiges Feld.");
+					}
+						
+					else if(logic.getPositions(feldclicked(e.getX(),e.getY()))==0)
+						{
+							boolean spielphasenwechsel= logic.alleSteineGesetzt();
+							
+							if(spielphasenwechsel ==false) {
+								logic.setPosition(feldclicked(e.getX(),e.getY()));
+								
+								int [] paktuell = logic.getPositions();
+								for (int i=0; i<24; i++)
+								{
+									System.out.print(paktuell[i]+ " ");
+								}
+								System.out.println("");{
+								}
+								MuehleJaNein = logic.pruefeMuehle();
+								logic.changeZug();
+								if (MuehleJaNein==false) {
+									logic.anDerReihe();
+								}
+							}
+						}
 				}
-				else if (logic.getPositions(feldclicked(e.getX(),e.getY()))==0)
-				{
-						boolean spielphasenwechsel= logic.alleSteineGesetzt();
-						
-						if(spielphasenwechsel ==false) {
-						logic.setPosition(feldclicked(e.getX(),e.getY()));
-						logic.anDerReihe();
-						
+							
+				else if (MuehleJaNein == true) {
+					
+						logic.changeZug();
+						int p = feldclicked(e.getX(),e.getY());
+						logic.steinNehmen(p);
+
 						int [] paktuell = logic.getPositions();
 						for (int i=0; i<24; i++)
 						{
@@ -167,20 +191,21 @@ private int feldclicked(int X, int Y)
 						}
 						System.out.println("");{
 						}
-						
-						MuehleJaNein = logic.pruefeMuehle();
-						
-						if (MuehleJaNein == true) {
-					   // logic.steinNehmen()
-						}
-						
+						logic.anDerReihe();
+
+						MuehleJaNein = false;
 						logic.changeZug();
-						}
+						logic.anDerReihe();
+					}	
+				
+				else {
+					info.setText("Ungültiger Spielzug.");
+				}	
+				
+				
 				}
-				else
-					info.setText("Ungültiger Spielzug!");
 			
-			}
+		
 
 			@Override
 			public void mousePressed(MouseEvent e) {

@@ -1,5 +1,6 @@
 import javax.swing.JLabel;
 
+
 /** class GameLogic contains all logic related components of the game.
  * 		1. the integer array "positions" with 24 entries which represents all 
  * 			possible positions where you can place a gaming piece.
@@ -46,6 +47,7 @@ public class GameLogic {
 		 else
 			 positions[x]=2;
 	 }
+	 
 	
 	 /** get method for the positions[] array.
 	  * 
@@ -138,6 +140,7 @@ public class GameLogic {
 			 else {
 				 i=2;
 		 }
+		 
 		 if (positions[0]==i && positions[1]==i && positions[2]==i ) {	
 			 MuehleJaNein = true;
 			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
@@ -210,17 +213,28 @@ public class GameLogic {
 	  * Methode, um einen Stein zu nehmen
 	  */
 	 
+	 
 	 public void steinNehmen(int x) {
+		
 		 if (spieler1zug) {
 			 i=1;
 		 }
 			 else {
 				 i=2;
 		 }
-		 if (spieler1zug==true && positions[x] != i)
+
+		 if (spieler1zug==true && positions[x] ==2)
 		 	{
 			 positions[x] = 0;
 		 	}
+		 else if(spieler1zug==false && positions[x] ==1)
+		 {
+			 positions[x] = 0;
+		 	}
+		 else {
+			 GameScreen.info.setText("Wähle einen Stein vom Gegner!");
+		 }
+		 
 	 }
 	 
 }
