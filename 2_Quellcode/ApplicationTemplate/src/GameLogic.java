@@ -135,7 +135,7 @@ public class GameLogic {
 	  */
 	 
 	 public boolean pruefeMuehle (int x) {
-		 System.out.println(x);
+
 		 if (spieler1zug==true) {
 			 i=1;
 		 }
@@ -204,11 +204,10 @@ public class GameLogic {
 	 
 	 
 	 public boolean pruefeMuehlevorhanden (int x) {
-		 System.out.println(x);
-		 if (spieler1zug) {
+		 if (spieler1zug==true) {
 			 i=2;
 		 }
-			 else {
+			 else if(spieler1zug==false){
 				 i=1;
 		 }
 		 

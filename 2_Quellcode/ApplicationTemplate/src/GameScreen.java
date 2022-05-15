@@ -160,6 +160,7 @@ private int feldclicked(int X, int Y)
 					MuehleJaNein = logic.pruefeMuehlevorhanden(feld);
 					if (MuehleJaNein == true) {
 						info.setText("Dieser Stein darf nicht genommen werden");
+						SteinNehmen=true;
 					}
 					else {
 					logic.steinNehmen(feld);
