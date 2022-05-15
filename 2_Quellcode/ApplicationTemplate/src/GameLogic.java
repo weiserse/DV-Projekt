@@ -20,6 +20,7 @@ public class GameLogic {
 	private int i;
 	private int steinNehmen; 
 	private boolean alleSteineGesetzt;
+
 	
 	/**
 	 * Constructs and initializes a game logic object with parameters positions[] and spieler1zug.
@@ -133,82 +134,141 @@ public class GameLogic {
 	  * @return boolean true, wenn es eine Muehle gibt, false, wenn es keine Muehle gibt.
 	  */
 	 
-	 public boolean pruefeMuehle () {
-		 if (spieler1zug) {
+	 public boolean pruefeMuehle (int x) {
+		 System.out.println(x);
+		 if (spieler1zug==true) {
 			 i=1;
 		 }
-			 else {
+			 else if(spieler1zug ==false) {
 				 i=2;
 		 }
 		 
-		 if (positions[0]==i && positions[1]==i && positions[2]==i ) {	
-			 MuehleJaNein = true;
-			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
-		 } 
-		 else if (positions[2]==i && positions[3]==i && positions[4]==i ) {	
-			 MuehleJaNein = true;
-			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
-		 } 
-		 else if (positions[4]==i && positions[5]==i && positions[6]==i ) {	
-			 MuehleJaNein = true;
-			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
-		 } 
-		 else if (positions[6]==i && positions[7]==i && positions[0]==i ) {	
-			 MuehleJaNein = true;
-			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
-		 } 
-		 else if (positions[8]==i && positions[9]==i && positions[10]==i ) {	
-			 MuehleJaNein = true;
-			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
-		 } 
-		 else if (positions[10]==i && positions[11]==i && positions[12]==i ) {	
-			 MuehleJaNein = true;
-			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
-		 } 
-		 else if (positions[12]==i && positions[13]==i && positions[14]==i ) {	
-			 MuehleJaNein = true;
-			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
-		 } 
-		 else if (positions[14]==i && positions[15]==i && positions[8]==i ) {	
-			 MuehleJaNein = true;
-			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
-		 } 
-		 else if (positions[16]==i && positions[17]==i && positions[18]==i ) {	
-			 MuehleJaNein = true;
-			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
-		 } 
-		 else if (positions[18]==i && positions[19]==i && positions[20]==i ) {	
-			 MuehleJaNein = true;
-			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
-		 } 
-		 else if (positions[20]==i && positions[21]==i && positions[22]==i ) {	
-			 MuehleJaNein = true;
-			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
-		 } 
-		 else if (positions[22]==i && positions[23]==i && positions[16]==i ) {	
-			 MuehleJaNein = true;
-			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
-		 } 
-		 else if (positions[1]==i && positions[9]==i && positions[17]==i ) {	
-			 MuehleJaNein = true;
-			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
+		 if ((x==0 || x==1 || x==2) && positions[0]==i && positions[1]==i && positions[2]==i) {
+				 MuehleJaNein = true;
+			 }
+				
+		 else if ((x<=2 && x<=4) &&positions[2]==i && positions[3]==i && positions[4]==i ) {	
+				 MuehleJaNein = true;
+		 
 		 }
-		 else if (positions[3]==i && positions[11]==i && positions[19]==i ) {	
-			 MuehleJaNein = true;
-			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
-		 } 
-		 else if (positions[5]==i && positions[13]==i && positions[21]==i ) {	
-			 MuehleJaNein = true;
-			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
-		 } 
-		 else if (positions[7]==i && positions[15]==i && positions[23]==i ) {	
-			 MuehleJaNein = true;
-			 GameScreen.info.setText("Du hast eine Muehle! Nimm einen Stein vom Gegner.");
-		 } 
-			 
+		 else if ((x<=4 && x<=6) && positions[4]==i && positions[5]==i && positions[6]==i ) {	
+				 MuehleJaNein = true;
+		 }
+		 else  if ((x==6 || x==7 || x==0) && positions[6]==i && positions[7]==i && positions[0]==i ) {
+				 MuehleJaNein = true;
+		 }
+		 else if ((x<=8 && x<=10) && positions[8]==i && positions[9]==i && positions[10]==i ){
+				 MuehleJaNein = true;
+		 }
+		 else  if ((x<=10 && x<=12) &&positions[10]==i && positions[11]==i && positions[12]==i) {
+				 MuehleJaNein = true;
+		 }
+		 else if ((x<=12 && x<=14) &&positions[12]==i && positions[13]==i && positions[14]==i) {
+				 MuehleJaNein = true;
+		 }
+		 else if ((x==14 || x==15 || x==8) &&positions[14]==i && positions[15]==i && positions[8]==i ){
+				 MuehleJaNein = true;
+		 }
+		 else if ((x<=16 && x<=18) &&positions[16]==i && positions[17]==i && positions[18]==i ) {
+				 MuehleJaNein = true;
+		 }
+		 else if ((x<=18 && x<=20) &&positions[18]==i && positions[19]==i && positions[20]==i) {
+				 MuehleJaNein = true;
+		 }
+		 else if ((x<=20 && x<=22) && positions[20]==i && positions[21]==i && positions[22]==i){
+				 MuehleJaNein = true;
+		 }
+		 else if ((x==22 || x==23 || x==16) && positions[22]==i && positions[23]==i && positions[16]==i) {	
+				 MuehleJaNein = true;
+		 }
+		 else if ((x==1 || x==9 || x==17) &&positions[1]==i && positions[9]==i && positions[17]==i ){
+				 MuehleJaNein = true;
+		 }
+		 else if ((x==3 || x==11 || x==19) &&positions[3]==i && positions[11]==i && positions[19]==i) {
+				 MuehleJaNein = true;
+		 }
+		 else if ((x==5 || x==13 || x==21) &&positions[5]==i && positions[13]==i && positions[21]==i) {
+				 MuehleJaNein = true;
+		 }
+		 else if ((x==7 || x==15 || x==23) &&positions[7]==i && positions[15]==i && positions[23]==i) {	
+				 MuehleJaNein = true;
+		 }
+		 else {
+			 MuehleJaNein=false;
+		 }
+		 
+		
 		 return MuehleJaNein;
 	 }
 	 
+	 
+	 
+	 public boolean pruefeMuehlevorhanden (int x) {
+		 System.out.println(x);
+		 if (spieler1zug) {
+			 i=2;
+		 }
+			 else {
+				 i=1;
+		 }
+		 
+		 if ((x==0 || x==1 || x==2) && positions[0]==i && positions[1]==i && positions[2]==i) {
+				 MuehleJaNein = true;
+			 }
+				
+		 else if ((x<=2 && x<=4) &&positions[2]==i && positions[3]==i && positions[4]==i ) {	
+				 MuehleJaNein = true;
+		 
+		 }
+		 else if ((x<=4 && x<=6) && positions[4]==i && positions[5]==i && positions[6]==i ) {	
+				 MuehleJaNein = true;
+		 }
+		 else  if ((x==6 || x==7 || x==0) && positions[6]==i && positions[7]==i && positions[0]==i ) {
+				 MuehleJaNein = true;
+		 }
+		 else if ((x<=8 && x<=10) && positions[8]==i && positions[9]==i && positions[10]==i ){
+				 MuehleJaNein = true;
+		 }
+		 else  if ((x<=10 && x<=12) &&positions[10]==i && positions[11]==i && positions[12]==i) {
+				 MuehleJaNein = true;
+		 }
+		 else if ((x<=12 && x<=14) &&positions[12]==i && positions[13]==i && positions[14]==i) {
+				 MuehleJaNein = true;
+		 }
+		 else if ((x==14 || x==15 || x==8) &&positions[14]==i && positions[15]==i && positions[8]==i ){
+				 MuehleJaNein = true;
+		 }
+		 else if ((x<=16 && x<=18) &&positions[16]==i && positions[17]==i && positions[18]==i ) {
+				 MuehleJaNein = true;
+		 }
+		 else if ((x<=18 && x<=20) &&positions[18]==i && positions[19]==i && positions[20]==i) {
+				 MuehleJaNein = true;
+		 }
+		 else if ((x<=20 && x<=22) && positions[20]==i && positions[21]==i && positions[22]==i){
+				 MuehleJaNein = true;
+		 }
+		 else if ((x==22 || x==23 || x==16) && positions[22]==i && positions[23]==i && positions[16]==i) {	
+				 MuehleJaNein = true;
+		 }
+		 else if ((x==1 || x==9 || x==17) &&positions[1]==i && positions[9]==i && positions[17]==i ){
+				 MuehleJaNein = true;
+		 }
+		 else if ((x==3 || x==11 || x==19) &&positions[3]==i && positions[11]==i && positions[19]==i) {
+				 MuehleJaNein = true;
+		 }
+		 else if ((x==5 || x==13 || x==21) &&positions[5]==i && positions[13]==i && positions[21]==i) {
+				 MuehleJaNein = true;
+		 }
+		 else if ((x==7 || x==15 || x==23) &&positions[7]==i && positions[15]==i && positions[23]==i) {	
+				 MuehleJaNein = true;
+		 }
+		 else {
+			 MuehleJaNein=false;
+		 }
+		 
+		
+		 return MuehleJaNein;
+	 }
 	 /**
 	  * Methode, um einen Stein zu nehmen
 	  */
@@ -223,6 +283,8 @@ public class GameLogic {
 				 i=2;
 		 }
 
+		 
+		 
 		 if (spieler1zug==true && positions[x] ==2)
 		 	{
 			 positions[x] = 0;

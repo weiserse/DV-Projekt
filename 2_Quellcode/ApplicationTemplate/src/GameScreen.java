@@ -22,6 +22,8 @@ private boolean spielphasenwechsel;
 public boolean MuehleJaNein;
 static Spieler spieler1test;
 static Spieler spieler2test;
+public int feld;
+public boolean SteinNehmen= false;
 
 /**
  * method to distinguish which field is being clicked based on a X and Y coordinate.
@@ -135,10 +137,7 @@ private int feldclicked(int X, int Y)
 		shortcut = new JButton();
 		millBoard = new JPaintComponent();
 		
-
 	
-				
-		
 		//frame.add(board);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//frame.pack();
@@ -149,41 +148,54 @@ private int feldclicked(int X, int Y)
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				if ( MuehleJaNein ==false) {
-					if (feldclicked(e.getX(),e.getY())<0) {
-						info.setText("Klicke auf ein gültiges Feld.");
-					}
-						
-					else if(logic.getPositions(feldclicked(e.getX(),e.getY()))==0)
-						{
-							boolean spielphasenwechsel= logic.alleSteineGesetzt();
-							
-							if(spielphasenwechsel ==false) {
-								logic.setPosition(feldclicked(e.getX(),e.getY()));
-								
-								int [] paktuell = logic.getPositions();
-								for (int i=0; i<24; i++)
-								{
-									System.out.print(paktuell[i]+ " ");
-								}
-								System.out.println("");{
-								}
-								MuehleJaNein = logic.pruefeMuehle();
-								logic.changeZug();
-								if (MuehleJaNein==false) {
-									logic.anDerReihe();
-								}
-							}
-						}
-				}
-							
-				else if (MuehleJaNein == true) {
-					
-						logic.changeZug();
-						int p = feldclicked(e.getX(),e.getY());
-						logic.steinNehmen(p);
 
+				feld=feldclicked(e.getX(),e.getY());
+				boolean spielphasenwechsel= logic.alleSteineGesetzt();
+				
+				if (feld<0) {
+					info.setText("Klicke auf ein gültiges Feld.");
+				}
+				
+				if (SteinNehmen ==true){
+					MuehleJaNein = logic.pruefeMuehlevorhanden(feld);
+					if (MuehleJaNein == true) {
+						info.setText("Dieser Stein darf nicht genommen werden");
+					}
+					else {
+					logic.steinNehmen(feld);
+					int [] paktuell = logic.getPositions();
+					for (int i=0; i<24; i++)
+					{
+						System.out.print(paktuell[i]+ " ");
+					}
+					System.out.println("");{
+					}
+					SteinNehmen=false;
+					MuehleJaNein=false;
+					logic.changeZug();
+					logic.anDerReihe();
+					}
+				}
+				
+				
+				else if(spielphasenwechsel ==false && logic.getPositions(feld)==0) {
+					
+					logic.setPosition(feld);
+					MuehleJaNein = logic.pruefeMuehle(feld);
+					
+					if (MuehleJaNein ==false) {	
+					int [] paktuell = logic.getPositions();
+					for (int i=0; i<24; i++)
+					{
+						System.out.print(paktuell[i]+ " ");
+					}
+					System.out.println("");{
+					}
+					logic.changeZug();
+					logic.anDerReihe();
+					}
+
+					else if(MuehleJaNein==true){
 						int [] paktuell = logic.getPositions();
 						for (int i=0; i<24; i++)
 						{
@@ -191,18 +203,16 @@ private int feldclicked(int X, int Y)
 						}
 						System.out.println("");{
 						}
-						logic.anDerReihe();
-
-						MuehleJaNein = false;
-						logic.changeZug();
-						logic.anDerReihe();
-					}	
-				
+						
+					info.setText("Du hast eine Mühle! Nimm einen Stein vom Gegner");
+					SteinNehmen = true; 
+					}
+				}
+			
 				else {
 					info.setText("Ungültiger Spielzug.");
 				}	
-				
-				
+
 				}
 			
 		
