@@ -13,6 +13,7 @@ public class ImageLoader {
 	BufferedImage imagegras;
 	BufferedImage imagefeuer;
 	BufferedImage imagespielfeld;
+	
 
 	public ImageLoader() {
 		
@@ -21,6 +22,7 @@ public class ImageLoader {
 		imagegras = ImageIO.read(new File("resources/gras.jpg"));	
 		imagefeuer = ImageIO.read(new File("resources/Gewinnerfeuerwerk.png"));
 		imagespielfeld = ImageIO.read(new File("resources/spielfeld.png"));
+	
 		
 		
 	} 
