@@ -12,10 +12,10 @@ public class GameScreen extends JFrame implements ActionListener{
 private JPanel panel;
 private JPanel panel2;
 public static JLabel info;
-private JLabel SteinSetz1;
-private JLabel SteinSetz2;
-private JLabel InfoSteinSetz1;
-private JLabel InfoSteinSetz2;
+private JLabel SteinCount1;
+private JLabel SteinCount2;
+private JLabel InfoSteinCount1;
+private JLabel InfoSteinCount2;
 private JLabel Pl1;
 private JLabel Pl2;
 static JButton newGame;
@@ -134,18 +134,18 @@ private int feldclicked(int X, int Y)
 private void reduceSteinCounter(boolean WerAmZug) {
 	if(WerAmZug==true) 
 	{
-		if (Integer.parseInt(SteinSetz1.getText())>0)
+		if (Integer.parseInt(SteinCount1.getText())>0)
 		{
-			int newText = Integer.parseInt(SteinSetz1.getText())-1;
-			SteinSetz1.setText(Integer.toString(newText));
+			int newText = Integer.parseInt(SteinCount1.getText())-1;
+			SteinCount1.setText(Integer.toString(newText));
 		}
 	}
 	else if(WerAmZug==false)
 	{
-		if (Integer.parseInt(SteinSetz2.getText())>0)
+		if (Integer.parseInt(SteinCount2.getText())>0)
 		{
-			int newText = Integer.parseInt(SteinSetz2.getText())-1;
-			SteinSetz2.setText(Integer.toString(newText));
+			int newText = Integer.parseInt(SteinCount2.getText())-1;
+			SteinCount2.setText(Integer.toString(newText));
 		}
 	}
 }
@@ -161,10 +161,10 @@ private void reduceSteinCounter(boolean WerAmZug) {
 		info = new JLabel();
 		Pl1 = new JLabel(spieler1.getSpielerName());
 		Pl2 = new JLabel(spieler2.getSpielerName());
-		SteinSetz1 = new JLabel("9",SwingConstants.CENTER);
-		SteinSetz2 = new JLabel("9",SwingConstants.CENTER);
-		InfoSteinSetz1 = new JLabel("Zu setzende Steine",SwingConstants.CENTER);
-		InfoSteinSetz2 = new JLabel("Zu setzende Steine",SwingConstants.CENTER);
+		SteinCount1 = new JLabel("9",SwingConstants.CENTER);
+		SteinCount2 = new JLabel("9",SwingConstants.CENTER);
+		InfoSteinCount1 = new JLabel("Zu setzende Steine",SwingConstants.CENTER);
+		InfoSteinCount2 = new JLabel("Zu setzende Steine",SwingConstants.CENTER);
 		newGame = new JButton("EndScreen");
 		shortcut = new JButton();
 		millBoard = new JPaintComponent();
@@ -287,10 +287,10 @@ private void reduceSteinCounter(boolean WerAmZug) {
 		panel.add(Pl2);
 		panel.add(newGame);
 		panel.add(shortcut);
-		panel.add(SteinSetz1);
-		panel.add(SteinSetz2);
-		panel.add(InfoSteinSetz1);
-		panel.add(InfoSteinSetz2);
+		panel.add(SteinCount1);
+		panel.add(SteinCount2);
+		panel.add(InfoSteinCount1);
+		panel.add(InfoSteinCount2);
 		
 		
 		panel2.setSize(390, 390);
@@ -329,29 +329,29 @@ private void reduceSteinCounter(boolean WerAmZug) {
 		info.setVisible(true);
 		info.setOpaque(true);
 		
-		SteinSetz1.setBounds(240,125,30,30);
-		SteinSetz1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-		SteinSetz1.setBackground(Color.WHITE);
-		SteinSetz1.setVisible(true);
-		SteinSetz1.setOpaque(true);
+		SteinCount1.setBounds(240,125,30,30);
+		SteinCount1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		SteinCount1.setBackground(Color.WHITE);
+		SteinCount1.setVisible(true);
+		SteinCount1.setOpaque(true);
 		
-		InfoSteinSetz1.setBounds(110,125,125,30);
-		InfoSteinSetz1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-		InfoSteinSetz1.setBackground(Color.WHITE);
-		InfoSteinSetz1.setVisible(true);
-		InfoSteinSetz1.setOpaque(true);
+		InfoSteinCount1.setBounds(110,125,125,30);
+		InfoSteinCount1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		InfoSteinCount1.setBackground(Color.WHITE);
+		InfoSteinCount1.setVisible(true);
+		InfoSteinCount1.setOpaque(true);
 		
-		SteinSetz2.setBounds(240,600,30,30);
-		SteinSetz2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-		SteinSetz2.setBackground(Color.WHITE);
-		SteinSetz2.setVisible(true);
-		SteinSetz2.setOpaque(true);
+		SteinCount2.setBounds(240,600,30,30);
+		SteinCount2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		SteinCount2.setBackground(Color.WHITE);
+		SteinCount2.setVisible(true);
+		SteinCount2.setOpaque(true);
 		
-		InfoSteinSetz2.setBounds(110,600,125,30);
-		InfoSteinSetz2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-		InfoSteinSetz2.setBackground(Color.WHITE);
-		InfoSteinSetz2.setVisible(true);
-		InfoSteinSetz2.setOpaque(true);
+		InfoSteinCount2.setBounds(110,600,125,30);
+		InfoSteinCount2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		InfoSteinCount2.setBackground(Color.WHITE);
+		InfoSteinCount2.setVisible(true);
+		InfoSteinCount2.setOpaque(true);
 		
 		Pl1.setBounds(275, 125, 450, 30);
 		Pl1.setBackground(Color.orange);
