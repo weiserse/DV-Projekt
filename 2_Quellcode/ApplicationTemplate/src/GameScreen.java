@@ -12,6 +12,10 @@ public class GameScreen extends JFrame implements ActionListener{
 private JPanel panel;
 private JPanel panel2;
 public static JLabel info;
+private JLabel SteinSetz1;
+private JLabel SteinSetz2;
+private JLabel InfoSteinSetz1;
+private JLabel InfoSteinSetz2;
 private JLabel Pl1;
 private JLabel Pl2;
 static JButton newGame;
@@ -122,6 +126,30 @@ private int feldclicked(int X, int Y)
 	return -1;
 };
 
+/**
+ * method to update the counter of pieces yet to be placed.
+ * Each time a player sets a piece, their respective counter is reduced by 1.
+ * @param WerAmZug boolean value depending on whether player one is to play or not.
+ */
+private void reduceSteinCounter(boolean WerAmZug) {
+	if(WerAmZug==true) 
+	{
+		if (Integer.parseInt(SteinSetz1.getText())>0)
+		{
+			int newText = Integer.parseInt(SteinSetz1.getText())-1;
+			SteinSetz1.setText(Integer.toString(newText));
+		}
+	}
+	else if(WerAmZug==false)
+	{
+		if (Integer.parseInt(SteinSetz2.getText())>0)
+		{
+			int newText = Integer.parseInt(SteinSetz2.getText())-1;
+			SteinSetz2.setText(Integer.toString(newText));
+		}
+	}
+}
+
 	public GameScreen(Spieler spieler1, Spieler spieler2) {
 		GameLogic logic = new GameLogic();
 		spieler1test = spieler1;
@@ -133,6 +161,10 @@ private int feldclicked(int X, int Y)
 		info = new JLabel();
 		Pl1 = new JLabel(spieler1.getSpielerName());
 		Pl2 = new JLabel(spieler2.getSpielerName());
+		SteinSetz1 = new JLabel("9",SwingConstants.CENTER);
+		SteinSetz2 = new JLabel("9",SwingConstants.CENTER);
+		InfoSteinSetz1 = new JLabel("Zu setzende Steine",SwingConstants.CENTER);
+		InfoSteinSetz2 = new JLabel("Zu setzende Steine",SwingConstants.CENTER);
 		newGame = new JButton("EndScreen");
 		shortcut = new JButton();
 		millBoard = new JPaintComponent();
@@ -183,7 +215,7 @@ private int feldclicked(int X, int Y)
 					
 					logic.setPosition(feld);
 					MuehleJaNein = logic.pruefeMuehle(feld);
-					
+					reduceSteinCounter(logic.getZug());
 					if (MuehleJaNein ==false) {	
 					int [] paktuell = logic.getPositions();
 					for (int i=0; i<24; i++)
@@ -255,6 +287,10 @@ private int feldclicked(int X, int Y)
 		panel.add(Pl2);
 		panel.add(newGame);
 		panel.add(shortcut);
+		panel.add(SteinSetz1);
+		panel.add(SteinSetz2);
+		panel.add(InfoSteinSetz1);
+		panel.add(InfoSteinSetz2);
 		
 		
 		panel2.setSize(390, 390);
@@ -292,6 +328,30 @@ private int feldclicked(int X, int Y)
 		info.setText(spieler1.getSpielerName() + " ist am Zug.");
 		info.setVisible(true);
 		info.setOpaque(true);
+		
+		SteinSetz1.setBounds(240,125,30,30);
+		SteinSetz1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		SteinSetz1.setBackground(Color.WHITE);
+		SteinSetz1.setVisible(true);
+		SteinSetz1.setOpaque(true);
+		
+		InfoSteinSetz1.setBounds(110,125,125,30);
+		InfoSteinSetz1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		InfoSteinSetz1.setBackground(Color.WHITE);
+		InfoSteinSetz1.setVisible(true);
+		InfoSteinSetz1.setOpaque(true);
+		
+		SteinSetz2.setBounds(240,600,30,30);
+		SteinSetz2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		SteinSetz2.setBackground(Color.WHITE);
+		SteinSetz2.setVisible(true);
+		SteinSetz2.setOpaque(true);
+		
+		InfoSteinSetz2.setBounds(110,600,125,30);
+		InfoSteinSetz2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		InfoSteinSetz2.setBackground(Color.WHITE);
+		InfoSteinSetz2.setVisible(true);
+		InfoSteinSetz2.setOpaque(true);
 		
 		Pl1.setBounds(275, 125, 450, 30);
 		Pl1.setBackground(Color.orange);
