@@ -17,124 +17,13 @@ private JLabel Pl2;
 static JButton newGame;
 private JFrame frame;
 private JButton shortcut;
-private JPaintSpielbrett millBoard;
-private JPaintSpielsteine testStein;
+private JPaintComponent millBoard;
 private boolean spielphasenwechsel;
 public boolean MuehleJaNein;
 static Spieler spieler1test;
 static Spieler spieler2test;
 public int feld;
 public boolean SteinNehmen= false;
-
-private int[] getCoordinates(int pos)
-{
-	int[] posArr = new int[2];
-	//int x, y;
-	 switch(pos){
-     case 0:
-    	 posArr[0] = 290;
-    	 posArr[1] = 170;
-         break;
-     case 1:
-    	 posArr[0] = 470;
-    	 posArr[1] = 170;
-         break;
-     case 2:
-    	 posArr[0] = 650;
-    	 posArr[1] = 170;
-         break;
-     case 3:
-    	 posArr[0] = 650;
-    	 posArr[1] = 350;
-         break;
-     case 4:
-    	 posArr[0] = 650;
-    	 posArr[1] = 530;
-         break;
-     case 5:
-    	 posArr[0] = 470;
-    	 posArr[1] = 530;
-         break;
-     case 6:
-    	 posArr[0] = 290;
-    	 posArr[1] = 530;
-         break;
-     case 7:
-    	 posArr[0] = 290;
-    	 posArr[1] = 350;
-         break;
-     case 8:
-    	 posArr[0] = 350;
-    	 posArr[1] = 230;
-         break;
-     case 9:
-    	 posArr[0] = 470;
-    	 posArr[1] = 230;
-         break;
-     case 10:
-    	 posArr[0] = 590;
-    	 posArr[1] = 230;
-         break;
-     case 11:
-    	 posArr[0] = 590;
-    	 posArr[1] = 530;
-         break;
-     case 12:
-    	 posArr[0] = 590;
-    	 posArr[1] = 470;
-         break;
-     case 13:
-    	 posArr[0] = 470;
-    	 posArr[1] = 470;
-         break;
-     case 14:
-    	 posArr[0] = 350;
-    	 posArr[1] = 470;
-         break;
-     case 15:
-    	 posArr[0] = 350;
-    	 posArr[1] = 530;
-         break;
-     case 16:
-    	 posArr[0] = 410;
-    	 posArr[1] = 290;
-         break;
-     case 17:
-    	 posArr[0] = 470;
-    	 posArr[1] = 290;
-         break;
-     case 18:
-    	 posArr[0] = 530;
-    	 posArr[1] = 290;
-         break;
-     case 19:
-    	 posArr[0] = 530;
-    	 posArr[1] = 350;
-         break;
-     case 20:
-    	 posArr[0] = 530;
-    	 posArr[1] = 410;
-         break;
-     case 21:
-    	 posArr[0] = 470;
-    	 posArr[1] = 410;
-         break;
-     case 22:
-    	 posArr[0] = 410;
-    	 posArr[1] = 410;
-         break;
-     case 23:
-    	 posArr[0] = 410;
-    	 posArr[1] = 530;
-         break;
-
-     default:
-         System.out.println("i liegt nicht zwischen null und drei");
-         break;
-     }
-	 return posArr;
-}
-
 
 /**
  * method to distinguish which field is being clicked based on a X and Y coordinate.
@@ -246,9 +135,8 @@ private int feldclicked(int X, int Y)
 		Pl2 = new JLabel(spieler2.getSpielerName());
 		newGame = new JButton("EndScreen");
 		shortcut = new JButton();
-		millBoard = new JPaintSpielbrett();
+		millBoard = new JPaintComponent();
 		
-		testStein = new JPaintSpielsteine();
 	
 		//frame.add(board);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -260,29 +148,8 @@ private int feldclicked(int X, int Y)
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Color c;
 
 				feld=feldclicked(e.getX(),e.getY());
-				System.out.println(feld + "\t");
-				int[] coordinates= getCoordinates(feld);
-				System.out.println("x: " + coordinates[0] + " y: " + coordinates[1]);
-				
-				if(logic.getZug() == true) {
-					c = Color.BLACK;
-					
-				}
-				else {
-					c = Color.WHITE;
-				}
-				
-				
-				panel.add(drawStone(coordinates[0], coordinates[1], c));
-				
-				panel.repaint();
-				panel.repaint();
-			
-				
-				
 				boolean spielphasenwechsel= logic.alleSteineGesetzt();
 				
 				if (feld<0) {
@@ -392,12 +259,9 @@ private int feldclicked(int X, int Y)
 		
 		panel2.setSize(390, 390);
 		panel2.setLocation(290, 170);
-		panel2.setBackground(new Color(238,232,170));
-		panel2.setLayout(null);
+		panel2.setBackground(Color.YELLOW);	
 		
 		millBoard = drawMillBoard();
-		//testStein = drawStone();
-		//panel.add(testStein);
 
 		panel.add(millBoard);
 		//panel2.setVisible(true);
@@ -430,12 +294,12 @@ private int feldclicked(int X, int Y)
 		info.setOpaque(true);
 		
 		Pl1.setBounds(275, 125, 450, 30);
-		Pl1.setBackground(new Color(214,214,214));
+		Pl1.setBackground(Color.orange);
 		Pl1.setVisible(true);
 		Pl1.setOpaque(true);
 
 		Pl2.setBounds(275, 600, 450, 30);
-		Pl2.setBackground(new Color(214,214,214));
+		Pl2.setBackground(Color.orange);
 		Pl2.setVisible(true);
 		Pl2.setOpaque(true);
 		
@@ -462,14 +326,9 @@ private int feldclicked(int X, int Y)
 		
 	}
 	
-	private Color rgb(int i, int j, int k) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public JPaintSpielbrett drawMillBoard()
+	public JPaintComponent drawMillBoard()
 	{
-		JPaintSpielbrett millBoardLines = new JPaintSpielbrett();
+		JPaintComponent millBoardLines = new JPaintComponent();
 		
 		millBoardLines.setLocation(15,15);
 		millBoardLines.setSize(1024, 680);
@@ -505,24 +364,6 @@ private int feldclicked(int X, int Y)
 		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 470, 410, 470, 530));
 		
 		return millBoardLines;
-	}
-	public JPaintSpielsteine drawStone(int x, int y, Color c)
-	{
-		JPaintSpielsteine testStein = new JPaintSpielsteine();
-		
-		//testStein.setLocation(15,15);
-		testStein.setSize(1024, 680);
-		//millBoardLines.JPaintComponent.setBackground(Color.WHITE);	
-		testStein.setVisible(true);
-		testStein.setOpaque(true);
-		
-		
-
-						//x1   y1   x2   y2				
-		//testStein.paintObj(new PaintableLine(Color.BLACK, 290, 170, 650, 170));
-		testStein.paintObj(new PaintableCircle(c , x, y, 0, 360));
-		
-		return testStein;
 	}
 
 
