@@ -16,9 +16,13 @@ public class PaintableLine extends PaintableObject {
         this.x2 = x2;
         this.y1 = y1;
         this.y2 = y2;
+        //System.out.println("PL Constructor");
+
     }
 
     public void paint(final Graphics g) {
         g.drawLine(x1, y1, x2, y2);
+      //System.out.println("PL Paint");
+
     }
 }
