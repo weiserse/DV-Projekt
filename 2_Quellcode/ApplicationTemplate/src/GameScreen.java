@@ -414,7 +414,7 @@ private void reduceSteinCounter(boolean WerAmZug) {
 		});
 
 		
-		panel.setBackground(Color.WHITE);
+		//panel.setBackground(new Color (60,179,113));
 		panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
 		panel.setLayout(null);
 		panel.setVisible(true);
@@ -432,7 +432,7 @@ private void reduceSteinCounter(boolean WerAmZug) {
 		
 		panel2.setSize(390, 390);
 		panel2.setLocation(290, 170);
-		panel2.setBackground(Color.YELLOW);	
+		panel2.setBackground(new Color (238,232,170));	
 		panel2.setLayout(null);
 		
 		millBoard = drawMillBoard();
@@ -494,12 +494,12 @@ private void reduceSteinCounter(boolean WerAmZug) {
 		InfoSteinCount2.setOpaque(true);
 		
 		Pl1.setBounds(275, 125, 450, 30);
-		Pl1.setBackground(Color.ORANGE);
+		Pl1.setBackground(new Color (214,214,214));
 		Pl1.setVisible(true);
 		Pl1.setOpaque(true);
 
 		Pl2.setBounds(275, 600, 450, 30);
-		Pl2.setBackground(Color.ORANGE);
+		Pl2.setBackground(new Color (214,214,214));
 		Pl2.setVisible(true);
 		Pl2.setOpaque(true);
 		
