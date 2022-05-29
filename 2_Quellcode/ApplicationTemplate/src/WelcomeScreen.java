@@ -62,16 +62,21 @@ public class WelcomeScreen implements ActionListener{
 	panel.add(labelP2);
 	
 	//TextfieldSettings
-	text1.setBounds(125, 125, 75, 25);
+	text1.setBounds(180, 125, 75, 25);
 	text1.setVisible(true);
-	text2.setBounds(125,175, 75, 25);
+	text2.setBounds(180,175, 75, 25);
 	text2.setVisible(true);
 	
 	//LabelSettings
 	headlabel.setBounds(55, 15, 500, 100);
 	headlabel.setFont(new Font("Arial",Font.BOLD,30));
-	labelP1.setBounds(25, 125, 125, 25);
-	labelP2.setBounds(25, 175, 125, 25);
+	headlabel.setForeground(Color.WHITE);
+	labelP1.setBounds(25, 125, 200, 25);
+	labelP1.setForeground(Color.WHITE);
+	labelP1.setFont(new Font("Arial",Font.BOLD,20));
+	labelP2.setBounds(25, 175, 200, 25);
+	labelP2.setForeground(Color.WHITE);
+	labelP2.setFont(new Font("Arial",Font.BOLD,20));
 	
 	//ButtonSettings
 	start.setBounds(300, 200, 80, 25);
