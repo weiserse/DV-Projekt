@@ -346,7 +346,7 @@ public class GameLogic {
 	 
 	 /**
 	  * Methode, die angibt, zu welchen Feldern man einen Stein verschieben darf
-	  * @param x Position im Array auf welche man geklickt hat
+	  * @param x Position im Array auf welche man geklickt hat 
 	  * @return true, wenn man auf das Feld schieben darf
 	  */
 	 

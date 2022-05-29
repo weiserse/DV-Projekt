@@ -318,12 +318,7 @@ private void reduceSteinCounter(boolean WerAmZug) {
 				panel.add(drawStone(coordinates[0], coordinates[1], c));
 				panel.repaint();
 				panel.repaint();
-
-				
-				
-				boolean spielphasenwechsel= logic.alleSteineGesetzt();
-				
-				
+	
 				//wenn Feld ungueltig
 				if (feld<0) {
 					info.setText("Klicke auf ein gültiges Feld.");
@@ -359,6 +354,7 @@ private void reduceSteinCounter(boolean WerAmZug) {
 					}
 				//wenn man nicht berechtigt ist einen Stein zu nehmen
 				else {
+					boolean spielphasenwechsel= logic.alleSteineGesetzt();
 					//wenn man in der Setzphase ist 
 					if (spielphasenwechsel ==false) {
 						//wenn das geklickte Feld frei ist
@@ -397,8 +393,8 @@ private void reduceSteinCounter(boolean WerAmZug) {
 				else {
 					//wenn man einen Stein nimmt, um ihn auf ein anderes Feld zu schieben
 					if(SteinNehmenFuerSetzen==true) {
-						FeldZumSchieben = logic.getPositions(feld);
-						boolean eigenerStein = logic.meinStein(FeldZumSchieben);
+						FeldZumSchieben = feld;
+						boolean eigenerStein = logic.meinStein(logic.getPositions(FeldZumSchieben));
 						
 						//wenn der angeklickte Stein der eigene ist
 						if (eigenerStein == true) {
