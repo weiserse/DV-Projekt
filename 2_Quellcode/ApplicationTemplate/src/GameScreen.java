@@ -29,6 +29,10 @@ static Spieler spieler1test;
 static Spieler spieler2test;
 public int feld;
 public boolean SteinNehmen= false;
+public boolean schieben = false;
+public boolean SteinNehmenFuerSetzen = true;
+public static int FeldZumSchieben;
+
 
 
 private int[] getCoordinates(int pos) {
@@ -185,7 +189,7 @@ private int feldclicked(int X, int Y)
 		if(230>Y && Y>200) {
 			return 2;
 		}
-		else if(410>Y &&Y>380) {
+		else if(410>Y && Y>380) {
 			return 3;
 		}
 		else if(590>Y && Y>560) {
@@ -296,76 +300,50 @@ private void reduceSteinCounter(boolean WerAmZug) {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
+				//Steine zeichnen
 				feld=feldclicked(e.getX(),e.getY());
-				
 				Color c;
-
 				feld=feldclicked(e.getX(),e.getY());
-				System.out.println(feld + "\t");
+				//System.out.println(feld + "\t");
 				int[] coordinates= getCoordinates(feld);
-				System.out.println("x: " + coordinates[0] + " y: " + coordinates[1]);
+				//System.out.println("x: " + coordinates[0] + " y: " + coordinates[1]);
 				
 				if(logic.getZug() == true) {
-					c = Color.BLACK;
-					
+					c = Color.BLACK;	
 				}
 				else {
 					c = Color.WHITE;
 				}
-				
-				
+
 				panel.add(drawStone(coordinates[0], coordinates[1], c));
-				
 				panel.repaint();
 				panel.repaint();
 
+				
+				
 				boolean spielphasenwechsel= logic.alleSteineGesetzt();
 				
+				
+				//wenn Feld ungueltig
 				if (feld<0) {
 					info.setText("Klicke auf ein gültiges Feld.");
 				}
 				
-				if (SteinNehmen ==true){
-					MuehleJaNein = logic.pruefeMuehlevorhanden(feld);
-					if (MuehleJaNein == true) {
-						info.setText("Dieser Stein darf nicht genommen werden");
-						SteinNehmen=true;
-					}
-					else {
-					logic.steinNehmen(feld);
-					int [] paktuell = logic.getPositions();
-					for (int i=0; i<24; i++)
-					{
-						System.out.print(paktuell[i]+ " ");
-					}
-					System.out.println("");{
-					}
-					SteinNehmen=false;
-					MuehleJaNein=false;
-					logic.changeZug();
-					logic.anDerReihe();
-					}
-				}
-				
-				
-				else if(spielphasenwechsel ==false && logic.getPositions(feld)==0) {
-					
-					logic.setPosition(feld);
-					MuehleJaNein = logic.pruefeMuehle(feld);
-					reduceSteinCounter(logic.getZug());
-					if (MuehleJaNein ==false) {	
-					int [] paktuell = logic.getPositions();
-					for (int i=0; i<24; i++)
-					{
-						System.out.print(paktuell[i]+ " ");
-					}
-					System.out.println("");{
-					}
-					logic.changeZug();
-					logic.anDerReihe();
-					}
+				//wenn Feld gueltig
+				else { 
 
-					else if(MuehleJaNein==true){
+					//wenn man berechtigt ist einen Stein zu nehmen
+					if (SteinNehmen ==true){
+						MuehleJaNein = logic.pruefeMuehlevorhanden(feld); //pruefe, ob das angeklickte Feld in einer bestehenden Muehle vom Gegner ist
+						
+						//wenn das angeklickte Feld in einer bestehenden Muehle ist
+						if (MuehleJaNein == true) {
+							info.setText("Dieser Stein darf nicht genommen werden");
+							SteinNehmen=true;
+						}
+						//wenn das angeklickte Feld nicht in einer bestehenden Muehle ist, darf der Stein genommen werden
+						else {
+						logic.steinNehmen(feld);
 						int [] paktuell = logic.getPositions();
 						for (int i=0; i<24; i++)
 						{
@@ -373,17 +351,114 @@ private void reduceSteinCounter(boolean WerAmZug) {
 						}
 						System.out.println("");{
 						}
-						
-					info.setText("Du hast eine Mühle! Nimm einen Stein vom Gegner");
-					SteinNehmen = true; 
+						SteinNehmen=false; 
+						MuehleJaNein=false;
+						logic.changeZug();
+						logic.anDerReihe();
+						}
 					}
-				}
-			
+				//wenn man nicht berechtigt ist einen Stein zu nehmen
 				else {
-					info.setText("Ungültiger Spielzug.");
-				}	
-
-				}
+					//wenn man in der Setzphase ist 
+					if (spielphasenwechsel ==false) {
+						//wenn das geklickte Feld frei ist
+						if (logic.getPositions(feld)==0) {
+						
+						logic.setPosition(feld);
+						int [] paktuell = logic.getPositions();
+						for (int i=0; i<24; i++)
+						{
+							System.out.print(paktuell[i]+ " ");
+						}
+							System.out.println("");{
+							}
+							MuehleJaNein = logic.pruefeMuehle(feld);
+							reduceSteinCounter(logic.getZug());
+					
+							//wenn man keine Muehle hat
+							if (MuehleJaNein ==false) {	
+								logic.changeZug();
+								logic.anDerReihe();
+							}
+							
+							//wenn man eine Muehle hat
+							else{
+								info.setText("Du hast eine Mühle! Nimm einen Stein vom Gegner");
+								SteinNehmen = true; 
+							}	
+						}
+			// wenn das geklickte Feld besetzt ist
+				else {
+					info.setText("Klicke auf ein freies Feld.");
+					}	
+					}
+					
+			// wenn man nicht mehr in der Setzphase ist, also spielphasenwechsel == true
+				else {
+					//wenn man einen Stein nimmt, um ihn auf ein anderes Feld zu schieben
+					if(SteinNehmenFuerSetzen==true) {
+						FeldZumSchieben = logic.getPositions(feld);
+						boolean eigenerStein = logic.meinStein(FeldZumSchieben);
+						
+						//wenn der angeklickte Stein der eigene ist
+						if (eigenerStein == true) {
+							logic.eigenenSteinNehmen(feld);
+							int [] paktuell = logic.getPositions();
+							for (int i=0; i<24; i++)
+							{
+								System.out.print(paktuell[i]+ " ");
+							}
+							System.out.println("");{
+							}
+							SteinNehmenFuerSetzen = false;
+						}
+						
+						//wenn der angeklickte Stein nicht der eigene ist
+						else {
+							info.setText("Klicke einen deiner Steine an.");
+						}
+						}
+					
+					//wenn man seinen genommenen Stein auf ein anderes Feld setzt
+					else {
+						
+					//wenn das angeklickte Feld frei und benachbart ist
+						boolean SchiebenErlaubt = logic.pruefeSchieben(feld);
+						if (SchiebenErlaubt==true && logic.getPositions(feld)==0) {
+							
+							logic.setPosition(feld);
+							int [] paktuell = logic.getPositions();
+							for (int i=0; i<24; i++)
+							{
+								System.out.print(paktuell[i]+ " ");
+							}
+								System.out.println("");{
+								}
+								
+							//pruefen, ob man jetzt eine Muehle hat
+							MuehleJaNein = logic.pruefeMuehle(feld);
+							
+							//wenn man keine Muehle hat
+							if (MuehleJaNein ==false) {	
+								logic.changeZug();
+								logic.anDerReihe();
+							}
+							
+							//wenn man eine Muehle hat
+							else{
+								info.setText("Du hast eine Mühle! Nimm einen Stein vom Gegner");
+								SteinNehmen = true; 
+							}
+							SteinNehmenFuerSetzen=true;
+					}
+						else {
+							info.setText("Klicke auf ein freies benachbartes Feld");
+						}
+				}			
+				}}}}	
+				
+				
+					
 			
 		
 
