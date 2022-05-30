@@ -9,12 +9,13 @@ import javax.swing.JLabel;
  * 
  * @author Peukert
  */
-
-
 public class Gras extends JLabel{
 	
 	ImageLoader ilgras = new ImageLoader();
 	
+	/**
+	 * transforms previously loaded images from ImageLoader into paintable grpahics objects
+	 */
 	protected void paintComponent (Graphics g) {
 		super.paintComponent (g);
 		

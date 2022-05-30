@@ -9,11 +9,13 @@ import javax.swing.JLabel;
  * 
  * @author Peukert
  */
-
 public class spielfeld extends JLabel{
 	
 	ImageLoader ilspielfeld = new ImageLoader();
 	
+	/**
+	 * transforms previously loaded images from ImageLoader into paintable grpahics objects.
+	 */
 	protected void paintComponent (Graphics g) {
 		super.paintComponent (g);
 		
@@ -24,8 +26,7 @@ public class spielfeld extends JLabel{
 		g.drawImage(ilspielfeld.imagespielfeld, 286,166, 420, 420, null);
 		
 		repaint();
-	
-}
+	}
 	
 	
 }
