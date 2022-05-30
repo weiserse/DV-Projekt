@@ -15,6 +15,11 @@ import javax.swing.SwingConstants;
  */
 public class Gewinner{
 	
+	/**
+	 * Constructs and initializes GewinnerScreen with set attributes and passed names
+	 * @param spieler1 spieler object for displayed name
+	 * @param spieler2 spieler object for displayed name
+	 */
 	public Gewinner(Spieler spieler1, Spieler spieler2) {
 
 		JPanel panel = new JPanel(); //neuen Bereich erstellen

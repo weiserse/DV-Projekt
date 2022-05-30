@@ -13,7 +13,11 @@ public class ImageLoader {
 	BufferedImage imagegras;
 	BufferedImage imagefeuer;
 	BufferedImage imagespielfeld;
-
+	
+	/**
+	 * Constructs and initializes ImageLoader.
+	 * Loading set files from resources.
+	 */
 	public ImageLoader() {
 		
 		try {

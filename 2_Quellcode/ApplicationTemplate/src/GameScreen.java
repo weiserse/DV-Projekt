@@ -6,32 +6,38 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-
+/**
+ * The Game Screen is the Screen the actual game is played on.
+ * It contains the game field, as well as an info box giving further explanations to the players.
+ * The player names entered in WelcomeScreen are being transfered to and displayed on this screen.
+ * Furthermore, there each player side contains a label displaying the number of pieces left to be placed.
+ */
 public class GameScreen extends JFrame implements ActionListener{
-   
-private JPanel panel;
-private JPanel panel2;
-public static JLabel info;
-private JLabel Pl1;
-private JLabel Pl2;
-private JLabel SteinCount1;
-private JLabel SteinCount2;
-private JLabel InfoSteinCount1;
-private JLabel InfoSteinCount2;
-static JButton newGame;
-private JFrame frame;
-private JButton shortcut;
-private JPaintSpielbrett millBoard;
-private JPaintSpielsteine testStein;
-private boolean spielphasenwechsel;
-public boolean MuehleJaNein;
-static Spieler spieler1test;
-static Spieler spieler2test;
-public int feld;
-public boolean SteinNehmen= false;
-public boolean schieben = false;
-public boolean SteinNehmenFuerSetzen = true;
-public static int FeldZumSchieben;
+ 
+//Properties
+	private JPanel panel;
+	private JPanel panel2;
+	public static JLabel info;
+	private JLabel Pl1;
+	private JLabel Pl2;
+	private JLabel SteinCount1;
+	private JLabel SteinCount2;
+	private JLabel InfoSteinCount1;
+	private JLabel InfoSteinCount2;
+	static JButton newGame;
+	private JFrame frame;
+	private JButton shortcut;
+	private JPaintSpielbrett millBoard;
+	private JPaintSpielsteine testStein;
+	private boolean spielphasenwechsel;
+	public boolean MuehleJaNein;
+	static Spieler spieler1test;
+	static Spieler spieler2test;
+	public int feld;
+	public boolean SteinNehmen= false;
+	public boolean schieben = false;
+	public boolean SteinNehmenFuerSetzen = true;
+	public static int FeldZumSchieben;
 
 
 
@@ -267,6 +273,11 @@ private void reduceSteinCounter(boolean WerAmZug) {
 	}
 }
 
+/**
+ * Constructs and initializes the Game Screen with set attributes.
+ * @param spieler1 Spieler object required for further usage and also the displayed names.
+ * @param spieler2 Spieler object required for further usage and also the displayed names.
+ */
 	public GameScreen(Spieler spieler1, Spieler spieler2) {
 		GameLogic logic = new GameLogic();
 		spieler1test = spieler1;
@@ -603,7 +614,9 @@ private void reduceSteinCounter(boolean WerAmZug) {
 	}
 	
 	
-	
+	/**
+	 * Constructs and initializes the game board from Class JPaintComponent
+	 */
 	public JPaintSpielbrett drawMillBoard()
 	{
 		JPaintSpielbrett millBoardLines = new JPaintSpielbrett();

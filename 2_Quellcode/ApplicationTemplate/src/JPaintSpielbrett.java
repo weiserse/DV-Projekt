@@ -5,7 +5,11 @@ import java.util.List;
 
 import javax.swing.JComponent;
 
-
+/**
+ * Klasse zum zeichnen des Muehle-Spielbretts
+ * @author Glunz, Zimmermann
+ *
+ */
 public class JPaintSpielbrett extends JComponent{
 
 	private List<PaintableObject> paints = new ArrayList<PaintableObject>();
@@ -33,12 +37,10 @@ public class JPaintSpielbrett extends JComponent{
             po.update(g);
         }
     }
+    
     public void setBackground(Graphics g, Color c)
     {
-    	g.setColor(c);
-	
-	
-	
+    	g.setColor(c);	
     }
 }
 

@@ -37,6 +37,7 @@ public class GameLogic {
 		}
 	}
 	
+	
 	/** set method for the positions[] array.
 	 * depending on the player who is to make the next move passed entry will be changed.
 	 * 
@@ -60,6 +61,7 @@ public class GameLogic {
 		 return positions;
 	 }
 	 
+	 
 	 /**get method returning a specific entry in positions.
 	  * 
 	  * @param x entry position that is to be returned
@@ -68,6 +70,7 @@ public class GameLogic {
 	 public int getPositions(int x) {
 		 return positions[x];
 	 }
+	 
 	 
 	 /**
 	  * method to change which players' turn it is.
@@ -83,6 +86,7 @@ public class GameLogic {
 		 }
 	 }
 	 
+	 
 	 /**
 	  * Methode, um zu erkennen, welcher Spieler an der Reihe ist
 	  */
@@ -96,6 +100,7 @@ public class GameLogic {
 				}
 		 }
 	 
+	 
 	 /**
 	  * get method for the spieler1zug variable
 	  * 
@@ -104,6 +109,7 @@ public class GameLogic {
 	 public boolean getZug() {
 		 return spieler1zug;
 	 }
+	 
 	 
 	 /**
 	  * get Methode fuer die Anzahl der Steine, die gesetzt wurden
@@ -118,7 +124,6 @@ public class GameLogic {
 	  * Methode zur Ueberpruefung, ob alle 9 Steine bereits gesetzt sind
 	  * @return boolean true, wenn alle Steine gesetzt sind
 	  */
-	 
 	 public boolean alleSteineGesetzt() {
 		 if (anzahlsteinegesetzt >8) {
 		 return alleSteineGesetzt = true;
@@ -127,6 +132,7 @@ public class GameLogic {
 			 return alleSteineGesetzt = false;
 		 }
 	 }
+	 
 	 
 	 /**
 	  * Methode, um zu pruefen, ob der angeklickte Stein einem selbst gehoert
@@ -149,7 +155,6 @@ public class GameLogic {
 	  * @return boolean true, wenn es eine Muehle gibt, false, wenn es keine Muehle gibt.
 	  * @param x Position im Array auf welche man geklickt hat
 	  */
-	 
 	 public boolean pruefeMuehle (int x) {
 
 		 if (spieler1zug==true) {
@@ -217,12 +222,12 @@ public class GameLogic {
 		 return MuehleJaNein;
 	 }
 	 
+	 
 	 /**
 	  * Methode, die angibt, ob der Stein in einer bestehenden Muehle liegt
 	  *  @return boolean true, wenn er in einer Muehle liegt, false, wenn er nicht in einer Muhele liegt
 	  *  @param x Position im Array auf welche man geklickt hat
 	  */
-	 
 	 public boolean pruefeMuehlevorhanden (int x) {
 		 if (spieler1zug==true) {
 			 i=2;
@@ -285,15 +290,13 @@ public class GameLogic {
 			 MuehleJaNein=false;
 		 }
 		 return MuehleJaNein;
-	 }
-	 
+	 }	 
 	 
 	 
 	 /**
 	  * Methode, um einen Stein vom Gegner zu nehmen
 	  * @param x Position im Array auf welche man geklickt hat, diese soll auf 0 gesetzt werden
 	  */
-	
 	 public void steinNehmen(int x) {
 		
 		 if (spieler1zug) {
@@ -316,11 +319,11 @@ public class GameLogic {
 		 } 
 	 }
 	 
+	 
 	 /**
 	  * Methode, um einen eigenen Stein zu nehmen, um ihn wo anders wieder zu setzen 
 	  * @param x Position im Array auf welche man geklickt hat, diese soll auf 0 gesetzt werden
 	  */
-	 
 	 public void eigenenSteinNehmen(int x) {
 		
 		 if (spieler1zug) {
@@ -344,12 +347,13 @@ public class GameLogic {
 		 
 	 }
 	 
+	 
+	 
 	 /**
 	  * Methode, die angibt, zu welchen Feldern man einen Stein verschieben darf
 	  * @param x Position im Array auf welche man geklickt hat 
 	  * @return true, wenn man auf das Feld schieben darf
 	  */
-	 
 	 public boolean pruefeSchieben(int x) {
 		 
 		 if(x==0 && (GameScreen.FeldZumSchieben ==1)|| (GameScreen.FeldZumSchieben ==7)) {
