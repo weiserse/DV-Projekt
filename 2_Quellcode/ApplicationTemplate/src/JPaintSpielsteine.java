@@ -12,6 +12,7 @@ public class JPaintSpielsteine extends JComponent{
 
 	public void paintObj(final PaintableObject po) {
         stein.add(po);
+        System.out.println("Stein paintObj");
     }
 			
     public List<PaintableObject> getObjects() {
@@ -25,6 +26,14 @@ public class JPaintSpielsteine extends JComponent{
     public void clear() {
         stein.clear();
     }
+
+    public void refresh(List<PaintableObject> stein)
+    {
+    	for (PaintableObject po : stein) {
+           // po.update(stein);
+        }
+    }
+
 
     @Override
     protected void paintComponent(final Graphics g) {

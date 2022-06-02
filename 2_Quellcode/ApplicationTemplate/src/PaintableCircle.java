@@ -1,6 +1,8 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.*;
+import java.awt.Graphics;
+import java.awt.*;
 
 public class PaintableCircle extends PaintableObject{
 	private int x1;
@@ -24,8 +26,7 @@ public class PaintableCircle extends PaintableObject{
 		
 		g.fillArc(x1, y1, 30, 30, 0, 360);
 		g.setColor(c);
-		
-		//System.out.println(g.getColor() + "\n" + x1 + "\t" + y1);
+		System.out.println(g.getColor() + "\n" + x1 + "\t" + y1);
 	}
 
 }
