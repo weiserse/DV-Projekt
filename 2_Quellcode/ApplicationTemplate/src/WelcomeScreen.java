@@ -83,10 +83,10 @@ public class WelcomeScreen implements ActionListener{
 	start.addActionListener(this);
 	
 	//Hintergrund festlegen
-	Holz draw = new Holz();
-	draw.setBounds(0,0,600,400);
-	draw.setVisible(true);
-	panel.add(draw);
+//	Holz draw = new Holz();
+//	draw.setBounds(0,0,600,400);
+//	draw.setVisible(true);
+//	panel.add(draw);
 		
 	//ans Ende setzen
 	frame.setVisible(true);
