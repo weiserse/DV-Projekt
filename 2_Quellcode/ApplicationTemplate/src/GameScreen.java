@@ -36,7 +36,9 @@ public class GameScreen extends JFrame implements ActionListener{
 	public boolean SteinNehmen= false;
 	public boolean schieben = false;
 	public boolean SteinNehmenFuerSetzen = true;
+	public boolean SteinNehmenFuerSpringen = true;
 	public static int FeldZumSchieben;
+	public static int FeldZumSpringen;
 
 
 
@@ -313,7 +315,7 @@ private void reduceSteinCounter(boolean WerAmZug) {
 				//Steine zeichnen
 				feld=feldclicked(e.getX(),e.getY());
 				Color c;
-				feld=feldclicked(e.getX(),e.getY());
+				//feld=feldclicked(e.getX(),e.getY());
 				//System.out.println(feld + "\t");
 				int[] coordinates= getCoordinates(feld);
 				//System.out.println("x: " + coordinates[0] + " y: " + coordinates[1]);
@@ -358,6 +360,7 @@ private void reduceSteinCounter(boolean WerAmZug) {
 						}
 						SteinNehmen=false; 
 						MuehleJaNein=false;
+						logic.AnzahlSteineerniedrigen();
 						logic.changeZug();
 						logic.anDerReihe();
 						}
@@ -378,6 +381,7 @@ private void reduceSteinCounter(boolean WerAmZug) {
 						}
 							System.out.println("");{
 							}
+							logic.AnzahlSteineerhoehen();
 							MuehleJaNein = logic.pruefeMuehle(feld);
 							reduceSteinCounter(logic.getZug());
 					
@@ -401,10 +405,76 @@ private void reduceSteinCounter(boolean WerAmZug) {
 					
 			// wenn man nicht mehr in der Setzphase ist, also spielphasenwechsel == true
 				else {
+					
+					//pruefen, ob man springen darf
+					if(logic.pruefeSpringen()==true) {
+						
+					//pruefen, ob man den Stein zum Springen nimmt oder setzt
+						if(SteinNehmenFuerSpringen==true) {
+							
+							boolean eigenerStein = logic.meinStein(logic.getPositions(feld));
+							
+							//wenn der angeklickte Stein der eigene ist
+							if(eigenerStein == true) {
+								logic.eigenenSteinNehmen(feld);;
+								int[] paktuell = logic.getPositions();
+								for (int i=0; i<24; i++)
+								{
+									System.out.print(paktuell[i]+ " ");
+								}
+								System.out.println("");
+								SteinNehmenFuerSpringen=false;
+								FeldZumSpringen = feld;
+							}
+							
+							//wenn der angeklickte Stein nicht der eigene ist
+							else {
+								info.setText("Klicke einen deiner Steine an, um zu springen.");
+							}
+						}
+					
+					//SteinNehmenFuerSpringen==false
+					else {
+						if(logic.getPositions(feld)==0) {
+							logic.setPosition(feld);
+							int [] paktuell = logic.getPositions();
+							for (int i=0; i<24; i++)
+							{
+								System.out.print(paktuell[i]+ " ");
+							}
+								System.out.println("");{
+								}
+							
+							//pruefen, ob man jetzt eine Muehle hat
+							MuehleJaNein = logic.pruefeMuehle(feld);
+							
+							//wenn man keine Muehle hat
+							if (MuehleJaNein ==false) {	
+								logic.changeZug();
+								logic.anDerReihe();
+							}
+							
+							//wenn man eine Muehle hat
+							else{
+								info.setText("Du hast eine Mühle! Nimm einen Stein vom Gegner");
+								SteinNehmen = true; 
+							}
+							SteinNehmenFuerSpringen=true;
+
+					}
+						else {
+							info.setText("Klicke auf ein freies Feld");
+					}	
+					}
+					}
+						
+					// logic.pruefeSpringen==false;
+					else {
+						
 					//wenn man einen Stein nimmt, um ihn auf ein anderes Feld zu schieben
 					if(SteinNehmenFuerSetzen==true) {
-						FeldZumSchieben = feld;
-						boolean eigenerStein = logic.meinStein(logic.getPositions(FeldZumSchieben));
+
+						boolean eigenerStein = logic.meinStein(logic.getPositions(feld));
 						
 						//wenn der angeklickte Stein der eigene ist
 						if (eigenerStein == true) {
@@ -417,6 +487,7 @@ private void reduceSteinCounter(boolean WerAmZug) {
 							System.out.println("");{
 							}
 							SteinNehmenFuerSetzen = false;
+							FeldZumSchieben = feld;
 						}
 						
 						//wenn der angeklickte Stein nicht der eigene ist
@@ -461,7 +532,7 @@ private void reduceSteinCounter(boolean WerAmZug) {
 							info.setText("Klicke auf ein freies benachbartes Feld");
 						}
 				}			
-				}}}}	
+				}}}}}	
 				
 				
 					
