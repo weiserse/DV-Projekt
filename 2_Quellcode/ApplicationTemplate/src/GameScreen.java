@@ -17,7 +17,6 @@ public class GameScreen extends JFrame implements ActionListener{
 //Properties
 	private JPanel panel;
 	private JPanel panel2;
-	//private JPanel panel3;
 	public static JLabel info;
 	private JLabel Pl1;
 	private JLabel Pl2;
@@ -94,7 +93,7 @@ private int[] getCoordinates(int pos) {
          break;
      case 11:
     	 posArr[0] = 590;
-    	 posArr[1] = 350;
+    	 posArr[1] = 530;
          break;
      case 12:
     	 posArr[0] = 590;
@@ -110,7 +109,7 @@ private int[] getCoordinates(int pos) {
          break;
      case 15:
     	 posArr[0] = 350;
-    	 posArr[1] = 350;
+    	 posArr[1] = 530;
          break;
      case 16:
     	 posArr[0] = 410;
@@ -142,7 +141,7 @@ private int[] getCoordinates(int pos) {
          break;
      case 23:
     	 posArr[0] = 410;
-    	 posArr[1] = 350;
+    	 posArr[1] = 530;
          break;
 
      default:
@@ -287,7 +286,6 @@ private void reduceSteinCounter(boolean WerAmZug) {
 		frame = new JFrame();
 		panel = new JPanel();
 		panel2 = new JPanel();
-		//panel3 = new JPanel();
 		info = new JLabel();
 		Pl1 = new JLabel(spieler1.getSpielerName());
 		Pl2 = new JLabel(spieler2.getSpielerName());
@@ -316,12 +314,21 @@ private void reduceSteinCounter(boolean WerAmZug) {
 				//Steine zeichnen
 				feld=feldclicked(e.getX(),e.getY());
 				Color c;
+				feld=feldclicked(e.getX(),e.getY());
 				//System.out.println(feld + "\t");
-
+				int[] coordinates= getCoordinates(feld);
 				//System.out.println("x: " + coordinates[0] + " y: " + coordinates[1]);
 				
-	
+				if(logic.getZug() == true) {
+					c = Color.BLACK;	
+				}
+				else {
+					c = Color.WHITE;
+				}
 
+				panel.add(drawStone(coordinates[0], coordinates[1], c));
+				panel.repaint();
+				panel.repaint();
 	
 				//wenn Feld ungueltig
 				if (feld<0) {
@@ -330,16 +337,6 @@ private void reduceSteinCounter(boolean WerAmZug) {
 				
 				//wenn Feld gueltig
 				else { 
-					int[] coordinates= getCoordinates(feld);
-					if(logic.getZug() == true) {
-						c = Color.BLACK;	
-					}
-					else {
-						c = Color.WHITE;
-					}
-
-					panel.add(drawStone(coordinates[0], coordinates[1], c)).repaint();
-					
 
 					//wenn man berechtigt ist einen Stein zu nehmen
 					if (SteinNehmen ==true){
@@ -513,7 +510,6 @@ private void reduceSteinCounter(boolean WerAmZug) {
 		panel.add(SteinCount2);
 		panel.add(InfoSteinCount1);
 		panel.add(InfoSteinCount2);
-		//panel.add(testStein);
 		
 		
 		panel2.setSize(390, 390);
@@ -521,24 +517,15 @@ private void reduceSteinCounter(boolean WerAmZug) {
 		panel2.setBackground(new Color (238,232,170));	
 		panel2.setLayout(null);
 		
-		panel3.setSize(390, 390);
-		panel3.setLocation(290, 170);	
-		panel3.setLayout(null);
-		
 		millBoard = drawMillBoard();
 		//testStein = drawStone();
-		//panel3.add(testStein);
+		//panel.add(testStein);
 
 		panel.add(millBoard);
-		panel2.setVisible(true);
+		//panel2.setVisible(true);
 		panel2.setOpaque(true);
 		panel.add(panel2);
 		frame.add(panel, BorderLayout.CENTER);
-		
-		//panel3.add(testStein);
-		//panel3.setVisible(true);
-		//panel3.setOpaque(true);
-		//panel.add(panel3);
 		
 		
 		newGame.setBounds(800, 25, 150, 25);
@@ -674,15 +661,16 @@ private void reduceSteinCounter(boolean WerAmZug) {
 	{
 		JPaintSpielsteine testStein = new JPaintSpielsteine();
 		
-		testStein.setLocation(x,y);
-		testStein.setSize(30, 30);
+		//testStein.setLocation(15,15);
+		testStein.setSize(1024, 680);
 		//millBoardLines.JPaintComponent.setBackground(Color.WHITE);	
 		testStein.setVisible(true);
 		testStein.setOpaque(true);
 		
+		
+
 						//x1   y1   x2   y2				
 		//testStein.paintObj(new PaintableLine(Color.BLACK, 290, 170, 650, 170));
-		System.out.println("Steinpos:" + x + "\t" + y);
 		testStein.paintObj(new PaintableCircle(c , x, y, 0, 360));
 		
 		return testStein;
