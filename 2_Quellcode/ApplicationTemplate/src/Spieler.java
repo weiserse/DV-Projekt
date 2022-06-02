@@ -3,7 +3,6 @@ import java.io.*;
 /**
  * Class Spieler represents each of the two playing parties 
  * with respective properties like name and remaining pieces.
- * @author Glunz, Zimmermann
  *
  */
 public class Spieler {

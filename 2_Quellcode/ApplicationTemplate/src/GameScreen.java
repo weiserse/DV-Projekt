@@ -594,7 +594,7 @@ private void reduceSteinCounter(boolean WerAmZug) {
 		
 		
 		//Hintergrund festlegen
-		Gras draw = new Gras();
+		Holz draw = new Holz();
 		draw.setBounds(0,0,1024,680);
 		draw.setVisible(true);
 		panel.add(draw);

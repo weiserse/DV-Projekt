@@ -7,8 +7,6 @@ import javax.swing.JLabel;
  * 
  * 		2. the boolean variable "spieler1zug" which states whether it is player one's turn or not.
  * 			This is in order to determine whether an entry in positions will turn to a 1(player 1) or a 2(player 2).
- * 
- * @author Weiser
  *
  */
 public class GameLogic {

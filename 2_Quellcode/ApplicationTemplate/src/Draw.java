@@ -7,12 +7,11 @@ import javax.swing.JLabel;
  * "Draw" shows the background image on the "Gewinner" screen. 
  * An object of the class ImageLoader is created to define the size of the image.
  * 
- * @author Peukert
  */
 
 public class Draw extends JLabel{
 	
-	ImageLoader ilgras = new ImageLoader();
+	ImageLoader ilholz = new ImageLoader();
 	ImageLoader ilfeuer = new ImageLoader();
 	
 	protected void paintComponent (Graphics g) {
@@ -22,7 +21,7 @@ public class Draw extends JLabel{
 		
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		
-		g.drawImage(ilgras.imagegras, 0,0, 600, 600, null);
+		g.drawImage(ilholz.imageholz, 0,0, 600, 600, null);
 		g.drawImage(ilfeuer.imagefeuer, 112, 150, 350, 200, null);
 		
 		repaint();

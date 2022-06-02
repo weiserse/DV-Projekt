@@ -4,14 +4,13 @@ import java.awt.RenderingHints;
 import javax.swing.JLabel;
 
 /**
- * "Gras" shows the background image on the "WelcomeScreen". 
+ * "Holz" shows the background image on the "WelcomeScreen". 
  * An object of the class ImageLoader is created to define the size of the image.
  * 
- * @author Peukert
  */
-public class Gras extends JLabel{
+public class Holz extends JLabel{
 	
-	ImageLoader ilgras = new ImageLoader();
+	ImageLoader ilholz = new ImageLoader();
 	
 	/**
 	 * transforms previously loaded images from ImageLoader into paintable grpahics objects
@@ -23,11 +22,10 @@ public class Gras extends JLabel{
 		
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		
-		g.drawImage(ilgras.imagegras, 0,0, 1024, 680, null);
+		g.drawImage(ilholz.imageholz, 0,0, 1024, 680, null);
 		
 		repaint();
 	
-}
-	
-	
+	}
+		
 }

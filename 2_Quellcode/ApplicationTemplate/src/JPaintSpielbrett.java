@@ -7,7 +7,6 @@ import javax.swing.JComponent;
 
 /**
  * Klasse zum zeichnen des Muehle-Spielbretts
- * @author Glunz, Zimmermann
  *
  */
 public class JPaintSpielbrett extends JComponent{

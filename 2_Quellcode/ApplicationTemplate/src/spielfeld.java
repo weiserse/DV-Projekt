@@ -7,7 +7,6 @@ import javax.swing.JLabel;
  * "spielfeld" shows the background image on the "GameScreen". 
  * An object of the class ImageLoader is created to define the size of the image.
  * 
- * @author Peukert
  */
 public class spielfeld extends JLabel{
 	
