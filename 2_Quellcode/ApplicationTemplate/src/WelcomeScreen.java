@@ -68,7 +68,7 @@ public class WelcomeScreen implements ActionListener{
 	text2.setVisible(true);
 	
 	//LabelSettings
-	headlabel.setBounds(55, 15, 500, 100);
+	headlabel.setBounds(95, 15, 500, 100);
 	headlabel.setFont(new Font("Arial",Font.BOLD,30));
 	headlabel.setForeground(Color.WHITE);
 	labelP1.setBounds(25, 125, 200, 25);
