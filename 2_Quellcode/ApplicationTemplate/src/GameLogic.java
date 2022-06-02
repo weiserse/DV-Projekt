@@ -16,10 +16,13 @@ public class GameLogic {
 	private int anzahlsteinegesetzt = 0;
 	private boolean MuehleJaNein;
 	private int i;
-	private int steinNehmen; 
-	private boolean alleSteineGesetzt;
 	private boolean meinStein; 
 	private boolean SchiebenErlaubt;
+	private boolean alleSteineGesetzt; 
+	private boolean springenErlaubt;
+	private int anzahlSteineSpieler1 = 0;
+	private int anzahlSteineSpieler2 = 0;
+
 
 	
 	/**
@@ -433,5 +436,78 @@ public class GameLogic {
 		 return SchiebenErlaubt;
 			 
 		 }
+	 
+	 /**
+	  * Methode um die Anzahl der Steine eines Spielers um einen zu erhoehen
+	  */
+	 public void AnzahlSteineerhoehen() {
+		 if (spieler1zug) {
+			 anzahlSteineSpieler1 = anzahlSteineSpieler1 + 1;
+		 }
+		 else if(spieler1zug==false) {
+			 anzahlSteineSpieler2 = anzahlSteineSpieler2 + 1;
+		 }
+	 }
+	 
+	 
+	 /**
+	  * Methode um die Anzahl der Steine eines Spielers um einen zu erniedrigen
+	  */
+	 public void AnzahlSteineerniedrigen() {
+		 if (spieler1zug) {
+			 anzahlSteineSpieler2 = anzahlSteineSpieler2 -1;
+		 }
+		 else if(spieler1zug==false){
+			 anzahlSteineSpieler1 = anzahlSteineSpieler1 -1;
+		 }
+	 }
+	 
+	 
+	 /**
+	  * Methode um die Anzahl der Steine eines Spielers zu erhalten
+	  * @return Anzahl der Steine des Spielers
+	  */
+	 public int AnzahlSteineausgeben() {
+		 if (spieler1zug) {
+		 return anzahlSteineSpieler1;
+		 }
+		 else {
+			 return anzahlSteineSpieler2;
+		 }
+	 }
+	 
+	 
+	 /**
+	  * Methode, um zu pruefen, ob ein Spieler springen darf
+	  * @return boolean true, wenn der Spieler springen darf
+	  */
+	 public boolean pruefeSpringen() {
+		 if (spieler1zug==true) {
+			 if (anzahlSteineSpieler1 <4) {
+				// System.out.println(anzahlSteineSpieler1 + "du darfst springen");
+				 springenErlaubt = true;
+		 }
+			 else {
+				// System.out.println(anzahlSteineSpieler1 + "du darfst nicht springen");
+				 springenErlaubt = false;
+			 }
+		 }
+		 else if(spieler1zug==false){
+			 if (anzahlSteineSpieler2 <4) {
+				// System.out.println(anzahlSteineSpieler2 + "du darfst springen");
+				 springenErlaubt = true;
+		 }
+			 else {
+				// System.out.println(anzahlSteineSpieler2 + "du darfst nicht springen");
+				 springenErlaubt = false;
+			 }
+	 }
+		 else {
+			 	springenErlaubt=false;
+		 }
+		 return springenErlaubt;
+	 }
+	 
+
 	 
 }

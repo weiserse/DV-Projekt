@@ -29,7 +29,6 @@ public class GameScreen extends JFrame implements ActionListener{
 	private JButton shortcut;
 	private JPaintSpielbrett millBoard;
 	private JPaintSpielsteine testStein;
-	private boolean spielphasenwechsel;
 	public boolean MuehleJaNein;
 	static Spieler spieler1test;
 	static Spieler spieler2test;
