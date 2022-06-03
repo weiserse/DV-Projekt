@@ -16,10 +16,9 @@ public class GameScreen extends JFrame implements ActionListener{
  
 //Properties
 	private JPanel panel;
-	private JPanel panel2;
 	public static JLabel info;
-	private JLabel Pl1;
-	private JLabel Pl2;
+	private JLabel Player1;
+	private JLabel Player2;
 	private JLabel SteinCount1;
 	private JLabel SteinCount2;
 	private JLabel InfoSteinCount1;
@@ -27,8 +26,6 @@ public class GameScreen extends JFrame implements ActionListener{
 	static JButton newGame;
 	private JFrame frame;
 	private JButton shortcut;
-	private JPaintSpielbrett millBoard;
-	private JPaintSpielsteine testStein;
 	public boolean MuehleJaNein;
 	static Spieler spieler1test;
 	static Spieler spieler2test;
@@ -39,7 +36,7 @@ public class GameScreen extends JFrame implements ActionListener{
 	public boolean SteinNehmenFuerSpringen = true;
 	public static int FeldZumSchieben;
 	public static int FeldZumSpringen;
-
+	private Spielbrett spielbrett;
 
 
 private int[] getCoordinates(int pos) {
@@ -283,27 +280,21 @@ private void reduceSteinCounter(boolean WerAmZug) {
 		GameLogic logic = new GameLogic();
 		spieler1test = spieler1;
 		spieler2test = spieler2;
-		//board = new Spielbrett();
 		frame = new JFrame();
 		panel = new JPanel();
-		panel2 = new JPanel();
 		info = new JLabel();
-		Pl1 = new JLabel(spieler1.getSpielerName());
-		Pl2 = new JLabel(spieler2.getSpielerName());
+		Player1 = new JLabel(spieler1.getSpielerName());
+		Player2 = new JLabel(spieler2.getSpielerName());
 		SteinCount1 = new JLabel("9",SwingConstants.CENTER);
 		SteinCount2 = new JLabel("9",SwingConstants.CENTER);
 		InfoSteinCount1 = new JLabel("Zu setzende Steine",SwingConstants.CENTER);
 		InfoSteinCount2 = new JLabel("Zu setzende Steine",SwingConstants.CENTER);
 		newGame = new JButton("EndScreen");
 		shortcut = new JButton();
-		millBoard = new JPaintSpielbrett();
-		
-		testStein = new JPaintSpielsteine();
-		
+		spielbrett = new Spielbrett(logic);
 	
-		//frame.add(board);
+
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//frame.pack();
 		frame.setSize(1024, 680);
 		frame.setLocationRelativeTo(null);
 		frame.setTitle("Mühle");
@@ -335,8 +326,6 @@ private void reduceSteinCounter(boolean WerAmZug) {
 					else {
 						c = Color.WHITE;
 					}
-
-					panel.add(drawStone(coordinates[0], coordinates[1], c)).repaint();
 
 
 					//wenn man berechtigt ist einen Stein zu nehmen
@@ -572,29 +561,20 @@ private void reduceSteinCounter(boolean WerAmZug) {
 		panel.setVisible(true);
 		panel.setOpaque(true);
 		panel.add(info);
-		panel.add(Pl1);
-		panel.add(Pl2);
+		panel.add(Player1);
+		panel.add(Player2);
 		panel.add(newGame);
 		panel.add(shortcut);
 		panel.add(SteinCount1);
 		panel.add(SteinCount2);
 		panel.add(InfoSteinCount1);
 		panel.add(InfoSteinCount2);
+		panel.add(spielbrett);
 		
-		
-		panel2.setSize(390, 390);
-		panel2.setLocation(290, 170);
-		panel2.setBackground(new Color (238,232,170));	
-		panel2.setLayout(null);
-		
-		millBoard = drawMillBoard();
-		//testStein = drawStone();
-		//panel.add(testStein);
-
-		panel.add(millBoard);
-		panel2.setVisible(true);
-		panel2.setOpaque(true);
-		panel.add(panel2);
+		spielbrett.setSize(1024,680);
+		spielbrett.setLocation(0, 0);
+		spielbrett.setVisible(true);
+		spielbrett.setOpaque(true);
 		frame.add(panel, BorderLayout.CENTER);
 		
 		
@@ -645,110 +625,25 @@ private void reduceSteinCounter(boolean WerAmZug) {
 		InfoSteinCount2.setVisible(true);
 		InfoSteinCount2.setOpaque(true);
 		
-		Pl1.setBounds(275, 125, 450, 30);
-		Pl1.setBackground(new Color (214,214,214));
-		Pl1.setVisible(true);
-		Pl1.setOpaque(true);
+		Player1.setBounds(275, 125, 450, 30);
+		Player1.setBackground(new Color (214,214,214));
+		Player1.setVisible(true);
+		Player1.setOpaque(true);
 
-		Pl2.setBounds(275, 600, 450, 30);
-		Pl2.setBackground(new Color (214,214,214));
-		Pl2.setVisible(true);
-		Pl2.setOpaque(true);
+		Player2.setBounds(275, 600, 450, 30);
+		Player2.setBackground(new Color (214,214,214));
+		Player2.setVisible(true);
+		Player2.setOpaque(true);
 		
-		//Spielfeld anzeigen
-		/*spielfeld draw2 = new spielfeld();
-		draw2.setBounds(0,0,1024,680);
-		draw2.setVisible(true);
-		panel.add(draw2);*/
+//Hintergrund festlegen
+		Holz draw = new Holz();
+		draw.setBounds(0,0,1024,680);
+		draw.setVisible(true);
+		panel.add(draw);
 		
-		
-		
-		//Hintergrund festlegen
-		//Holz draw = new Holz();
-		//draw.setBounds(0,0,1024,680);
-		//draw.setVisible(true);
-		//panel.add(draw);
-		
-
-				
 		frame.setVisible(true);
-		//panel.setVisible(true);
-		//Gewinner endscreen = new Gewinner(spieler1, spieler2);
-
-		
 	}
 	
-	private Color rgb(int i, int j, int k) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	
-	/**
-	 * Constructs and initializes the game board from Class JPaintComponent
-	 */
-	public JPaintSpielbrett drawMillBoard()
-	{
-		JPaintSpielbrett millBoardLines = new JPaintSpielbrett();
-		
-		millBoardLines.setLocation(15,15);
-		millBoardLines.setSize(1024, 680);
-		//millBoardLines.JPaintComponent.setBackground(Color.WHITE);	
-		millBoardLines.setVisible(true);
-		millBoardLines.setOpaque(true);
-		
-		//Linien des Spielfeldes 
-		
-		//Linien horizintal
-																//x1   y1   x2   y2				
-		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 290, 170, 650, 170));
-		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 350, 230, 590, 230));
-		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 410, 290, 530, 290));
-		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 410, 410, 530, 410));	
-		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 350, 470, 590, 470));
-		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 290, 530, 650, 530));
-		
-		//Halbe Verbindungslinien
-		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 290, 350, 410, 350));
-		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 530, 350, 650, 350));
-		
-		//Linien vertikal
-		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 290, 170, 290, 530));
-		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 350, 230, 350, 470));
-		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 410, 290, 410, 410));
-		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 530, 290, 530, 410));
-		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 590, 230, 590, 470));
-		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 650, 170, 650, 530));
-		
-		//Halbe Verbindungslinien
-		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 470, 170, 470, 290));
-		millBoardLines.paintObj(new PaintableLine(Color.BLACK, 470, 410, 470, 530));
-		
-		return millBoardLines;
-	}
-
-	public JPaintSpielsteine drawStone(int x, int y, Color c)
-	{
-		JPaintSpielsteine testStein = new JPaintSpielsteine();
-		
-		testStein.setLocation(x,y);
-		testStein.setSize(30, 30);
-		//millBoardLines.JPaintComponent.setBackground(Color.WHITE);	
-		testStein.setVisible(true);
-		testStein.setOpaque(true);
-		
-		
-
-						//x1   y1   x2   y2				
-		//testStein.paintObj(new PaintableLine(Color.BLACK, 290, 170, 650, 170));
-		System.out.println("Steinpos:" + x + "\t" + y);
-		testStein.paintObj(new PaintableCircle(c , x, y, 0, 360));
-		
-		return testStein;
-	}
-
-
-
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
