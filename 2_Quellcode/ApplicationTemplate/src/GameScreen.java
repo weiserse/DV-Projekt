@@ -306,12 +306,7 @@ private void reduceSteinCounter(boolean WerAmZug) {
 				//Steine zeichnen
 				feld=feldclicked(e.getX(),e.getY());
 				Color c;
-				//System.out.println(feld + "\t");
-				
-				//System.out.println("x: " + coordinates[0] + " y: " + coordinates[1]);
-				
-
-	
+		
 				//wenn Feld ungueltig
 				if (feld<0) {
 					info.setText("Klicke auf ein gültiges Feld.");
@@ -350,6 +345,7 @@ private void reduceSteinCounter(boolean WerAmZug) {
 						SteinNehmen=false; 
 						MuehleJaNein=false;
 						logic.AnzahlSteineerniedrigen();
+						logic.pruefeGewinnen();
 						logic.changeZug();
 						logic.anDerReihe();
 						}
@@ -414,6 +410,7 @@ private void reduceSteinCounter(boolean WerAmZug) {
 								System.out.println("");
 								SteinNehmenFuerSpringen=false;
 								FeldZumSpringen = feld;
+								info.setText("Setze den Stein auf ein freies Feld");
 							}
 							
 							//wenn der angeklickte Stein nicht der eigene ist
@@ -477,6 +474,7 @@ private void reduceSteinCounter(boolean WerAmZug) {
 							}
 							SteinNehmenFuerSetzen = false;
 							FeldZumSchieben = feld;
+							info.setText("Setze den Stein auf ein benachbartes Feld");
 						}
 						
 						//wenn der angeklickte Stein nicht der eigene ist

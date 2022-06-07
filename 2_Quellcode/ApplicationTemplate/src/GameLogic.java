@@ -22,6 +22,7 @@ public class GameLogic {
 	private boolean springenErlaubt;
 	private int anzahlSteineSpieler1 = 0;
 	private int anzahlSteineSpieler2 = 0;
+	private boolean Gewonnen = false;
 
 
 	
@@ -357,76 +358,76 @@ public class GameLogic {
 	  */
 	 public boolean pruefeSchieben(int x) {
 		 
-		 if(x==0 && (GameScreen.FeldZumSchieben ==1)|| (GameScreen.FeldZumSchieben ==7)) {
+		 if(x==0 && ((GameScreen.FeldZumSchieben ==1)|| (GameScreen.FeldZumSchieben ==7))) {
 			 SchiebenErlaubt=true;
 		 }
-			 else if (x==1 && (GameScreen.FeldZumSchieben ==0)|| (GameScreen.FeldZumSchieben ==9) || (GameScreen.FeldZumSchieben ==2)) {
+			 else if (x==1 && ((GameScreen.FeldZumSchieben ==0)|| (GameScreen.FeldZumSchieben ==9) || (GameScreen.FeldZumSchieben ==2))) {
 				 SchiebenErlaubt=true;
 			 }
-			 else if (x==2 && (GameScreen.FeldZumSchieben ==1)|| (GameScreen.FeldZumSchieben ==3)) {
+			 else if (x==2 && ((GameScreen.FeldZumSchieben ==1)|| (GameScreen.FeldZumSchieben ==3))) {
 				 SchiebenErlaubt=true;
 			 }
-			 else if (x==3 && (GameScreen.FeldZumSchieben ==2)|| (GameScreen.FeldZumSchieben ==11) || (GameScreen.FeldZumSchieben ==4)) {
+			 else if (x==3 && ((GameScreen.FeldZumSchieben ==2)|| (GameScreen.FeldZumSchieben ==11) || (GameScreen.FeldZumSchieben ==4))) {
 				 SchiebenErlaubt=true;
 			 }
-			 else if (x==4 && (GameScreen.FeldZumSchieben ==3)|| (GameScreen.FeldZumSchieben ==5)) {
+			 else if (x==4 && ((GameScreen.FeldZumSchieben ==3)|| (GameScreen.FeldZumSchieben ==5))) {
 				 SchiebenErlaubt=true;
 			 }
-			 else if (x==5 && (GameScreen.FeldZumSchieben ==4)|| (GameScreen.FeldZumSchieben ==6) || (GameScreen.FeldZumSchieben ==13)) {
+			 else if (x==5 && ((GameScreen.FeldZumSchieben ==4)|| (GameScreen.FeldZumSchieben ==6) || (GameScreen.FeldZumSchieben ==13))) {
 				 SchiebenErlaubt=true;
 			 }
-			 else if (x==6 && (GameScreen.FeldZumSchieben ==5)|| (GameScreen.FeldZumSchieben ==7)) {
+			 else if (x==6 && ((GameScreen.FeldZumSchieben ==5)|| (GameScreen.FeldZumSchieben ==7))) {
 				 SchiebenErlaubt=true;
 			 }
-			 else if (x==7 && (GameScreen.FeldZumSchieben ==0)|| (GameScreen.FeldZumSchieben ==15) || (GameScreen.FeldZumSchieben ==6)) {
+			 else if (x==7 && ((GameScreen.FeldZumSchieben ==0)|| (GameScreen.FeldZumSchieben ==15) || (GameScreen.FeldZumSchieben ==6))) {
 				 SchiebenErlaubt=true;
 			 }
-			 else if (x==8 && (GameScreen.FeldZumSchieben ==9)|| (GameScreen.FeldZumSchieben ==15)) {
+			 else if (x==8 && ((GameScreen.FeldZumSchieben ==9)|| (GameScreen.FeldZumSchieben ==15))) {
 				 SchiebenErlaubt=true;
 			 }
-			 else if (x==9 && (GameScreen.FeldZumSchieben ==1)|| (GameScreen.FeldZumSchieben ==8) || (GameScreen.FeldZumSchieben ==10) || (GameScreen.FeldZumSchieben ==17)) {
+			 else if (x==9 && ((GameScreen.FeldZumSchieben ==1)|| (GameScreen.FeldZumSchieben ==8) || (GameScreen.FeldZumSchieben ==10) || (GameScreen.FeldZumSchieben ==17))) {
 				 SchiebenErlaubt=true;
 			 }
-			 else if (x==10 && (GameScreen.FeldZumSchieben ==9)|| (GameScreen.FeldZumSchieben ==11)) {
+			 else if (x==10 && ((GameScreen.FeldZumSchieben ==9)|| (GameScreen.FeldZumSchieben ==11))) {
 				 SchiebenErlaubt=true;
 			 }
-			 else if (x==11 && (GameScreen.FeldZumSchieben ==3)|| (GameScreen.FeldZumSchieben ==10) || (GameScreen.FeldZumSchieben ==12) || (GameScreen.FeldZumSchieben ==19)) {
+			 else if (x==11 && ((GameScreen.FeldZumSchieben ==3)|| (GameScreen.FeldZumSchieben ==10) || (GameScreen.FeldZumSchieben ==12) || (GameScreen.FeldZumSchieben ==19))) {
 				 SchiebenErlaubt=true;
 			 }
-			 else if (x==12 && (GameScreen.FeldZumSchieben ==11)|| (GameScreen.FeldZumSchieben ==13)) {
+			 else if (x==12 && ((GameScreen.FeldZumSchieben ==11)|| (GameScreen.FeldZumSchieben ==13))) {
 				 SchiebenErlaubt=true;
 			 }
-			 else if (x==13 && (GameScreen.FeldZumSchieben ==5)|| (GameScreen.FeldZumSchieben ==12) || (GameScreen.FeldZumSchieben ==14) || (GameScreen.FeldZumSchieben ==21)) {
+			 else if (x==13 && ((GameScreen.FeldZumSchieben ==5)|| (GameScreen.FeldZumSchieben ==12) || (GameScreen.FeldZumSchieben ==14) || (GameScreen.FeldZumSchieben ==21))) {
 				 SchiebenErlaubt=true;
 			 }
 			 else if (x==14 && (GameScreen.FeldZumSchieben ==13)|| (GameScreen.FeldZumSchieben ==15)) {
 				 SchiebenErlaubt=true;
 			 }
-			 else if (x==15 && (GameScreen.FeldZumSchieben ==7)|| (GameScreen.FeldZumSchieben ==8) || (GameScreen.FeldZumSchieben ==14) || (GameScreen.FeldZumSchieben ==23)) {
+			 else if (x==15 && ((GameScreen.FeldZumSchieben ==7)|| (GameScreen.FeldZumSchieben ==8) || (GameScreen.FeldZumSchieben ==14) || (GameScreen.FeldZumSchieben ==23))) {
 				 SchiebenErlaubt=true;
 			 }
-			 else if (x==16 && (GameScreen.FeldZumSchieben ==17)|| (GameScreen.FeldZumSchieben ==23)) {
+			 else if (x==16 && ((GameScreen.FeldZumSchieben ==17)|| (GameScreen.FeldZumSchieben ==23))) {
 				 SchiebenErlaubt=true;
 			 }
-			 else if (x==17 && (GameScreen.FeldZumSchieben ==9)|| (GameScreen.FeldZumSchieben ==16) || (GameScreen.FeldZumSchieben ==18)) {
+			 else if (x==17 && ((GameScreen.FeldZumSchieben ==9)|| (GameScreen.FeldZumSchieben ==16) || (GameScreen.FeldZumSchieben ==18))) {
 				 SchiebenErlaubt=true;
 			 }
-			 else if (x==18 && (GameScreen.FeldZumSchieben ==17)|| (GameScreen.FeldZumSchieben ==19)) {
+			 else if (x==18 && ((GameScreen.FeldZumSchieben ==17)|| (GameScreen.FeldZumSchieben ==19))) {
 				 SchiebenErlaubt=true;
 			 }
-			 else if (x==19 && (GameScreen.FeldZumSchieben ==18)|| (GameScreen.FeldZumSchieben ==20) || (GameScreen.FeldZumSchieben ==11)) {
+			 else if (x==19 && ((GameScreen.FeldZumSchieben ==18)|| (GameScreen.FeldZumSchieben ==20) || (GameScreen.FeldZumSchieben ==11))) {
 				 SchiebenErlaubt=true;
 			 }
-			 else if (x==20 && (GameScreen.FeldZumSchieben ==19)|| (GameScreen.FeldZumSchieben ==21)) {
+			 else if (x==20 && ((GameScreen.FeldZumSchieben ==19)|| (GameScreen.FeldZumSchieben ==21))) {
 				 SchiebenErlaubt=true;
 			 }
-			 else if (x==21 && (GameScreen.FeldZumSchieben ==13)|| (GameScreen.FeldZumSchieben ==20) || (GameScreen.FeldZumSchieben ==22)) {
+			 else if (x==21 && ((GameScreen.FeldZumSchieben ==13)|| (GameScreen.FeldZumSchieben ==20) || (GameScreen.FeldZumSchieben ==22))) {
 				 SchiebenErlaubt=true;
 			 }
-			 else if (x==22 && (GameScreen.FeldZumSchieben ==21)|| (GameScreen.FeldZumSchieben ==23)) {
+			 else if (x==22 && ((GameScreen.FeldZumSchieben ==21)|| (GameScreen.FeldZumSchieben ==23))) {
 				 SchiebenErlaubt=true;
 			 }
-			 else if (x==23 && (GameScreen.FeldZumSchieben ==15)|| (GameScreen.FeldZumSchieben ==16) || (GameScreen.FeldZumSchieben ==22)) {
+			 else if (x==23 && ((GameScreen.FeldZumSchieben ==15)|| (GameScreen.FeldZumSchieben ==16) || (GameScreen.FeldZumSchieben ==22))) {
 				 SchiebenErlaubt=true;
 			 }
 			 else {
@@ -484,30 +485,46 @@ public class GameLogic {
 	 public boolean pruefeSpringen() {
 		 if (spieler1zug==true) {
 			 if (anzahlSteineSpieler1 <4) {
-				// System.out.println(anzahlSteineSpieler1 + "du darfst springen");
 				 springenErlaubt = true;
 		 }
 			 else {
-				// System.out.println(anzahlSteineSpieler1 + "du darfst nicht springen");
 				 springenErlaubt = false;
 			 }
 		 }
-		 else if(spieler1zug==false){
+		 else {
 			 if (anzahlSteineSpieler2 <4) {
-				// System.out.println(anzahlSteineSpieler2 + "du darfst springen");
 				 springenErlaubt = true;
 		 }
 			 else {
-				// System.out.println(anzahlSteineSpieler2 + "du darfst nicht springen");
 				 springenErlaubt = false;
 			 }
 	 }
-		 else {
-			 	springenErlaubt=false;
-		 }
 		 return springenErlaubt;
 	 }
 	 
+	 /**
+	  * Methode, um zu pruefen, ob ein Spieler gewonnen hat
+	  * @return boolean true, wenn ein Spieler gewonnen hat
+	  */
+	 public boolean pruefeGewinnen() {
 
+		 if (spieler1zug==true) {
+			 if (anzahlSteineSpieler2 <3) {
+				 Gewonnen = true;
+		 }
+			 else {
+				 Gewonnen = false;
+			 }
+		 }
+		 else {
+			 if (anzahlSteineSpieler1 <3) {
+				 Gewonnen = true;
+		 }
+			 else {
+				 Gewonnen = false;
+			 }
+	 }
+		 return Gewonnen;
+	 }
 	 
 }
