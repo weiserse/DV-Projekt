@@ -346,6 +346,19 @@ private void reduceSteinCounter(boolean WerAmZug) {
 						MuehleJaNein=false;
 						logic.AnzahlSteineerniedrigen();
 						logic.pruefeGewinnen();
+							if (logic.pruefeGewinnen()==true && logic.alleSteineGesetzt()==true) 
+							{
+								if(logic.getZug()==true)
+								{
+									frame.dispose();
+									Gewinner endscreen = new Gewinner(spieler1test, spieler2test, spieler1test.getSpielerName());
+								}
+								else if(logic.getZug()==false)
+								{
+									frame.dispose();
+									Gewinner endscreen = new Gewinner(spieler1test, spieler2test, spieler2test.getSpielerName());
+								}
+							}
 						logic.changeZug();
 						logic.anDerReihe();
 						}
@@ -647,7 +660,7 @@ private void reduceSteinCounter(boolean WerAmZug) {
 	public void actionPerformed(ActionEvent e) {
 		frame.dispose();
 		
-		Gewinner endscreen = new Gewinner(spieler1test, spieler2test);
+		Gewinner endscreen = new Gewinner(spieler1test, spieler2test, "nobody");
 		
 	}
 }
