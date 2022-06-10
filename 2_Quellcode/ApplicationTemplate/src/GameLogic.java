@@ -90,7 +90,7 @@ public class GameLogic {
 	 
 	 
 	 /**
-	  * Methode, um zu erkennen, welcher Spieler an der Reihe ist
+	  * method to identify which player's turn it is with output on the info panel
 	  */
 	 public void anDerReihe() {
 		 if (spieler1zug == true) {
@@ -114,8 +114,8 @@ public class GameLogic {
 	 
 	 
 	 /**
-	  * get Methode fuer die Anzahl der Steine, die gesetzt wurden
-	  * @return Anzahl der gesetzten Steine.
+	  * get method for the number of stones a player has placed
+	  * @return number of stones
 	  */
 	 public int getAnzahl() {
 		 return anzahlsteinegesetzt;
@@ -123,8 +123,8 @@ public class GameLogic {
 	 
 	 
 	 /**
-	  * Methode zur Ueberpruefung, ob alle 9 Steine bereits gesetzt sind
-	  * @return boolean true, wenn alle Steine gesetzt sind
+	  * Method to check if all 9 stones are set
+	  * @return boolean true, if all stones are set
 	  */
 	 public boolean alleSteineGesetzt() {
 		 if (anzahlsteinegesetzt >8) {
@@ -137,9 +137,9 @@ public class GameLogic {
 	 
 	 
 	 /**
-	  * Methode, um zu pruefen, ob der angeklickte Stein einem selbst gehoert
-	  * @return wenn der angeklikcte Stein einem selbst gehoert, Rueckgabe true, ansonsten Rueckgabe false
-	  * @param x Position im Array auf welche man geklickt hat
+	  * method to check if the stone the player has clicked on is one of his own
+	  * @return boolean true, if it's the players stone
+	  * @param x place in positions[] the player clicked on
 	  */
 	 public boolean meinStein(int x) {
 		 if ((spieler1zug==true && x==1) || (spieler1zug==false && x==2)) {
@@ -153,9 +153,9 @@ public class GameLogic {
 
 	 
 	 /**
-	  * Methode zur Ueberpruefung einer Muehle
-	  * @return boolean true, wenn es eine Muehle gibt, false, wenn es keine Muehle gibt.
-	  * @param x Position im Array auf welche man geklickt hat
+	  * method for checking a mill
+	  * @return boolean true, if the player has set a mill
+	  * @param x place in positions[] the player clicked on
 	  */
 	 public boolean pruefeMuehle (int x) {
 
@@ -226,9 +226,9 @@ public class GameLogic {
 	 
 	 
 	 /**
-	  * Methode, die angibt, ob der Stein in einer bestehenden Muehle liegt
-	  *  @return boolean true, wenn er in einer Muehle liegt, false, wenn er nicht in einer Muhele liegt
-	  *  @param x Position im Array auf welche man geklickt hat
+	  * method to check if the stone a player wants to take is in an existing mill
+	  *  @return boolean true, if the stone is in a mill
+	  *  @param x place in positions[] the player clicked on
 	  */
 	 public boolean pruefeMuehlevorhanden (int x) {
 		 if (spieler1zug==true) {
@@ -296,8 +296,8 @@ public class GameLogic {
 	 
 	 
 	 /**
-	  * Methode, um einen Stein vom Gegner zu nehmen
-	  * @param x Position im Array auf welche man geklickt hat, diese soll auf 0 gesetzt werden
+	  * method to take a stone from the other player
+	  * @param x place in positions[] the player clicked on
 	  */
 	 public void steinNehmen(int x) {
 		
@@ -323,8 +323,8 @@ public class GameLogic {
 	 
 	 
 	 /**
-	  * Methode, um einen eigenen Stein zu nehmen, um ihn wo anders wieder zu setzen 
-	  * @param x Position im Array auf welche man geklickt hat, diese soll auf 0 gesetzt werden
+	  * method of taking ones's own stone
+	  * @param x place in positions[] the player clicked on
 	  */
 	 public void eigenenSteinNehmen(int x) {
 		
@@ -352,9 +352,9 @@ public class GameLogic {
 	 
 	 
 	 /**
-	  * Methode, die angibt, zu welchen Feldern man einen Stein verschieben darf
-	  * @param x Position im Array auf welche man geklickt hat 
-	  * @return true, wenn man auf das Feld schieben darf
+	  * method that specifies on which fields a stone can be moved
+	  * @param x place in positions[] the player clicked on 
+	  * @return boolean true, if the player is allowed to move to the clicked field
 	  */
 	 public boolean pruefeSchieben(int x) {
 		 
@@ -439,7 +439,7 @@ public class GameLogic {
 		 }
 	 
 	 /**
-	  * Methode um die Anzahl der Steine eines Spielers um einen zu erhoehen
+	  * method to increase the number of a player's stones by one
 	  */
 	 public void AnzahlSteineerhoehen() {
 		 if (spieler1zug) {
@@ -452,7 +452,7 @@ public class GameLogic {
 	 
 	 
 	 /**
-	  * Methode um die Anzahl der Steine eines Spielers um einen zu erniedrigen
+	  * method to decrease the number of a player's stones by one
 	  */
 	 public void AnzahlSteineerniedrigen() {
 		 if (spieler1zug) {
@@ -465,8 +465,8 @@ public class GameLogic {
 	 
 	 
 	 /**
-	  * Methode um die Anzahl der Steine eines Spielers zu erhalten
-	  * @return Anzahl der Steine des Spielers
+	  * get method for the number of stones of a player
+	  * @return the number of stones of the player
 	  */
 	 public int AnzahlSteineausgeben() {
 		 if (spieler1zug) {
@@ -479,8 +479,8 @@ public class GameLogic {
 	 
 	 
 	 /**
-	  * Methode, um zu pruefen, ob ein Spieler springen darf
-	  * @return boolean true, wenn der Spieler springen darf
+	  * method to check if a player is allowed to jump
+	  * @return boolean true, if the player is allowed to jump
 	  */
 	 public boolean pruefeSpringen() {
 		 if (spieler1zug==true) {
@@ -503,8 +503,8 @@ public class GameLogic {
 	 }
 	 
 	 /**
-	  * Methode, um zu pruefen, ob ein Spieler gewonnen hat
-	  * @return boolean true, wenn ein Spieler gewonnen hat
+	  * method to check, if a player has won
+	  * @return boolean true, if the player has won
 	  */
 	 public boolean pruefeGewinnen() {
 
