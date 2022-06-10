@@ -1,4 +1,6 @@
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -48,10 +50,19 @@ public class Gewinner{
 		lbspielernamen.setVisible(true);
 		frame.add(lbspielernamen); //Label dem Fenster hinzufuegen 
 						
-		JButton btnstatistik = new JButton ("Gewinnstatistik"); //neuen Button fuer die Gewinnstatistik erstellen
-		btnstatistik.setBounds(225, 300, 150, 45); // Groesse festlegen
-		btnstatistik.setVisible(true);
-		frame.add(btnstatistik); //Button dem Panel hinzufuegen
+		JButton newGame = new JButton ("Neues Spiel"); //neuen Button fuer die Gewinnstatistik erstellen
+		newGame.setBounds(225, 300, 150, 45); // Groesse festlegen
+		newGame.setVisible(true);
+		newGame.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				frame.dispose();
+				WelcomeScreen welcome = new WelcomeScreen();
+			}
+		});
+		
+		frame.add(newGame); //Button dem Panel hinzufuegen
 	
 		Draw draw = new Draw(); //Hintergrundbild Gras und Feuerwerk hinzufuegen
 		draw.setVisible(true); //Hintergrundbild anzeigen
