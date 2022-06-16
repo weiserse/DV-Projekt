@@ -15,6 +15,7 @@ import java.awt.event.MouseListener;
 public class GameScreen extends JFrame implements ActionListener{
  
 //Properties
+	private GameLogic logic;
 	private JPanel panel;
 	public static JLabel info;
 	private JLabel Player1;
@@ -251,8 +252,9 @@ private int feldclicked(int X, int Y)
  * method to update the counter of pieces yet to be placed.
  * Each time a player sets a piece, their respective counter is reduced by 1.
  * @param WerAmZug boolean value depending on whether player one is to play or not.
+ * @param pos positions array, which indicates the number of remaining pieces of each player.
  */
-private void reduceSteinCounter(boolean WerAmZug) {
+private void reduceSteinCounter(boolean WerAmZug, int[] pos) {
 	if(WerAmZug==true) 
 	{
 		if (spieler1test.getNumSteine()>0)
@@ -260,12 +262,19 @@ private void reduceSteinCounter(boolean WerAmZug) {
 			spieler1test.decNumSteine();
 			SteinCount1.setText(Integer.toString(spieler1test.getNumSteine()));
 		}
-//		else if(spieler1test.getNumSteine()==0)
-//		{
-//			InfoSteinCount1.setText("Verbleibende Spielsteine");
-//			for 
-//			SteinCount1.setText
-//		}
+		else if (spieler1test.getNumSteine()==0)
+		{
+			InfoSteinCount1.setText("Verbleibende Steine");
+			int x = 0;
+			for (int i=0; i<pos.length; i++)
+			{
+				if(pos[i]==1)
+				{
+					x++;
+				}
+			}
+			SteinCount1.setText(Integer.toString(x));
+		}
 	}
 	else if(WerAmZug==false)
 	{
@@ -273,6 +282,19 @@ private void reduceSteinCounter(boolean WerAmZug) {
 		{
 			spieler2test.decNumSteine();
 			SteinCount2.setText(Integer.toString(spieler2test.getNumSteine()));
+		}
+		else if (spieler2test.getNumSteine()==0)
+		{
+			InfoSteinCount2.setText("Verbleibende Steine");
+			int x = 0;
+			for (int i=0; i<pos.length; i++)
+			{
+				if(pos[i]==2)
+				{
+					x++;
+				}
+			}
+			SteinCount2.setText(Integer.toString(x));
 		}
 	}
 }
@@ -342,12 +364,13 @@ private void reduceSteinCounter(boolean WerAmZug) {
 						else {
 						logic.steinNehmen(feld);
 						int [] paktuell = logic.getPositions();
-						for (int i=0; i<24; i++)
-						{
-							System.out.print(paktuell[i]+ " ");
-						}
-						System.out.println("");{
-						}
+						reduceSteinCounter(logic.getZug(),logic.getPositions());
+//						for (int i=0; i<24; i++)
+//						{
+//							System.out.print(paktuell[i]+ " ");
+//						}
+//						System.out.println("");{
+//						}
 						SteinNehmen=false; 
 						MuehleJaNein=false;
 						logic.AnzahlSteineerniedrigen();
@@ -379,15 +402,15 @@ private void reduceSteinCounter(boolean WerAmZug) {
 						
 						logic.setPosition(feld);
 						int [] paktuell = logic.getPositions();
-						for (int i=0; i<24; i++)
-						{
-							System.out.print(paktuell[i]+ " ");
-						}
-							System.out.println("");{
-							}
+//						for (int i=0; i<24; i++)
+//						{
+//							System.out.print(paktuell[i]+ " ");
+//						}
+//							System.out.println("");
+							
 							logic.AnzahlSteineerhoehen();
 							MuehleJaNein = logic.pruefeMuehle(feld);
-							reduceSteinCounter(logic.getZug());
+							reduceSteinCounter(logic.getZug(),logic.getPositions());
 					
 							//wenn man keine Muehle hat
 							if (MuehleJaNein ==false) {	
@@ -419,14 +442,16 @@ private void reduceSteinCounter(boolean WerAmZug) {
 							boolean eigenerStein = logic.meinStein(logic.getPositions(feld));
 							
 							//wenn der angeklickte Stein der eigene ist
-							if(eigenerStein == true) {
-								logic.eigenenSteinNehmen(feld);;
+							if(eigenerStein == true) 
+							{
+								logic.eigenenSteinNehmen(feld);
 								int[] paktuell = logic.getPositions();
-								for (int i=0; i<24; i++)
-								{
-									System.out.print(paktuell[i]+ " ");
-								}
-								System.out.println("");
+								//reduceSteinCounter(logic.getZug(),logic.getPositions());
+//								for (int i=0; i<24; i++)
+//								{
+//									System.out.print(paktuell[i]+ " ");
+//								}
+//								System.out.println("");
 								SteinNehmenFuerSpringen=false;
 								FeldZumSpringen = feld;
 								info.setText("Setze den Stein auf ein freies Feld");
@@ -443,12 +468,13 @@ private void reduceSteinCounter(boolean WerAmZug) {
 						if(logic.getPositions(feld)==0) {
 							logic.setPosition(feld);
 							int [] paktuell = logic.getPositions();
-							for (int i=0; i<24; i++)
-							{
-								System.out.print(paktuell[i]+ " ");
-							}
-								System.out.println("");{
-								}
+							reduceSteinCounter(logic.getZug(), logic.getPositions());
+//							for (int i=0; i<24; i++)
+//							{
+//								System.out.print(paktuell[i]+ " ");
+//							}
+//								System.out.println("");{
+//								}
 							
 							//pruefen, ob man jetzt eine Muehle hat
 							MuehleJaNein = logic.pruefeMuehle(feld);
@@ -485,12 +511,13 @@ private void reduceSteinCounter(boolean WerAmZug) {
 						if (eigenerStein == true) {
 							logic.eigenenSteinNehmen(feld);
 							int [] paktuell = logic.getPositions();
-							for (int i=0; i<24; i++)
-							{
-								System.out.print(paktuell[i]+ " ");
-							}
-							System.out.println("");{
-							}
+							reduceSteinCounter(logic.getZug(),logic.getPositions());
+//							for (int i=0; i<24; i++)
+//							{
+//								System.out.print(paktuell[i]+ " ");
+//							}
+//							System.out.println("");{
+//							}
 							SteinNehmenFuerSetzen = false;
 							FeldZumSchieben = feld;
 							info.setText("Setze den Stein auf ein benachbartes Feld");
@@ -511,12 +538,13 @@ private void reduceSteinCounter(boolean WerAmZug) {
 							
 							logic.setPosition(feld);
 							int [] paktuell = logic.getPositions();
-							for (int i=0; i<24; i++)
-							{
-								System.out.print(paktuell[i]+ " ");
-							}
-								System.out.println("");{
-								}
+							reduceSteinCounter(logic.getZug(),logic.getPositions());
+//							for (int i=0; i<24; i++)
+//							{
+//								System.out.print(paktuell[i]+ " ");
+//							}
+//								System.out.println("");
+								
 								
 							//pruefen, ob man jetzt eine Muehle hat
 							MuehleJaNein = logic.pruefeMuehle(feld);
@@ -607,7 +635,7 @@ private void reduceSteinCounter(boolean WerAmZug) {
 			}
 		});
 		
-		shortcut.setBounds(800,350,120,35);
+		shortcut.setBounds(20,25,120,35);
 		shortcut.setText("EndScreen");
 		shortcut.addActionListener(this);
 		

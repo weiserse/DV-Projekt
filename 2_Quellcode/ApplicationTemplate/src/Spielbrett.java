@@ -113,11 +113,11 @@ public Spielbrett(GameLogic logic){
 		g2D.drawLine( 485, 185, 485, 305);
 		g2D.drawLine( 485, 425, 485, 545);
 		
-		for (int i=0; i<24; i++)
-		{
-			System.out.print(positions[i]+ " ");
-		}
-		System.out.println("");
+//		for (int i=0; i<24; i++)
+//		{
+//			System.out.print(positions[i]+ " ");
+//		}
+//		System.out.println("");
 		
 		for (int i=0; i<24; i++) {
 			if (positions[i]==1) {

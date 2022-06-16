@@ -463,7 +463,6 @@ public class GameLogic {
 		 }
 	 }
 	 
-	 
 	 /**
 	  * get method for the number of stones of a player
 	  * @return the number of stones of the player
