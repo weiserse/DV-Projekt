@@ -255,18 +255,24 @@ private int feldclicked(int X, int Y)
 private void reduceSteinCounter(boolean WerAmZug) {
 	if(WerAmZug==true) 
 	{
-		if (Integer.parseInt(SteinCount1.getText())>0)
+		if (spieler1test.getNumSteine()>0)
 		{
-			int newText = Integer.parseInt(SteinCount1.getText())-1;
-			SteinCount1.setText(Integer.toString(newText));
+			spieler1test.decNumSteine();
+			SteinCount1.setText(Integer.toString(spieler1test.getNumSteine()));
 		}
+//		else if(spieler1test.getNumSteine()==0)
+//		{
+//			InfoSteinCount1.setText("Verbleibende Spielsteine");
+//			for 
+//			SteinCount1.setText
+//		}
 	}
 	else if(WerAmZug==false)
 	{
-		if (Integer.parseInt(SteinCount2.getText())>0)
+		if (spieler2test.getNumSteine()>0)
 		{
-			int newText = Integer.parseInt(SteinCount2.getText())-1;
-			SteinCount2.setText(Integer.toString(newText));
+			spieler2test.decNumSteine();
+			SteinCount2.setText(Integer.toString(spieler2test.getNumSteine()));
 		}
 	}
 }
@@ -285,8 +291,8 @@ private void reduceSteinCounter(boolean WerAmZug) {
 		info = new JLabel();
 		Player1 = new JLabel(spieler1.getSpielerName());
 		Player2 = new JLabel(spieler2.getSpielerName());
-		SteinCount1 = new JLabel("9",SwingConstants.CENTER);
-		SteinCount2 = new JLabel("9",SwingConstants.CENTER);
+		SteinCount1 = new JLabel(Integer.toString(spieler1.getNumSteine()),SwingConstants.CENTER);
+		SteinCount2 = new JLabel(Integer.toString(spieler2.getNumSteine()),SwingConstants.CENTER);
 		InfoSteinCount1 = new JLabel("Zu setzende Steine",SwingConstants.CENTER);
 		InfoSteinCount2 = new JLabel("Zu setzende Steine",SwingConstants.CENTER);
 		newGame = new JButton("EndScreen");
