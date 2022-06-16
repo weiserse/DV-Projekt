@@ -35,7 +35,10 @@ public class Gewinner{
 		
 		panel.setLayout(null);
 		
-		JLabel lbgewonnen = new JLabel(gewinnername + " du hast gewonnen!",SwingConstants.CENTER); //neues Label erstellen
+		JLabel lbgewonnen = new JLabel(gewinnername + " du hast gewonnen!",SwingConstants.CENTER);//neues Label erstellen
+			if(gewinnername=="") {
+				lbgewonnen.setText("Es gibt keinen Sieger!");
+			}
 		lbgewonnen.setBounds(0,80, 600, 45); // Groesse festlegen
 		lbgewonnen.setFont(lbgewonnen.getFont().deriveFont(28f)); //Schriftgroesse festlegen
 		lbgewonnen.setForeground(Color.WHITE);
@@ -58,6 +61,7 @@ public class Gewinner{
 			public void actionPerformed(ActionEvent e)
 			{
 				frame.dispose();
+				@SuppressWarnings("unused")
 				WelcomeScreen welcome = new WelcomeScreen();
 			}
 		});

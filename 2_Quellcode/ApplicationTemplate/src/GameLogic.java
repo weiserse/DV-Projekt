@@ -1,4 +1,4 @@
-import javax.swing.JLabel;
+
 
 
 /** class GameLogic contains all logic related components of the game.
@@ -18,6 +18,7 @@ public class GameLogic {
 	private int i;
 	private boolean meinStein; 
 	private boolean SchiebenErlaubt;
+	@SuppressWarnings("unused")
 	private boolean alleSteineGesetzt; 
 	private boolean springenErlaubt;
 	private int anzahlSteineSpieler1 = 0;
@@ -94,11 +95,11 @@ public class GameLogic {
 	  */
 	 public void anDerReihe() {
 		 if (spieler1zug == true) {
-				GameScreen.info.setText(GameScreen.spieler1test.getSpielerName() + " ist am Zug.");
+				GameScreen.info.setText(GameScreen.spieler1.getSpielerName() + " ist am Zug.");
 				}
 				else
 				{
-				GameScreen.info.setText(GameScreen.spieler2test.getSpielerName() + " ist am Zug.");
+				GameScreen.info.setText(GameScreen.spieler2.getSpielerName() + " ist am Zug.");
 				}
 		 }
 	 
