@@ -370,7 +370,10 @@ private void changeSteinCounter(boolean WerAmZug, int[] pos) {
 						else {
 						logic.steinNehmen(feld);
 						int [] paktuell = logic.getPositions();
-						changeSteinCounter(logic.getZug(),logic.getPositions());
+						if (logic.alleSteineGesetzt())
+						{
+						changeSteinCounter(!logic.getZug(),logic.getPositions());
+						}
 //						for (int i=0; i<24; i++)
 //						{
 //							System.out.print(paktuell[i]+ " ");
@@ -452,7 +455,6 @@ private void changeSteinCounter(boolean WerAmZug, int[] pos) {
 							{
 								logic.eigenenSteinNehmen(feld);
 								int[] paktuell = logic.getPositions();
-								//reduceSteinCounter(logic.getZug(),logic.getPositions());
 //								for (int i=0; i<24; i++)
 //								{
 //									System.out.print(paktuell[i]+ " ");
@@ -518,7 +520,7 @@ private void changeSteinCounter(boolean WerAmZug, int[] pos) {
 							logic.eigenenSteinNehmen(feld);
 							@SuppressWarnings("unused")
 							int [] paktuell = logic.getPositions();
-							changeSteinCounter(logic.getZug(),logic.getPositions());
+							//changeSteinCounter(logic.getZug(),logic.getPositions());
 //							for (int i=0; i<24; i++)
 //							{
 //								System.out.print(paktuell[i]+ " ");
