@@ -361,11 +361,19 @@ private void changeSteinCounter(boolean WerAmZug, int[] pos) {
 					if (SteinNehmen ==true){
 						MuehleJaNein = logic.pruefeMuehlevorhanden(feld); //pruefe, ob das angeklickte Feld in einer bestehenden Muehle vom Gegner ist
 						
-						//wenn das angeklickte Feld in einer bestehenden Muehle ist
-						if (MuehleJaNein == true) {
+						//wenn das angeklickte Feld ein freies Feld ist
+						if(logic.getPositions(feld)==0) {
+							info.setText("Klicke einen Stein des Gegners an");
+							SteinNehmen=true;
+						}
+						
+							else {
+							//wenn das angeklickte Feld in einer bestehenden Muehle ist
+							if(MuehleJaNein == true) {
 							info.setText("Dieser Stein darf nicht genommen werden");
 							SteinNehmen=true;
 						}
+						
 						//wenn das angeklickte Feld nicht in einer bestehenden Muehle ist, darf der Stein genommen werden
 						else {
 						logic.steinNehmen(feld);
@@ -399,6 +407,7 @@ private void changeSteinCounter(boolean WerAmZug, int[] pos) {
 							}
 						logic.changeZug();
 						logic.anDerReihe();
+						}
 						}
 					}
 				//wenn man nicht berechtigt ist einen Stein zu nehmen
