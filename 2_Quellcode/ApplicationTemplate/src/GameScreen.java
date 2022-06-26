@@ -374,8 +374,9 @@ private void changeSteinCounter(boolean WerAmZug, int[] pos) {
 							SteinNehmen=true;
 						}
 						
-						//wenn das angeklickte Feld nicht in einer bestehenden Muehle ist, darf der Stein genommen werden
+						//wenn das angeklickte Feld nicht in einer bestehenden Muehle ist, pruefe, ob es ein eigener Stein ist
 						else {
+							if(logic.meinStein(feld)==false) {
 						logic.steinNehmen(feld);
 						int [] paktuell = logic.getPositions();
 						if (logic.alleSteineGesetzt())
@@ -407,6 +408,11 @@ private void changeSteinCounter(boolean WerAmZug, int[] pos) {
 							}
 						logic.changeZug();
 						logic.anDerReihe();
+						}
+							else {
+								info.setText("Wähle einen Stein vom Gegner");
+								SteinNehmen=true;
+							}
 						}
 						}
 					}
