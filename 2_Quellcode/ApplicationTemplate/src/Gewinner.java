@@ -30,7 +30,7 @@ public class Gewinner{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // damit das Fenster geschlossen werden kann, wenn man auf das rote x klickt
 		frame.setLocationRelativeTo(null); //Fenster zentrieren
 		frame.setResizable(false); //damit man es nicht groesser oder kleiner machen kann
-		frame.setTitle("Gewinner"); //Fenster einen Titel geben
+		frame.setTitle("Mühle"); //Fenster einen Titel geben
 		frame.add(panel); //Bereich dem Fenster hinzufuegen
 		
 		panel.setLayout(null);

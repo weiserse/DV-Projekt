@@ -661,7 +661,7 @@ private void changeSteinCounter(boolean WerAmZug, int[] pos) {
 		});
 		
 		shortcut.setBounds(20,25,120,35);
-		shortcut.setText("EndScreen");
+		shortcut.setText("Unentschieden");
 		shortcut.addActionListener(this);
 		
 		info.setBounds(200, 85, 600, 25);

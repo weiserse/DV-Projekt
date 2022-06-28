@@ -47,7 +47,7 @@ public class WelcomeScreen implements ActionListener{
 	//FrameSettings
 	frame.add(panel, BorderLayout.CENTER);
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	frame.setTitle("BMG-Best Mill Game");
+	frame.setTitle("Mühle");
 	frame.setSize(600, 400);
 	frame.setLocationRelativeTo(null);
 	
