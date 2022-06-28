@@ -121,11 +121,11 @@ public Spielbrett(GameLogic logic){
 		
 		for (int i=0; i<24; i++) {
 			if (positions[i]==1) {
-				g2D.setPaint(Color.black);
+				g2D.setPaint(Color.WHITE);
 				g2D.fillOval(feldkoordinatenX[i]-15, feldkoordinatenY[i]-15, 30, 30);
 			}
 			else if(positions[i]==2) {
-				g2D.setPaint(Color.WHITE);
+				g2D.setPaint(Color.BLACK);
 				g2D.fillOval(feldkoordinatenX[i]-15, feldkoordinatenY[i]-15, 30, 30);
 			}
 		}
