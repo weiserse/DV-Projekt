@@ -10,6 +10,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+/**
+ * Runner only runs the main-method containing the WelcomeScreen constructor.
+ *
+ */
 public class Runner
 {
 	static int count = 0;
