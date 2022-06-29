@@ -21,7 +21,7 @@
 	</header>
 	<main>
 		<h2>Ziel des Spiels</h2>
-		Im Spiel Mühle geht es darum, dass jeder Spieler durch setzten seiner Spielsteine, so viele Mühlen wie möglich zu schliessen und damit Spielsteine seines Gegenspielers vom Brett zu nehmen. 
+		Im Spiel Mühle geht es darum, dass jeder Spieler durch Setzten seiner Spielsteine versucht, so viele Mühlen wie möglich zu schliessen und damit Spielsteine seines Gegenspielers vom Brett nimmt. 
 		Hat ein Spieler nur noch zwei Spielsteine oder kann keinen korrekten Zug mehr machen, hat er verloren.
 		Ein Spiel gilt als unentschieden, wenn beide Spieler nur noch drei Spielsteine auf dem Spielbrett haben.
 		</ul>
@@ -30,27 +30,32 @@
 		</ul>
 		<h2>Anwendung</h2> 
 		Wird das Programm gestartet erscheint ein Fenster, der Welcome-Screen.
-		Die Spieler werden hier willkommen geheissen und gebeten ihre Namen in die dazu vorgesehenen Felder einzugtragen.
-		Durch einen klick auf den Start-Button wird das Spiel gestartet.
-		Es erscheint nun ein neues Fenster, dass eigentliche Spielfenster mit dem Spielbrett. 
+		Die Spieler werden hier Willkommen geheissen und gebeten ihre Namen in die dazu vorgesehenen Felder einzugtragen.
+		Durch einen Klick auf den Start-Button wird das Spiel gestartet.
+		Es erscheint nun ein neues Fenster, das eigentliche Spielfenster mit dem Spielbrett. 
 		Das Spielbrett wird dabei von den Spielernamen umrahmt, die oberhalb beziehungsweise unterhalb angezeigt werden. 
 		Neben den jeweiligen Spielernamen befindet sich ein Feld, welches anzeigt wie viele Spielsteine der Spieler noch setzen darf.
 		Am oberen Fensterrand wird zudem noch eine Informationstafel angezeigt. Sie informiert die Spieler über den anstehenden Schritt beziehungsweise gibt Auskunft, sollte ein verbotener Zug erfolgt sein.
 		Ausserdem gibt es den Button "Neues Spiel". Wird dieser angeklickt kommen die Spieler wieder zurück zm Welcome-Screen und es kann ein neues Spiel gestartet werden. 
 		</p>
 		Wird jetzt ein Spiel gestartet, hat jeder Spieler zu Beginn neuen Spielsteine.
-		Dabei werden Spieler 1 die weissen Spielsteine zugeteilt und Spieler 2 die schwarzen Spielsteine.
-		Im laufe der Setzphase platzieren die Spieler durch klicken auf das entsprechende Feld auf dem Spielbrett, im wechsel ihre Spielsteine.
+		Dabei werden Spieler 1 die weissen Spielsteine zugeteilt und Spieler 2 die schwarzen Spielsteine. 
+		</p> 
+		Mit jedem Mausklick werden versciedene Methoden mit entsprechenden Abfragen von Wahrheitswerten durchlaufen. Erst wenn alle Bedingungen erfüllt sind kommt es zur Ausführung des Spielzugs.
+		</p> 
+		<img src="images/Screen_Wahrheitswerte.pdf">
+		</p> 
+		Im Laufe der Setzphase platzieren die Spieler im Wechsel durch Klicken auf das entsprechende Feld auf dem Spielbrett ihre Spielsteine.
 		Sobald ein Spieler nun drei Steine zu einer Mühle gelegt hat, ist es ihm erlaubt einen Spielstein seines Gegenspielers vom Spielbrett zu nehmen.
 		Jedoch darf kein Spielstein aus einer bestehenden Mühle entfernt werden.
 		Sind alle Spielsteine platziert worden, beginnt die Zugphase.
-		Denn Spielern ist es nun erlaubt ihre Steine auf dem Spielbrett zu verschieben.
+		Den Spielern ist es nun erlaubt ihre Steine auf dem Spielbrett zu verschieben.
 		Ein Spieler klickt den Stein an, den er schieben möchte und klickt anschliessend auf eines der freien benachbarten Felder auf welches er den Stein schieben möchte.
 		Sind um einen Spielstein keine freien Nachbarfelder vorhanden, kann der Stein nicht geschoben werden.
 		Durch das Schieben versuchen die Spieler wieder möglichst oft eine Mühle zu schliessen und Steine des Gegners zu entwenden.
-		Hat ein Spieler nur noch drei Spielsteine auf dem Brett beginnt für ihn die Springphase.
+		Hat ein Spieler nur noch drei Spielsteine auf dem Brett, beginnt für ihn die Springphase.
 		Er darf nun einen seiner Steine auf ein beliebiges freies Feld setzen.
-		Wieder durch anklicken des Steins und im Anschluss des freien Feldes, auf welches der Stein platziert werden soll. 
+		Das passiert wieder durch Anklicken des Steins und im Anschluss des freien Feldes, auf welches der Stein platziert werden soll. 
 		Bleiben einem Spieler nur noch zwei Spielsteine, hat er das Spiel verloren.
 		Wenn das Spiel somit beendet ist, erscheint ein neues Fenster.
 		Im Gewinner-Fenster wird der Gewinner der Partie präsentiert und gefeiert. 
