@@ -25,8 +25,5 @@ public class Draw extends JLabel{
 		g.drawImage(ilfeuer.imagefeuer, 112, 150, 350, 200, null);
 		
 		repaint();
-	
-}
-	
-	
+}	
 }

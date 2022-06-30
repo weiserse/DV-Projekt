@@ -1,6 +1,4 @@
 
-
-
 /** class GameLogic contains all logic related components of the game.
  * 		1. the integer array "positions" with 24 entries which represents all 
  * 			possible positions where you can place a gaming piece.
@@ -24,7 +22,6 @@ public class GameLogic {
 	private int anzahlSteineSpieler1 = 0;
 	private int anzahlSteineSpieler2 = 0;
 	private boolean Gewonnen = false;
-
 
 	
 	/**
@@ -347,9 +344,7 @@ public class GameLogic {
 		 else {
 			 GameScreen.info.setText("Wähle deinen eigenen Stein!");
 		 }
-		 
 	 }
-	 
 	 
 	 
 	 /**
@@ -434,10 +429,9 @@ public class GameLogic {
 			 else {
 				 SchiebenErlaubt=false;
 			 }
-		 
 		 return SchiebenErlaubt;
-			 
 		 }
+	 
 	 
 	 /**
 	  * method to increase the number of a player's stones by one
@@ -526,5 +520,4 @@ public class GameLogic {
 	 }
 		 return Gewonnen;
 	 }
-	 
 }

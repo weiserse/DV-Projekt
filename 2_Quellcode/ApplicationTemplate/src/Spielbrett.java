@@ -97,11 +97,11 @@ public Spielbrett(GameLogic logic){
 		g2D.drawLine( 365, 485, 605, 485);
 		g2D.drawLine( 305, 545, 665, 545);
 		
-//		//Halbe Verbindungslinien horizontal
+		//Halbe Verbindungslinien horizontal
 		g2D.drawLine( 305, 365, 425, 365);
 		g2D.drawLine( 545, 365, 665, 365);
 		
-//		//Linien vertikal
+		//Linien vertikal
 		g2D.drawLine( 305, 185, 305, 545);
 		g2D.drawLine( 365, 245, 365, 485);
 		g2D.drawLine( 425, 305, 425, 425);
@@ -109,15 +109,9 @@ public Spielbrett(GameLogic logic){
 		g2D.drawLine( 605, 245, 605, 485);
 		g2D.drawLine( 665, 185, 665, 545);
 	
-//		//Halbe Verbindungslinien vertikal
+		//Halbe Verbindungslinien vertikal
 		g2D.drawLine( 485, 185, 485, 305);
 		g2D.drawLine( 485, 425, 485, 545);
-		
-//		for (int i=0; i<24; i++)
-//		{
-//			System.out.print(positions[i]+ " ");
-//		}
-//		System.out.println("");
 		
 		for (int i=0; i<24; i++) {
 			if (positions[i]==1) {

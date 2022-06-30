@@ -48,7 +48,6 @@ public class GameScreen extends JFrame implements ActionListener{
 private int[] getCoordinates(int pos) {
 
 	int[] posArr = new int[2];
-	//int x, y;
 	 switch(pos){
      case 0:
     	 posArr[0] = 290;
@@ -153,7 +152,6 @@ private int[] getCoordinates(int pos) {
          break;
      }
 	 return posArr;
-
 }
 
 /**
@@ -359,7 +357,7 @@ private void changeSteinCounter(boolean WerAmZug, int[] pos) {
 
 					//wenn man berechtigt ist einen Stein zu nehmen
 					if (SteinNehmen ==true){
-						MuehleJaNein = logic.pruefeMuehlevorhanden(feld); //pruefe, ob das angeklickte Feld in einer bestehenden Muehle vom Gegner ist
+						MuehleJaNein = logic.pruefeMuehlevorhanden(feld);
 						
 						//wenn das angeklickte Feld ein freies Feld ist
 						if(logic.getPositions(feld)==0) {
@@ -383,12 +381,6 @@ private void changeSteinCounter(boolean WerAmZug, int[] pos) {
 						{
 						changeSteinCounter(!logic.getZug(),logic.getPositions());
 						}
-//						for (int i=0; i<24; i++)
-//						{
-//							System.out.print(paktuell[i]+ " ");
-//						}
-//						System.out.println("");{
-//						}
 						SteinNehmen=false; 
 						MuehleJaNein=false;
 						logic.AnzahlSteineerniedrigen();
@@ -419,19 +411,15 @@ private void changeSteinCounter(boolean WerAmZug, int[] pos) {
 				//wenn man nicht berechtigt ist einen Stein zu nehmen
 				else {
 					boolean spielphasenwechsel= logic.alleSteineGesetzt();
+					
 					//wenn man in der Setzphase ist 
 					if (spielphasenwechsel ==false) {
+						
 						//wenn das geklickte Feld frei ist
 						if (logic.getPositions(feld)==0) {
 						
 						logic.setPosition(feld);
 						int [] paktuell = logic.getPositions();
-//						for (int i=0; i<24; i++)
-//						{
-//							System.out.print(paktuell[i]+ " ");
-//						}
-//							System.out.println("");
-							
 							logic.AnzahlSteineerhoehen();
 							MuehleJaNein = logic.pruefeMuehle(feld);
 							changeSteinCounter(logic.getZug(),logic.getPositions());
@@ -470,11 +458,6 @@ private void changeSteinCounter(boolean WerAmZug, int[] pos) {
 							{
 								logic.eigenenSteinNehmen(feld);
 								int[] paktuell = logic.getPositions();
-//								for (int i=0; i<24; i++)
-//								{
-//									System.out.print(paktuell[i]+ " ");
-//								}
-//								System.out.println("");
 								SteinNehmenFuerSpringen=false;
 								FeldZumSpringen = feld;
 								info.setText("Setze den Stein auf ein freies Feld");
@@ -486,18 +469,12 @@ private void changeSteinCounter(boolean WerAmZug, int[] pos) {
 							}
 						}
 					
-					//SteinNehmenFuerSpringen==false
+					//wenn man den Stein zum Springen setzt
 					else {
 						if(logic.getPositions(feld)==0) {
 							logic.setPosition(feld);
 							int [] paktuell = logic.getPositions();
 							changeSteinCounter(logic.getZug(), logic.getPositions());
-//							for (int i=0; i<24; i++)
-//							{
-//								System.out.print(paktuell[i]+ " ");
-//							}
-//								System.out.println("");{
-//								}
 							
 							//pruefen, ob man jetzt eine Muehle hat
 							MuehleJaNein = logic.pruefeMuehle(feld);
@@ -522,7 +499,7 @@ private void changeSteinCounter(boolean WerAmZug, int[] pos) {
 					}
 					}
 						
-					// logic.pruefeSpringen==false;
+					// wenn man noch nicht springen darf ist man in der Schiebephase
 					else {
 						
 					//wenn man einen Stein nimmt, um ihn auf ein anderes Feld zu schieben
@@ -535,13 +512,6 @@ private void changeSteinCounter(boolean WerAmZug, int[] pos) {
 							logic.eigenenSteinNehmen(feld);
 							@SuppressWarnings("unused")
 							int [] paktuell = logic.getPositions();
-							//changeSteinCounter(logic.getZug(),logic.getPositions());
-//							for (int i=0; i<24; i++)
-//							{
-//								System.out.print(paktuell[i]+ " ");
-//							}
-//							System.out.println("");{
-//							}
 							SteinNehmenFuerSetzen = false;
 							FeldZumSchieben = feld;
 							info.setText("Setze den Stein auf ein benachbartes Feld");
@@ -563,13 +533,7 @@ private void changeSteinCounter(boolean WerAmZug, int[] pos) {
 							logic.setPosition(feld);
 							int [] paktuell = logic.getPositions();
 							changeSteinCounter(logic.getZug(),logic.getPositions());
-//							for (int i=0; i<24; i++)
-//							{
-//								System.out.print(paktuell[i]+ " ");
-//							}
-//								System.out.println("");
-								
-								
+							
 							//pruefen, ob man jetzt eine Muehle hat
 							MuehleJaNein = logic.pruefeMuehle(feld);
 							
@@ -592,10 +556,6 @@ private void changeSteinCounter(boolean WerAmZug, int[] pos) {
 				}			
 				}}}}}	
 				
-				
-					
-			
-		
 
 			@Override
 			public void mousePressed(MouseEvent e) {
@@ -705,7 +665,7 @@ private void changeSteinCounter(boolean WerAmZug, int[] pos) {
 		Player2.setVisible(true);
 		Player2.setOpaque(true);
 		
-//Hintergrund festlegen
+		//Hintergrund festlegen
 		Holz draw = new Holz();
 		draw.setBounds(0,0,1024,680);
 		draw.setVisible(true);
